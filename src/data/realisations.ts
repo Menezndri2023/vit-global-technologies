@@ -6,6 +6,7 @@ export interface Realisation {
   year: string;
   country: Localized<string>;
   industry: Localized<string>;
+  portfolioType: Localized<string>;
   services: string[];
   title: Localized<string>;
   summary: Localized<string>;
@@ -23,7 +24,8 @@ export const realisations: Realisation[] = [
     year: "2024",
     country: { fr: "Côte d'Ivoire", en: "Côte d'Ivoire", ar: "ساحل العاج" },
     industry: { fr: "Banque & Fintech", en: "Banking & Fintech", ar: "البنوك والتقنية المالية" },
-    services: ["developpement-web-mobile", "cybersecurite", "cloud-computing"],
+    portfolioType: { fr: "Applications mobiles", en: "Mobile Applications", ar: "تطبيقات جوالة" },
+    services: ["developpement-mobile", "cybersecurite", "cloud-computing"],
     title: {
       fr: "Application bancaire mobile panafricaine",
       en: "Pan-African mobile banking application",
@@ -62,7 +64,8 @@ export const realisations: Realisation[] = [
     year: "2023",
     country: { fr: "Maroc", en: "Morocco", ar: "المغرب" },
     industry: { fr: "E-commerce & Retail", en: "E-commerce & Retail", ar: "التجارة الإلكترونية والتجزئة" },
-    services: ["developpement-web-mobile", "data-analytics", "marketing-digital"],
+    portfolioType: { fr: "Marketplace", en: "Marketplace", ar: "سوق إلكتروني" },
+    services: ["developpement-web", "data-analytics", "marketing-digital"],
     title: {
       fr: "Marketplace e-commerce multi-vendeurs",
       en: "Multi-vendor e-commerce marketplace",
@@ -101,6 +104,7 @@ export const realisations: Realisation[] = [
     year: "2024",
     country: { fr: "Sénégal", en: "Senegal", ar: "السنغال" },
     industry: { fr: "Santé", en: "Healthcare", ar: "الصحة" },
+    portfolioType: { fr: "Applications", en: "Applications", ar: "تطبيقات" },
     services: ["developpement-logiciel-sur-mesure", "cybersecurite", "intelligence-artificielle"],
     title: {
       fr: "Plateforme de télémédecine et dossier patient",
@@ -140,6 +144,7 @@ export const realisations: Realisation[] = [
     year: "2023",
     country: { fr: "Côte d'Ivoire", en: "Côte d'Ivoire", ar: "ساحل العاج" },
     industry: { fr: "Transport & Logistique", en: "Transport & Logistics", ar: "النقل واللوجستيات" },
+    portfolioType: { fr: "Dashboard", en: "Dashboard", ar: "لوحة تحكم" },
     services: ["intelligence-artificielle", "data-analytics", "infrastructures-it"],
     title: {
       fr: "Plateforme de gestion de flotte intelligente",
@@ -179,7 +184,8 @@ export const realisations: Realisation[] = [
     year: "2022",
     country: { fr: "Côte d'Ivoire", en: "Côte d'Ivoire", ar: "ساحل العاج" },
     industry: { fr: "Secteur public", en: "Public sector", ar: "القطاع العام" },
-    services: ["developpement-web-mobile", "cybersecurite", "conseil"],
+    portfolioType: { fr: "Sites web", en: "Websites", ar: "مواقع إلكترونية" },
+    services: ["developpement-web", "cybersecurite", "conseil"],
     title: {
       fr: "Portail unifié de services publics numériques",
       en: "Unified digital public services portal",
@@ -218,6 +224,7 @@ export const realisations: Realisation[] = [
     year: "2024",
     country: { fr: "France", en: "France", ar: "فرنسا" },
     industry: { fr: "Retail & Distribution", en: "Retail & Distribution", ar: "التجزئة والتوزيع" },
+    portfolioType: { fr: "Solutions IA", en: "AI Solutions", ar: "حلول الذكاء الاصطناعي" },
     services: ["intelligence-artificielle", "ui-ux-design", "marketing-digital"],
     title: {
       fr: "Assistant IA conversationnel pour le service client",

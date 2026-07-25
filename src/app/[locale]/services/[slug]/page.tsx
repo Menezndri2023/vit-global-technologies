@@ -61,6 +61,16 @@ export default async function ServiceDetailPage({
               {service.title[loc]}
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-silver-600">{service.description[loc]}</p>
+            <div className="mx-auto mt-6 flex max-w-2xl flex-wrap justify-center gap-2">
+              {service.subServices[loc].map((sub) => (
+                <span
+                  key={sub}
+                  className="rounded-full border border-brand-500/20 bg-brand-500/5 px-3.5 py-1.5 text-xs font-semibold text-brand-700"
+                >
+                  {sub}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>

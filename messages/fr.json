@@ -6,21 +6,34 @@
   },
   "nav": {
     "about": "À propos",
-    "aboutOverview": "Vision, mission & valeurs",
-    "aboutOverviewDesc": "Notre histoire, notre ambition",
-    "team": "Équipe dirigeante",
+    "company": "Entreprise",
+    "aboutOverview": "Qui sommes-nous",
+    "aboutOverviewDesc": "Notre présentation générale",
+    "companyHistory": "Notre histoire",
+    "companyHistoryDesc": "Comment le groupe a été fondé",
+    "companyVision": "Notre vision",
+    "companyVisionDesc": "Où nous voulons aller",
+    "companyMission": "Notre mission",
+    "companyMissionDesc": "Ce que nous accomplissons pour vous",
+    "companyValues": "Nos valeurs",
+    "companyValuesDesc": "Les principes qui nous guident",
+    "team": "Équipe & direction",
     "teamDesc": "Les experts qui pilotent le groupe",
-    "partners": "Partenaires",
+    "partners": "Nos partenaires",
     "partnersDesc": "Un écosystème international",
     "careersLink": "Carrières",
     "careersDesc": "Rejoindre l'aventure VIT GLOBAL",
     "services": "Services",
-    "servicesDesc": "14 expertises technologiques et stratégiques",
+    "servicesDesc": "15 expertises technologiques et stratégiques",
+    "solutions": "Solutions",
+    "solutionsDesc": "Des logiciels métiers prêts à déployer",
     "filiales": "Filiales",
     "filialesDesc": "Les entités spécialisées du groupe",
     "work": "Réalisations",
     "realisations": "Réalisations",
     "realisationsDesc": "Nos succès clients dans le monde",
+    "portfolio": "Portfolio",
+    "portfolioDesc": "Notre catalogue de réalisations visuelles",
     "blog": "Actualités",
     "blogDesc": "Nos analyses et actualités",
     "support": "Support & FAQ",
@@ -68,6 +81,7 @@
     "heroSubtitle": "VIT GLOBAL TECHNOLOGIES GROUP conçoit, développe et sécurise les plateformes technologiques des entreprises et institutions qui façonnent l'économie de demain — en Afrique, en Europe et au-delà.",
     "heroCtaPrimary": "Demander un devis",
     "heroCtaSecondary": "Prendre rendez-vous",
+    "heroTags": ["Transformation Digitale", "Développement Logiciel", "Intelligence Artificielle", "Cloud", "Cybersécurité", "Automobile", "Logistique"],
     "trustedBy": "Ils nous font confiance",
     "servicesTitle": "Une expertise technologique complète",
     "servicesSubtitle": "De la stratégie à l'exploitation, nous couvrons l'intégralité de votre chaîne de valeur digitale.",
@@ -90,7 +104,21 @@
       { "title": "Stratégie & devis", "description": "Nous définissons la solution optimale et un devis transparent." },
       { "title": "Conception & développement", "description": "Nos équipes livrent en sprints agiles, avec des points réguliers." },
       { "title": "Lancement & support", "description": "Nous assurons la mise en production, la formation et le support continu." }
-    ]
+    ],
+    "whyTitle": "Pourquoi nous choisir",
+    "whySubtitle": "Huit raisons pour lesquelles nos clients nous font confiance sur le long terme.",
+    "whyReasons": [
+      { "title": "Expertise", "description": "Des équipes seniors, certifiées et expérimentées sur chaque domaine technologique." },
+      { "title": "Innovation", "description": "Une veille constante pour intégrer les technologies les plus pertinentes." },
+      { "title": "Support", "description": "Une équipe disponible pour vous accompagner bien après la livraison." },
+      { "title": "Sécurité", "description": "Des standards de sécurité stricts appliqués à chaque projet." },
+      { "title": "Qualité", "description": "Des livrables testés, documentés et conformes aux meilleures pratiques." },
+      { "title": "Accompagnement", "description": "Un interlocuteur dédié à chaque étape de votre projet." },
+      { "title": "Tarification transparente", "description": "Des devis clairs, sans coûts cachés ni surprises." },
+      { "title": "Respect des délais", "description": "Une méthodologie éprouvée pour livrer dans les temps convenus." }
+    ],
+    "faqTitle": "Questions fréquentes",
+    "faqSubtitle": "Un aperçu des réponses aux questions les plus posées par nos clients."
   },
   "about": {
     "heroEyebrow": "À propos de nous",
@@ -124,11 +152,23 @@
   },
   "services": {
     "heroEyebrow": "Nos expertises",
-    "heroTitle": "14 expertises pour couvrir l'intégralité de votre chaîne de valeur digitale",
+    "heroTitle": "15 expertises pour couvrir l'intégralité de votre chaîne de valeur digitale",
     "heroSubtitle": "De la stratégie à l'exploitation, nos équipes pluridisciplinaires interviennent à chaque étape de votre transformation.",
     "detailCtaTitle": "Discutons de votre projet",
     "detailCtaBody": "Nos experts analysent votre besoin et vous proposent la meilleure approche, sans engagement.",
     "includedTitle": "Ce que comprend ce service"
+  },
+  "solutionsPage": {
+    "heroEyebrow": "Nos solutions",
+    "heroTitle": "Des logiciels métiers prêts à déployer pour votre secteur",
+    "heroSubtitle": "Au-delà du sur-mesure, VIT GLOBAL propose des solutions logicielles verticales, éprouvées et rapides à mettre en place.",
+    "ctaTitle": "Une solution vous intéresse ?",
+    "ctaSubtitle": "Nos experts vous présentent une démonstration adaptée à votre secteur d'activité."
+  },
+  "portfolioPage": {
+    "heroEyebrow": "Portfolio",
+    "heroTitle": "Un aperçu visuel de nos réalisations",
+    "heroSubtitle": "Applications, sites web, solutions IA, dashboards et marketplaces conçus pour nos clients."
   },
   "filiales": {
     "heroEyebrow": "Le groupe",
@@ -178,7 +218,9 @@
     "stillNeedHelp": "Vous ne trouvez pas votre réponse ?",
     "stillNeedHelpBody": "Notre équipe support est disponible pour vous accompagner.",
     "contactSupportButton": "Contacter le support",
-    "chatButton": "Démarrer un chat"
+    "chatButton": "Démarrer un chat",
+    "ticketTitle": "Créer un ticket de support",
+    "ticketBody": "Décrivez votre problème, notre équipe technique vous répond rapidement."
   },
   "contactPage": {
     "heroEyebrow": "Contact",
@@ -190,6 +232,8 @@
     "phoneLabel": "Téléphone",
     "hoursLabel": "Horaires",
     "hoursValue": "Lun – Ven, 8h30 – 18h00 (GMT)",
+    "mapTitle": "Localisation de notre siège",
+    "whatsappLabel": "Discuter sur WhatsApp",
     "otherWays": "Autres façons de nous contacter",
     "quoteCard": "Demande de devis",
     "quoteCardDesc": "Décrivez votre projet et recevez une estimation.",
@@ -215,9 +259,16 @@
     "selectTimeline": "Sélectionnez un délai",
     "timelineOptions": ["Moins d'1 mois", "1 à 3 mois", "3 à 6 mois", "Plus de 6 mois", "Flexible"],
     "description": "Décrivez votre projet",
+    "attachment": "Cahier des charges (facultatif)",
+    "attachmentHint": "Glissez un fichier ou cliquez pour parcourir (PDF, Word, Excel, image — 10 Mo max)",
     "topic": "Motif du rendez-vous",
     "selectTopic": "Sélectionnez un motif",
     "topicOptions": ["Découverte & présentation", "Devis détaillé", "Support technique", "Partenariat", "Autre"],
+    "expert": "Expert souhaité",
+    "noPreference": "Peu importe l'expert",
+    "mode": "Format du rendez-vous",
+    "selectMode": "Sélectionnez un format",
+    "modeOptions": ["Visioconférence", "Téléphone", "Présentiel"],
     "date": "Date souhaitée",
     "timeSlot": "Créneau horaire",
     "selectSlot": "Sélectionnez un créneau",
@@ -249,7 +300,8 @@
       "Échange direct avec un expert dédié à votre secteur",
       "Présentation personnalisée de nos solutions",
       "Réponse concrète à vos questions techniques ou stratégiques"
-    ]
+    ],
+    "calendarButton": "Ajouter à Google Calendar"
   },
   "clientArea": {
     "heroEyebrow": "Espace client",
@@ -294,7 +346,9 @@
     "leadSubmit": "Transmettre à un conseiller",
     "leadThanks": "Merci ! Un conseiller VIT GLOBAL vous recontactera très prochainement.",
     "openLabel": "Ouvrir le chat",
-    "botDisclaimer": "Assistant automatisé — un conseiller humain prend le relais si besoin."
+    "botDisclaimer": "Assistant automatisé — un conseiller humain prend le relais si besoin.",
+    "whatsappLabel": "WhatsApp",
+    "faqLabel": "Voir la FAQ"
   },
   "footer": {
     "tagline": "Le siège numérique de votre transformation digitale.",

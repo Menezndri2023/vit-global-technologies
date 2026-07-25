@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { usePathname } from "@/i18n/navigation";
-import { MessageCircle, X, Send } from "lucide-react";
+import { usePathname, Link } from "@/i18n/navigation";
+import { MessageCircle, X, Send, MessageCircleMore, LifeBuoy } from "lucide-react";
 import { LogoMark } from "@/components/ui/Logo";
 import clsx from "clsx";
 
@@ -20,6 +20,14 @@ export function ChatWidget() {
   const [leadSent, setLeadSent] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    function onOpenRequest() {
+      setOpen(true);
+    }
+    window.addEventListener("vit:open-chat", onOpenRequest);
+    return () => window.removeEventListener("vit:open-chat", onOpenRequest);
+  }, []);
 
   function sendMessage() {
     if (!input.trim()) return;
@@ -79,6 +87,24 @@ export function ChatWidget() {
             <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-white px-4 py-3 text-sm text-navy-900 shadow-sm">
               {t("welcome")}
             </div>
+
+            <div className="flex flex-wrap gap-2">
+              <a
+                href="https://wa.me/2250700000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-700 hover:bg-emerald-500/20"
+              >
+                <MessageCircleMore className="h-3.5 w-3.5" /> {t("whatsappLabel")}
+              </a>
+              <Link
+                href="/support"
+                className="inline-flex items-center gap-1.5 rounded-full bg-brand-500/10 px-3 py-1.5 text-xs font-semibold text-brand-600 hover:bg-brand-500/20"
+              >
+                <LifeBuoy className="h-3.5 w-3.5" /> {t("faqLabel")}
+              </Link>
+            </div>
+
             {messages.map((m, i) => (
               <div
                 key={i}

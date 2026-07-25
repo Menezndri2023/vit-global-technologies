@@ -20,6 +20,8 @@ export const quoteSchema = z.object({
   budget: z.string().optional(),
   timeline: z.string().optional(),
   description: z.string().min(10),
+  attachmentPath: z.string().optional(),
+  attachmentName: z.string().optional(),
   locale: z.string().default("fr")
 });
 
@@ -29,6 +31,8 @@ export const appointmentSchema = z.object({
   phone: z.string().optional(),
   company: z.string().optional(),
   topic: z.string().min(1),
+  expert: z.string().optional(),
+  mode: z.string().optional(),
   date: z.string().min(1),
   timeSlot: z.string().min(1),
   notes: z.string().optional(),

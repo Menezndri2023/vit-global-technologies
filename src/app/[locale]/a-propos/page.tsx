@@ -40,7 +40,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
 
-      <Section tone="muted">
+      <Section tone="muted" id="histoire" className="scroll-mt-24">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold text-navy-950 sm:text-3xl">{t("storyTitle")}</h2>
           <p className="mt-4 text-base leading-relaxed text-silver-600 sm:text-lg">{t("storyBody")}</p>
@@ -49,14 +49,14 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       <Section tone="white">
         <div className="grid gap-6 lg:grid-cols-2">
-          <Card hover={false} className="border-brand-500/15 bg-brand-500/[0.03]">
+          <Card id="vision" hover={false} className="scroll-mt-24 border-brand-500/15 bg-brand-500/[0.03]">
             <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-600 text-white">
               <CompassIcon className="h-6 w-6" />
             </span>
             <h3 className="mt-5 font-display text-xl font-bold text-navy-950">{t("visionTitle")}</h3>
             <p className="mt-3 text-sm leading-relaxed text-silver-600 sm:text-base">{t("visionBody")}</p>
           </Card>
-          <Card hover={false} className="border-navy-950/10 bg-navy-950/[0.02]">
+          <Card id="mission" hover={false} className="scroll-mt-24 border-navy-950/10 bg-navy-950/[0.02]">
             <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-950 text-white">
               <Target className="h-6 w-6" />
             </span>
@@ -66,7 +66,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </Section>
 
-      <Section tone="muted">
+      <Section tone="muted" id="valeurs" className="scroll-mt-24">
         <SectionHeading title={t("valuesTitle")} subtitle={t("valuesSubtitle")} align="center" />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {companyValues.map((value) => (
@@ -83,7 +83,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       <Section tone="navy">
         <SectionHeading title={t("statsTitle")} align="center" tone="light" />
-        <div className="mt-12 grid grid-cols-2 gap-8 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
           {companyStats.map((stat) => (
             <div key={stat.label.fr} className="text-center">
               <div className="font-display text-4xl font-bold text-white">{stat.value}</div>

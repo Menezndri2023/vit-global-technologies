@@ -7,13 +7,14 @@ type Status = "idle" | "submitting" | "success" | "error";
 export function useFormSubmit(endpoint: string) {
   const [status, setStatus] = useState<Status>("idle");
 
-  async function submit(payload: Record<string, unknown>) {
+  async function submit(payload: Record<string, unknown> | FormData) {
     setStatus("submitting");
     try {
+      const isFormData = payload instanceof FormData;
       const res = await fetch(endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        headers: isFormData ? undefined : { "Content-Type": "application/json" },
+        body: isFormData ? payload : JSON.stringify(payload)
       });
       if (!res.ok) throw new Error("request failed");
       setStatus("success");

@@ -6,21 +6,34 @@
   },
   "nav": {
     "about": "About",
-    "aboutOverview": "Vision, mission & values",
-    "aboutOverviewDesc": "Our story, our ambition",
-    "team": "Leadership team",
+    "company": "Company",
+    "aboutOverview": "Who we are",
+    "aboutOverviewDesc": "Our general presentation",
+    "companyHistory": "Our history",
+    "companyHistoryDesc": "How the group was founded",
+    "companyVision": "Our vision",
+    "companyVisionDesc": "Where we want to go",
+    "companyMission": "Our mission",
+    "companyMissionDesc": "What we deliver for you",
+    "companyValues": "Our values",
+    "companyValuesDesc": "The principles that guide us",
+    "team": "Team & leadership",
     "teamDesc": "The experts leading the group",
-    "partners": "Partners",
+    "partners": "Our partners",
     "partnersDesc": "An international ecosystem",
     "careersLink": "Careers",
     "careersDesc": "Join the VIT GLOBAL adventure",
     "services": "Services",
-    "servicesDesc": "14 technology and strategic expertises",
+    "servicesDesc": "15 technology and strategic expertises",
+    "solutions": "Solutions",
+    "solutionsDesc": "Ready-to-deploy business software",
     "filiales": "Subsidiaries",
     "filialesDesc": "The group's specialized entities",
     "work": "Work",
-    "realisations": "Portfolio",
+    "realisations": "Case Studies",
     "realisationsDesc": "Our client success stories worldwide",
+    "portfolio": "Portfolio",
+    "portfolioDesc": "Our visual catalog of work",
     "blog": "News",
     "blogDesc": "Our insights and updates",
     "support": "Support & FAQ",
@@ -68,6 +81,7 @@
     "heroSubtitle": "VIT GLOBAL TECHNOLOGIES GROUP designs, builds and secures the technology platforms of companies and institutions shaping tomorrow's economy — across Africa, Europe and beyond.",
     "heroCtaPrimary": "Request a quote",
     "heroCtaSecondary": "Book an appointment",
+    "heroTags": ["Digital Transformation", "Software Development", "Artificial Intelligence", "Cloud", "Cybersecurity", "Automotive", "Logistics"],
     "trustedBy": "Trusted by",
     "servicesTitle": "Complete technology expertise",
     "servicesSubtitle": "From strategy to operations, we cover your entire digital value chain.",
@@ -90,7 +104,21 @@
       { "title": "Strategy & quote", "description": "We define the optimal solution and a transparent quote." },
       { "title": "Design & development", "description": "Our teams deliver in agile sprints, with regular check-ins." },
       { "title": "Launch & support", "description": "We handle go-live, training and ongoing support." }
-    ]
+    ],
+    "whyTitle": "Why choose us",
+    "whySubtitle": "Eight reasons why our clients trust us over the long run.",
+    "whyReasons": [
+      { "title": "Expertise", "description": "Senior, certified and experienced teams across every technology domain." },
+      { "title": "Innovation", "description": "Constant monitoring to integrate the most relevant technologies." },
+      { "title": "Support", "description": "A team available to support you well after delivery." },
+      { "title": "Security", "description": "Strict security standards applied to every project." },
+      { "title": "Quality", "description": "Deliverables tested, documented and aligned with best practices." },
+      { "title": "Guidance", "description": "A dedicated point of contact at every stage of your project." },
+      { "title": "Transparent pricing", "description": "Clear quotes, with no hidden costs or surprises." },
+      { "title": "On-time delivery", "description": "A proven methodology to deliver within agreed timelines." }
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faqSubtitle": "A preview of the answers to our clients' most common questions."
   },
   "about": {
     "heroEyebrow": "About us",
@@ -124,11 +152,23 @@
   },
   "services": {
     "heroEyebrow": "Our expertise",
-    "heroTitle": "14 areas of expertise covering your entire digital value chain",
+    "heroTitle": "15 areas of expertise covering your entire digital value chain",
     "heroSubtitle": "From strategy to operations, our multidisciplinary teams support every stage of your transformation.",
     "detailCtaTitle": "Let's talk about your project",
     "detailCtaBody": "Our experts analyze your needs and propose the best approach, with no commitment.",
     "includedTitle": "What this service includes"
+  },
+  "solutionsPage": {
+    "heroEyebrow": "Our solutions",
+    "heroTitle": "Ready-to-deploy business software for your industry",
+    "heroSubtitle": "Beyond custom development, VIT GLOBAL offers proven, vertical software solutions you can deploy quickly.",
+    "ctaTitle": "Interested in a solution?",
+    "ctaSubtitle": "Our experts will walk you through a demo tailored to your industry."
+  },
+  "portfolioPage": {
+    "heroEyebrow": "Portfolio",
+    "heroTitle": "A visual overview of our work",
+    "heroSubtitle": "Applications, websites, AI solutions, dashboards and marketplaces built for our clients."
   },
   "filiales": {
     "heroEyebrow": "The group",
@@ -138,7 +178,7 @@
     "offeringsTitle": "Our offerings"
   },
   "realisations": {
-    "heroEyebrow": "Portfolio",
+    "heroEyebrow": "Case Studies",
     "heroTitle": "Concrete results for our clients worldwide",
     "heroSubtitle": "Discover how we help companies and institutions turn ambitions into measurable results.",
     "challengeTitle": "The challenge",
@@ -178,7 +218,9 @@
     "stillNeedHelp": "Can't find your answer?",
     "stillNeedHelpBody": "Our support team is available to assist you.",
     "contactSupportButton": "Contact support",
-    "chatButton": "Start a chat"
+    "chatButton": "Start a chat",
+    "ticketTitle": "Create a support ticket",
+    "ticketBody": "Describe your issue, our technical team will respond quickly."
   },
   "contactPage": {
     "heroEyebrow": "Contact",
@@ -190,6 +232,8 @@
     "phoneLabel": "Phone",
     "hoursLabel": "Hours",
     "hoursValue": "Mon – Fri, 8:30am – 6:00pm (GMT)",
+    "mapTitle": "Our headquarters location",
+    "whatsappLabel": "Chat on WhatsApp",
     "otherWays": "Other ways to reach us",
     "quoteCard": "Quote request",
     "quoteCardDesc": "Describe your project and get an estimate.",
@@ -215,9 +259,16 @@
     "selectTimeline": "Select a timeline",
     "timelineOptions": ["Less than 1 month", "1 to 3 months", "3 to 6 months", "More than 6 months", "Flexible"],
     "description": "Describe your project",
+    "attachment": "Requirements document (optional)",
+    "attachmentHint": "Drop a file or click to browse (PDF, Word, Excel, image — 10 MB max)",
     "topic": "Appointment topic",
     "selectTopic": "Select a topic",
     "topicOptions": ["Discovery & introduction", "Detailed quote", "Technical support", "Partnership", "Other"],
+    "expert": "Preferred expert",
+    "noPreference": "No preference",
+    "mode": "Meeting format",
+    "selectMode": "Select a format",
+    "modeOptions": ["Video call", "Phone call", "In person"],
     "date": "Preferred date",
     "timeSlot": "Time slot",
     "selectSlot": "Select a slot",
@@ -249,7 +300,8 @@
       "Direct conversation with an expert dedicated to your industry",
       "Personalized presentation of our solutions",
       "Concrete answers to your technical or strategic questions"
-    ]
+    ],
+    "calendarButton": "Add to Google Calendar"
   },
   "clientArea": {
     "heroEyebrow": "Client area",
@@ -294,7 +346,9 @@
     "leadSubmit": "Send to an advisor",
     "leadThanks": "Thank you! A VIT GLOBAL advisor will contact you shortly.",
     "openLabel": "Open chat",
-    "botDisclaimer": "Automated assistant — a human advisor takes over when needed."
+    "botDisclaimer": "Automated assistant — a human advisor takes over when needed.",
+    "whatsappLabel": "WhatsApp",
+    "faqLabel": "View FAQ"
   },
   "footer": {
     "tagline": "The digital headquarters of your transformation.",

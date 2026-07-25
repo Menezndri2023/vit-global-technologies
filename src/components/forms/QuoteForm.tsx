@@ -1,19 +1,21 @@
 "use client";
 
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Field, Input, Textarea, Select } from "./fields";
 import { Button } from "@/components/ui/Button";
 import { FormStatusMessage } from "./FormStatusMessage";
 import { useFormSubmit } from "./useFormSubmit";
 import { services } from "@/data/services";
+import { solutions } from "@/data/solutions";
 import type { Locale } from "@/data/types";
-import { Send } from "lucide-react";
+import { Send, Paperclip } from "lucide-react";
 
 export function QuoteForm({ defaultService }: { defaultService?: string }) {
   const t = useTranslations();
   const locale = useLocale() as Locale;
   const { status, submit } = useFormSubmit("/api/quote");
+  const [fileName, setFileName] = useState<string | null>(null);
 
   const budgetOptions = t.raw("form.budgetOptions") as string[];
   const timelineOptions = t.raw("form.timelineOptions") as string[];
@@ -21,18 +23,8 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
-    const ok = await submit({
-      name: form.get("name"),
-      email: form.get("email"),
-      phone: form.get("phone"),
-      company: form.get("company"),
-      country: form.get("country"),
-      service: form.get("service"),
-      budget: form.get("budget"),
-      timeline: form.get("timeline"),
-      description: form.get("description"),
-      locale
-    });
+    form.set("locale", locale);
+    const ok = await submit(form);
     if (ok) (e.target as HTMLFormElement).reset();
   }
 
@@ -65,11 +57,20 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
             <option value="" disabled>
               {t("form.selectService")}
             </option>
-            {services.map((s) => (
-              <option key={s.slug} value={s.title[locale]}>
-                {s.title[locale]}
-              </option>
-            ))}
+            <optgroup label={t("nav.services")}>
+              {services.map((s) => (
+                <option key={s.slug} value={s.title[locale]}>
+                  {s.title[locale]}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label={t("nav.solutions")}>
+              {solutions.map((s) => (
+                <option key={s.slug} value={s.title[locale]}>
+                  {s.title[locale]}
+                </option>
+              ))}
+            </optgroup>
           </Select>
         </Field>
       </div>
@@ -101,6 +102,23 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
       </div>
       <Field label={t("form.description")} htmlFor="q-description" required>
         <Textarea id="q-description" name="description" required minLength={10} rows={6} />
+      </Field>
+      <Field label={t("form.attachment")} htmlFor="q-attachment">
+        <label
+          htmlFor="q-attachment"
+          className="flex cursor-pointer items-center gap-2.5 rounded-xl border border-dashed border-navy-950/15 bg-navy-950/[0.02] px-4 py-3 text-sm text-silver-600 transition-colors hover:border-brand-500/40"
+        >
+          <Paperclip className="h-4 w-4 shrink-0 text-brand-600" />
+          {fileName ?? t("form.attachmentHint")}
+        </label>
+        <input
+          id="q-attachment"
+          name="attachment"
+          type="file"
+          accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.zip"
+          className="sr-only"
+          onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)}
+        />
       </Field>
       {status === "error" && <FormStatusMessage status="error" />}
       <Button type="submit" disabled={status === "submitting"} icon={<Send className="h-4 w-4" />}>

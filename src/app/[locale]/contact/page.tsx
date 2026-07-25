@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { buildMetadata } from "@/lib/seo";
-import { Mail, Phone, Clock, MapPin, FileText, CalendarCheck, LifeBuoy, ArrowRight } from "lucide-react";
+import { Mail, Phone, Clock, MapPin, FileText, CalendarCheck, LifeBuoy, ArrowRight, MessageCircle } from "lucide-react";
 
 export async function generateMetadata({
   params
@@ -66,6 +66,23 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" /> {t("hoursValue")}
                 </p>
               </div>
+              <a
+                href="https://wa.me/2250700000000?text=Bonjour%20VIT%20GLOBAL%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 flex items-center justify-center gap-2 rounded-full bg-emerald-500 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-600"
+              >
+                <MessageCircle className="h-4 w-4" /> {t("whatsappLabel")}
+              </a>
+            </div>
+
+            <div className="mt-6 overflow-hidden rounded-2xl border border-navy-950/[0.06]">
+              <iframe
+                title={t("mapTitle")}
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-4.05%2C5.28%2C-3.95%2C5.38&layer=mapnik&marker=5.33%2C-4.0"
+                className="h-56 w-full grayscale-[15%]"
+                loading="lazy"
+              />
             </div>
 
             <div className="mt-6 space-y-3">

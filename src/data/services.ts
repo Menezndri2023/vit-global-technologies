@@ -7,6 +7,7 @@ export interface Service {
   summary: Localized<string>;
   description: Localized<string>;
   features: Localized<string[]>;
+  subServices: Localized<string[]>;
 }
 
 export const services: Service[] = [
@@ -32,30 +33,69 @@ export const services: Service[] = [
       fr: ["Audit de maturité digitale", "Feuille de route stratégique", "Conduite du changement", "Pilotage KPI & ROI"],
       en: ["Digital maturity audit", "Strategic roadmap", "Change management", "KPI & ROI monitoring"],
       ar: ["تقييم النضج الرقمي", "خارطة طريق استراتيجية", "قيادة التغيير", "متابعة مؤشرات الأداء والعائد"]
+    },
+    subServices: {
+      fr: ["Audit numérique", "Stratégie digitale", "Conduite du changement", "Digitalisation des process"],
+      en: ["Digital audit", "Digital strategy", "Change management", "Process digitalization"],
+      ar: ["تدقيق رقمي", "استراتيجية رقمية", "قيادة التغيير", "رقمنة العمليات"]
     }
   },
   {
-    slug: "developpement-web-mobile",
+    slug: "developpement-web",
     icon: "Code2",
     title: {
-      fr: "Développement Web & Mobile",
-      en: "Web & Mobile Development",
-      ar: "تطوير الويب والتطبيقات"
+      fr: "Développement Web",
+      en: "Web Development",
+      ar: "تطوير الويب"
     },
     summary: {
-      fr: "Sites, plateformes et applications performantes, sur mesure et évolutives.",
-      en: "High-performance, custom, scalable websites, platforms and applications.",
-      ar: "مواقع ومنصات وتطبيقات عالية الأداء ومخصصة وقابلة للتطور."
+      fr: "Sites, plateformes et places de marché performantes, sur mesure et évolutives.",
+      en: "High-performance, custom, scalable websites, platforms and marketplaces.",
+      ar: "مواقع ومنصات وأسواق إلكترونية عالية الأداء ومخصصة وقابلة للتطور."
     },
     description: {
-      fr: "De la vitrine premium à la plateforme SaaS complexe, nos équipes Full Stack conçoivent des produits web et mobiles robustes, rapides et pensés pour l'expérience utilisateur.",
-      en: "From a premium showcase site to a complex SaaS platform, our Full Stack teams design robust, fast web and mobile products built for user experience.",
-      ar: "من الموقع التعريفي الفاخر إلى منصة SaaS المعقدة، تصمم فرقنا منتجات ويب وتطبيقات متينة وسريعة تركز على تجربة المستخدم."
+      fr: "De la vitrine premium à la plateforme SaaS complexe, nos équipes Full Stack conçoivent des produits web robustes, rapides et pensés pour l'expérience utilisateur.",
+      en: "From a premium showcase site to a complex SaaS platform, our Full Stack teams design robust, fast web products built for user experience.",
+      ar: "من الموقع التعريفي الفاخر إلى منصة SaaS المعقدة، تصمم فرقنا منتجات ويب متينة وسريعة تركز على تجربة المستخدم."
     },
     features: {
-      fr: ["Sites vitrines & e-commerce", "Applications iOS & Android", "Plateformes SaaS", "Architecture API & microservices"],
-      en: ["Showcase & e-commerce sites", "iOS & Android apps", "SaaS platforms", "API & microservices architecture"],
-      ar: ["مواقع تعريفية ومتاجر إلكترونية", "تطبيقات iOS وAndroid", "منصات SaaS", "بنية واجهات برمجية ومايكروسيرفس"]
+      fr: ["Sites vitrines & e-commerce", "Marketplaces & plateformes SaaS", "Portails & espaces clients", "Architecture API & microservices"],
+      en: ["Showcase & e-commerce sites", "Marketplaces & SaaS platforms", "Portals & client spaces", "API & microservices architecture"],
+      ar: ["مواقع تعريفية ومتاجر إلكترونية", "أسواق ومنصات SaaS", "بوابات وفضاءات عملاء", "بنية واجهات برمجية ومايكروسيرفس"]
+    },
+    subServices: {
+      fr: ["Site vitrine", "Site e-commerce", "Marketplace", "CRM", "ERP", "Plateforme SaaS", "Applications métier", "Portail client"],
+      en: ["Showcase website", "E-commerce site", "Marketplace", "CRM", "ERP", "SaaS platform", "Business applications", "Client portal"],
+      ar: ["موقع تعريفي", "متجر إلكتروني", "سوق إلكتروني", "نظام CRM", "نظام ERP", "منصة SaaS", "تطبيقات أعمال", "بوابة عملاء"]
+    }
+  },
+  {
+    slug: "developpement-mobile",
+    icon: "Smartphone",
+    title: {
+      fr: "Développement Mobile",
+      en: "Mobile Development",
+      ar: "تطوير التطبيقات الجوالة"
+    },
+    summary: {
+      fr: "Des applications mobiles natives et cross-platform pensées pour l'usage terrain.",
+      en: "Native and cross-platform mobile applications built for real-world use.",
+      ar: "تطبيقات جوالة أصلية ومتعددة المنصات مصممة للاستخدام الميداني."
+    },
+    description: {
+      fr: "Android, iOS, Flutter ou React Native : nous choisissons la technologie la plus adaptée à votre besoin pour livrer des applications mobiles fluides, sécurisées et évolutives.",
+      en: "Android, iOS, Flutter or React Native: we choose the technology best suited to your needs to deliver smooth, secure and scalable mobile applications.",
+      ar: "Android أو iOS أو Flutter أو React Native: نختار التقنية الأنسب لاحتياجكم لتقديم تطبيقات جوالة سلسة وآمنة وقابلة للتطور."
+    },
+    features: {
+      fr: ["Applications natives iOS & Android", "Développement cross-platform", "Applications métier terrain", "Publication & maintenance stores"],
+      en: ["Native iOS & Android apps", "Cross-platform development", "Field business applications", "Store publishing & maintenance"],
+      ar: ["تطبيقات أصلية لـ iOS وAndroid", "تطوير متعدد المنصات", "تطبيقات أعمال ميدانية", "نشر وصيانة على المتاجر"]
+    },
+    subServices: {
+      fr: ["Android", "iOS", "Flutter", "React Native", "Applications métier"],
+      en: ["Android", "iOS", "Flutter", "React Native", "Business applications"],
+      ar: ["Android", "iOS", "Flutter", "React Native", "تطبيقات أعمال"]
     }
   },
   {
@@ -80,6 +120,11 @@ export const services: Service[] = [
       fr: ["Assistants & chatbots IA", "Automatisation intelligente (RPA)", "Machine learning prédictif", "Analyse de données non structurées"],
       en: ["AI assistants & chatbots", "Intelligent automation (RPA)", "Predictive machine learning", "Unstructured data analysis"],
       ar: ["مساعدون وروبوتات محادثة ذكية", "أتمتة العمليات (RPA)", "تعلم آلي تنبؤي", "تحليل البيانات غير المهيكلة"]
+    },
+    subServices: {
+      fr: ["Chatbots", "Agents IA", "Automatisation", "Vision par ordinateur", "Reconnaissance vocale", "IA Générative"],
+      en: ["Chatbots", "AI agents", "Automation", "Computer vision", "Speech recognition", "Generative AI"],
+      ar: ["روبوتات محادثة", "وكلاء ذكاء اصطناعي", "أتمتة", "رؤية حاسوبية", "التعرف على الصوت", "الذكاء الاصطناعي التوليدي"]
     }
   },
   {
@@ -104,6 +149,11 @@ export const services: Service[] = [
       fr: ["Migration cloud sécurisée", "Architecture multi-cloud & hybride", "Scalabilité & haute disponibilité", "Optimisation des coûts (FinOps)"],
       en: ["Secure cloud migration", "Multi-cloud & hybrid architecture", "Scalability & high availability", "Cost optimization (FinOps)"],
       ar: ["ترحيل سحابي آمن", "بنية متعددة السحابات وهجينة", "قابلية التوسع وإتاحة عالية", "تحسين التكاليف (FinOps)"]
+    },
+    subServices: {
+      fr: ["Migration Cloud", "AWS", "Azure", "Google Cloud", "Sauvegarde"],
+      en: ["Cloud migration", "AWS", "Azure", "Google Cloud", "Backup"],
+      ar: ["الترحيل السحابي", "AWS", "Azure", "Google Cloud", "النسخ الاحتياطي"]
     }
   },
   {
@@ -128,6 +178,11 @@ export const services: Service[] = [
       fr: ["Audit & tests d'intrusion (pentest)", "Conformité RGPD / ISO 27001", "Supervision & réponse aux incidents", "Sécurisation des infrastructures"],
       en: ["Audit & penetration testing", "GDPR / ISO 27001 compliance", "Monitoring & incident response", "Infrastructure hardening"],
       ar: ["تدقيق واختبارات اختراق", "الامتثال لـ GDPR / ISO 27001", "المراقبة والاستجابة للحوادث", "تحصين البنية التحتية"]
+    },
+    subServices: {
+      fr: ["Audit", "Pentest", "Sécurisation", "Surveillance", "Protection"],
+      en: ["Audit", "Pentest", "Hardening", "Monitoring", "Protection"],
+      ar: ["تدقيق", "اختبار اختراق", "تأمين", "مراقبة", "حماية"]
     }
   },
   {
@@ -152,6 +207,11 @@ export const services: Service[] = [
       fr: ["ERP & CRM sur mesure", "Outils métiers internes", "Intégration systèmes existants", "Maintenance évolutive"],
       en: ["Custom ERP & CRM", "Internal business tools", "Legacy systems integration", "Evolutive maintenance"],
       ar: ["أنظمة ERP وCRM مخصصة", "أدوات أعمال داخلية", "دمج مع الأنظمة القائمة", "صيانة تطويرية"]
+    },
+    subServices: {
+      fr: ["ERP", "CRM", "Logiciels sur mesure", "Gestion commerciale", "Gestion RH", "Gestion comptable"],
+      en: ["ERP", "CRM", "Custom software", "Sales management", "HR management", "Accounting management"],
+      ar: ["ERP", "CRM", "برمجيات مخصصة", "إدارة تجارية", "إدارة الموارد البشرية", "إدارة محاسبية"]
     }
   },
   {
@@ -176,6 +236,11 @@ export const services: Service[] = [
       fr: ["Pipelines CI/CD", "Conteneurisation (Docker, Kubernetes)", "Infrastructure as Code", "Monitoring & observabilité"],
       en: ["CI/CD pipelines", "Containerization (Docker, Kubernetes)", "Infrastructure as Code", "Monitoring & observability"],
       ar: ["خطوط CI/CD", "الحوسبة الحاوية (Docker وKubernetes)", "البنية التحتية ككود", "المراقبة والرصد"]
+    },
+    subServices: {
+      fr: ["Docker", "Kubernetes", "CI/CD", "Monitoring"],
+      en: ["Docker", "Kubernetes", "CI/CD", "Monitoring"],
+      ar: ["Docker", "Kubernetes", "CI/CD", "المراقبة"]
     }
   },
   {
@@ -200,6 +265,11 @@ export const services: Service[] = [
       fr: ["Conception réseau & datacenter", "Virtualisation & serveurs", "Postes de travail & télécoms", "Supervision proactive"],
       en: ["Network & datacenter design", "Virtualization & servers", "Workstations & telecoms", "Proactive monitoring"],
       ar: ["تصميم الشبكات ومراكز البيانات", "المحاكاة الافتراضية والخوادم", "محطات العمل والاتصالات", "المراقبة الاستباقية"]
+    },
+    subServices: {
+      fr: ["Serveurs", "Virtualisation", "Réseaux", "Maintenance"],
+      en: ["Servers", "Virtualization", "Networks", "Maintenance"],
+      ar: ["الخوادم", "المحاكاة الافتراضية", "الشبكات", "الصيانة"]
     }
   },
   {
@@ -224,6 +294,11 @@ export const services: Service[] = [
       fr: ["Data warehouse & pipelines", "Tableaux de bord BI", "Reporting temps réel", "Aide à la décision"],
       en: ["Data warehouse & pipelines", "BI dashboards", "Real-time reporting", "Decision support"],
       ar: ["مستودعات وخطوط بيانات", "لوحات تحكم لتحليلات الأعمال", "تقارير لحظية", "دعم اتخاذ القرار"]
+    },
+    subServices: {
+      fr: ["Business Intelligence", "Power BI", "Big Data", "Analyse"],
+      en: ["Business Intelligence", "Power BI", "Big Data", "Analytics"],
+      ar: ["ذكاء الأعمال", "Power BI", "البيانات الضخمة", "التحليل"]
     }
   },
   {
@@ -248,6 +323,11 @@ export const services: Service[] = [
       fr: ["Recherche & tests utilisateurs", "Design systems", "Prototypage interactif", "Accessibilité (WCAG)"],
       en: ["User research & testing", "Design systems", "Interactive prototyping", "Accessibility (WCAG)"],
       ar: ["بحث واختبار المستخدم", "أنظمة التصميم", "نماذج تفاعلية", "إمكانية الوصول (WCAG)"]
+    },
+    subServices: {
+      fr: ["Maquettes", "Figma", "Prototypes", "Tests utilisateurs"],
+      en: ["Wireframes", "Figma", "Prototypes", "User testing"],
+      ar: ["مخططات أولية", "Figma", "نماذج أولية", "اختبار المستخدم"]
     }
   },
   {
@@ -272,6 +352,11 @@ export const services: Service[] = [
       fr: ["SEO & référencement international", "Campagnes SEA / Social Ads", "Content marketing", "Growth & automation marketing"],
       en: ["SEO & international search", "SEA / Social Ads campaigns", "Content marketing", "Growth & marketing automation"],
       ar: ["تحسين محركات البحث الدولي", "حملات إعلانية مدفوعة واجتماعية", "تسويق المحتوى", "النمو وأتمتة التسويق"]
+    },
+    subServices: {
+      fr: ["SEO", "SEA", "Publicité", "Facebook Ads", "Google Ads", "TikTok Ads"],
+      en: ["SEO", "SEA", "Advertising", "Facebook Ads", "Google Ads", "TikTok Ads"],
+      ar: ["تحسين محركات البحث", "الإعلانات المدفوعة", "الدعاية", "إعلانات فيسبوك", "إعلانات غوغل", "إعلانات تيك توك"]
     }
   },
   {
@@ -296,6 +381,11 @@ export const services: Service[] = [
       fr: ["Stratégie de marque", "Identité visuelle & logo", "Charte graphique complète", "Supports print & digitaux"],
       en: ["Brand strategy", "Visual identity & logo", "Complete brand guidelines", "Print & digital assets"],
       ar: ["استراتيجية العلامة التجارية", "الهوية البصرية والشعار", "دليل هوية متكامل", "مواد مطبوعة ورقمية"]
+    },
+    subServices: {
+      fr: ["Logo", "Charte graphique", "Identité visuelle"],
+      en: ["Logo", "Style guide", "Visual identity"],
+      ar: ["شعار", "دليل الهوية", "الهوية البصرية"]
     }
   },
   {
@@ -320,6 +410,11 @@ export const services: Service[] = [
       fr: ["Cadrage stratégique de projets", "Choix technologiques & architecture", "Accompagnement direction & COMEX", "Études de faisabilité"],
       en: ["Strategic project framing", "Technology & architecture choices", "Executive & board advisory", "Feasibility studies"],
       ar: ["تأطير استراتيجي للمشاريع", "اختيار التقنيات والبنى", "مرافقة الإدارة العليا", "دراسات الجدوى"]
+    },
+    subServices: {
+      fr: ["Transformation digitale", "Audit", "Organisation", "Accompagnement"],
+      en: ["Digital transformation", "Audit", "Organization", "Advisory"],
+      ar: ["التحول الرقمي", "تدقيق", "التنظيم", "المرافقة"]
     }
   },
   {
@@ -344,6 +439,11 @@ export const services: Service[] = [
       fr: ["Formations sur mesure", "Support helpdesk multicanal", "Maintenance corrective & évolutive", "Documentation & transfert de compétences"],
       en: ["Custom training programs", "Multichannel helpdesk support", "Corrective & evolutive maintenance", "Documentation & knowledge transfer"],
       ar: ["برامج تدريب مخصصة", "دعم فني متعدد القنوات", "صيانة تصحيحية وتطويرية", "توثيق ونقل المعرفة"]
+    },
+    subServices: {
+      fr: ["Formation développement", "Formation IA", "Formation cybersécurité", "Maintenance & infogérance", "Assistance & télémaintenance"],
+      en: ["Development training", "AI training", "Cybersecurity training", "Maintenance & managed IT", "Assistance & remote support"],
+      ar: ["تدريب على البرمجة", "تدريب على الذكاء الاصطناعي", "تدريب على الأمن السيبراني", "الصيانة والإدارة المفوضة", "المساعدة والصيانة عن بُعد"]
     }
   }
 ];

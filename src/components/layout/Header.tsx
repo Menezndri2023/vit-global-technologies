@@ -45,7 +45,11 @@ export function Header() {
   }, []);
 
   const companyLinks = [
-    { href: "/a-propos", label: t("nav.aboutOverview"), desc: t("nav.aboutOverviewDesc"), icon: "Compass" },
+    { href: "/a-propos", label: t("nav.aboutOverview"), desc: t("nav.aboutOverviewDesc"), icon: "Building2" },
+    { href: "/a-propos#histoire", label: t("nav.companyHistory"), desc: t("nav.companyHistoryDesc"), icon: "History" },
+    { href: "/a-propos#vision", label: t("nav.companyVision"), desc: t("nav.companyVisionDesc"), icon: "Telescope" },
+    { href: "/a-propos#mission", label: t("nav.companyMission"), desc: t("nav.companyMissionDesc"), icon: "Target" },
+    { href: "/a-propos#valeurs", label: t("nav.companyValues"), desc: t("nav.companyValuesDesc"), icon: "Gem" },
     { href: "/equipe", label: t("nav.team"), desc: t("nav.teamDesc"), icon: "Users" },
     { href: "/partenaires", label: t("nav.partners"), desc: t("nav.partnersDesc"), icon: "Handshake" },
     { href: "/carrieres", label: t("nav.careersLink"), desc: t("nav.careersDesc"), icon: "Briefcase" }
@@ -53,6 +57,7 @@ export function Header() {
 
   const resourceLinks = [
     { href: "/realisations", label: t("nav.realisations"), desc: t("nav.realisationsDesc"), icon: "Trophy" },
+    { href: "/portfolio", label: t("nav.portfolio"), desc: t("nav.portfolioDesc"), icon: "GalleryHorizontal" },
     { href: "/blog", label: t("nav.blog"), desc: t("nav.blogDesc"), icon: "Newspaper" },
     { href: "/support", label: t("nav.support"), desc: t("nav.supportDesc"), icon: "LifeBuoy" }
   ];
@@ -71,11 +76,11 @@ export function Header() {
 
         <div ref={navRef} className="hidden items-center gap-1 lg:flex">
           <NavDropdown
-            label={t("nav.about")}
+            label={t("nav.company")}
             isOpen={openMenu === "company"}
             onToggle={() => setOpenMenu(openMenu === "company" ? null : "company")}
           >
-            <div className="grid w-80 gap-1 p-2">
+            <div className="grid w-[560px] grid-cols-2 gap-1 p-2">
               {companyLinks.map((item) => (
                 <DropdownItem key={item.href} {...item} onNavigate={() => setOpenMenu(null)} />
               ))}
@@ -117,6 +122,10 @@ export function Header() {
               </div>
             </div>
           </NavDropdown>
+
+          <NavLink href="/solutions" onClick={() => setOpenMenu(null)}>
+            {t("nav.solutions")}
+          </NavLink>
 
           <NavLink href="/filiales" onClick={() => setOpenMenu(null)}>
             {t("nav.filiales")}
@@ -174,7 +183,7 @@ export function Header() {
           </div>
           <div className="container-vit flex-1 overflow-y-auto py-6">
             <MobileAccordion
-              label={t("nav.about")}
+              label={t("nav.company")}
               open={mobileSection === "company"}
               onToggle={() => setMobileSection(mobileSection === "company" ? null : "company")}
             >
@@ -191,6 +200,9 @@ export function Header() {
                 <MiniLink key={s.slug} href={`/services/${s.slug}`} icon={s.icon} label={s.title[locale]} onNavigate={() => setMobileOpen(false)} />
               ))}
             </MobileAccordion>
+            <Link href="/solutions" onClick={() => setMobileOpen(false)} className="block border-b border-navy-950/[0.06] py-4 font-semibold text-navy-900">
+              {t("nav.solutions")}
+            </Link>
             <Link href="/filiales" onClick={() => setMobileOpen(false)} className="block border-b border-navy-950/[0.06] py-4 font-semibold text-navy-900">
               {t("nav.filiales")}
             </Link>

@@ -11,9 +11,10 @@ import { filiales } from "@/data/filiales";
 import { realisations } from "@/data/realisations";
 import { blogPosts } from "@/data/blog";
 import { testimonials, companyStats, partners } from "@/data/company";
+import { faqItems } from "@/data/faq";
 import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
-import { ArrowRight, ArrowUpRight, Quote } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Quote, ChevronDown } from "lucide-react";
 
 export async function generateMetadata({
   params
@@ -32,6 +33,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const t = await getTranslations();
 
   const processSteps = t.raw("home.processSteps") as { title: string; description: string }[];
+  const heroTags = t.raw("home.heroTags") as string[];
+  const whyReasons = t.raw("home.whyReasons") as { title: string; description: string }[];
+  const whyIcons = ["Sparkles", "Lightbulb", "Headset", "ShieldCheck", "Award", "HeartHandshake", "Wallet", "Clock"];
+  const homeFaqs = faqItems.slice(0, 4);
 
   return (
     <>
@@ -48,6 +53,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-silver-600">
               {t("home.heroSubtitle")}
             </p>
+            <div className="mx-auto mt-6 flex max-w-2xl flex-wrap justify-center gap-2">
+              {heroTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-navy-950/10 bg-white px-3.5 py-1.5 text-xs font-semibold text-navy-900/80 shadow-sm"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <Button as={Link} href="/devis" size="lg" icon={<ArrowRight className="h-4 w-4" />}>
                 {t("home.heroCtaPrimary")}
@@ -58,7 +73,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </div>
 
-          <div className="mt-16 grid grid-cols-2 gap-6 border-t border-navy-950/[0.06] pt-10 sm:grid-cols-4">
+          <div className="mt-16 grid grid-cols-2 gap-6 border-t border-navy-950/[0.06] pt-10 sm:grid-cols-3 lg:grid-cols-6">
             {companyStats.map((stat) => (
               <StatBlock key={stat.label.fr} value={stat.value} label={stat.label[loc]} />
             ))}
@@ -203,6 +218,22 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </Section>
 
+      {/* Pourquoi nous choisir */}
+      <Section tone="white">
+        <SectionHeading title={t("home.whyTitle")} subtitle={t("home.whySubtitle")} align="center" />
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {whyReasons.map((reason, i) => (
+            <div key={reason.title} className="rounded-2xl border border-navy-950/[0.06] p-6">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-600">
+                <Icon name={whyIcons[i] ?? "Sparkles"} className="h-5 w-5" />
+              </span>
+              <h3 className="mt-4 font-display text-base font-semibold text-navy-950">{reason.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-silver-600">{reason.description}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* Blog */}
       <Section tone="white">
         <SectionHeading eyebrow={t("nav.blog")} title={t("home.blogTitle")} subtitle={t("home.blogSubtitle")} align="center" />
@@ -224,6 +255,27 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </Card>
             </Link>
           ))}
+        </div>
+      </Section>
+
+      {/* FAQ preview */}
+      <Section tone="muted">
+        <SectionHeading eyebrow={t("nav.support")} title={t("home.faqTitle")} subtitle={t("home.faqSubtitle")} align="center" />
+        <div className="mx-auto mt-10 max-w-3xl divide-y divide-navy-950/[0.06] rounded-2xl border border-navy-950/[0.06] bg-white">
+          {homeFaqs.map((item) => (
+            <details key={item.question.fr} className="group px-6 py-5">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy-950 sm:text-base">
+                {item.question[loc]}
+                <ChevronDown className="h-4 w-4 shrink-0 text-brand-600 transition-transform group-open:rotate-180" />
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-silver-600">{item.answer[loc]}</p>
+            </details>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Button as={Link} href="/support" variant="outline" icon={<ArrowRight className="h-4 w-4" />}>
+            {t("common.viewAll")}
+          </Button>
         </div>
       </Section>
 

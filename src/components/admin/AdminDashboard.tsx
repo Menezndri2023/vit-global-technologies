@@ -3,12 +3,13 @@
 import { useEffect, useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { Logo } from "@/components/ui/Logo";
-import { Lock, LogOut, RefreshCw } from "lucide-react";
+import { Lock, LogOut, RefreshCw, FileDown, Paperclip } from "lucide-react";
 import clsx from "clsx";
 
 type EntityType = "contact" | "quote" | "appointment" | "job" | "partner" | "chat";
 
 const TABS: EntityType[] = ["contact", "quote", "appointment", "job", "partner", "chat"];
+const STATUSES = ["NEW", "IN_PROGRESS", "DONE", "ARCHIVED"];
 
 type Row = Record<string, unknown>;
 
@@ -53,6 +54,15 @@ export function AdminDashboard() {
     }
     setPassword("");
     loadRows(tab);
+  }
+
+  async function updateStatus(id: string, status: string) {
+    setRows((prev) => prev.map((r) => (r.id === id ? { ...r, status } : r)));
+    await fetch("/api/admin/status", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: tab, id, status })
+    });
   }
 
   async function handleLogout() {
@@ -144,12 +154,13 @@ export function AdminDashboard() {
                 <th className="whitespace-nowrap px-5 py-3 text-start">{t("columns.email")}</th>
                 <th className="whitespace-nowrap px-5 py-3 text-start">Info</th>
                 <th className="whitespace-nowrap px-5 py-3 text-start">{t("columns.status")}</th>
+                <th className="whitespace-nowrap px-5 py-3 text-start">Actions</th>
               </tr>
             </thead>
             <tbody>
               {rows.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="px-5 py-10 text-center text-silver-500">
+                  <td colSpan={6} className="px-5 py-10 text-center text-silver-500">
                     {t("empty")}
                   </td>
                 </tr>
@@ -171,9 +182,37 @@ export function AdminDashboard() {
                       "—"}
                   </td>
                   <td className="whitespace-nowrap px-5 py-3">
-                    <span className="rounded-full bg-brand-500/10 px-2.5 py-1 text-xs font-semibold text-brand-600">
-                      {(row.status as string) || "NEW"}
-                    </span>
+                    <select
+                      value={(row.status as string) || "NEW"}
+                      onChange={(e) => updateStatus(String(row.id), e.target.value)}
+                      className="rounded-full border border-navy-950/10 bg-brand-500/5 px-2.5 py-1 text-xs font-semibold text-brand-600 outline-none"
+                    >
+                      {STATUSES.map((s) => (
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-3">
+                    <div className="flex items-center gap-3">
+                      {tab === "quote" && (
+                        <a
+                          href={`/api/admin/quote/${row.id}/pdf`}
+                          className="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 hover:text-brand-700"
+                        >
+                          <FileDown className="h-3.5 w-3.5" /> PDF
+                        </a>
+                      )}
+                      {tab === "quote" && row.attachmentPath ? (
+                        <a
+                          href={`/api/admin/uploads/${row.attachmentPath}`}
+                          className="inline-flex items-center gap-1 text-xs font-semibold text-navy-900 hover:text-brand-600"
+                        >
+                          <Paperclip className="h-3.5 w-3.5" /> {(row.attachmentName as string) || "Fichier"}
+                        </a>
+                      ) : null}
+                    </div>
                   </td>
                 </tr>
               ))}

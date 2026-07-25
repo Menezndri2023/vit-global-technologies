@@ -28,19 +28,21 @@ model ContactMessage {
 }
 
 model QuoteRequest {
-  id          String     @id @default(cuid())
-  name        String
-  email       String
-  phone       String?
-  company     String?
-  country     String?
-  service     String
-  budget      String?
-  timeline    String?
-  description String
-  locale      String     @default("fr")
-  status      LeadStatus @default(NEW)
-  createdAt   DateTime   @default(now())
+  id             String     @id @default(cuid())
+  name           String
+  email          String
+  phone          String?
+  company        String?
+  country        String?
+  service        String
+  budget         String?
+  timeline       String?
+  description    String
+  attachmentPath String?
+  attachmentName String?
+  locale         String     @default("fr")
+  status         LeadStatus @default(NEW)
+  createdAt      DateTime   @default(now())
 }
 
 model Appointment {
@@ -50,6 +52,8 @@ model Appointment {
   phone     String?
   company   String?
   topic     String
+  expert    String?
+  mode      String?
   date      DateTime
   timeSlot  String
   notes     String?

@@ -4,6 +4,8 @@ import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
+import { ContactForm } from "@/components/forms/ContactForm";
+import { OpenChatButton } from "@/components/layout/OpenChatButton";
 import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
 import { MessageCircle, Mail } from "lucide-react";
@@ -42,6 +44,16 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
         <FaqAccordion locale={loc} />
       </Section>
 
+      <Section tone="white">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="font-display text-center text-2xl font-bold text-navy-950 sm:text-3xl">{t("ticketTitle")}</h2>
+          <p className="mt-3 text-center text-base text-silver-600">{t("ticketBody")}</p>
+          <div className="mt-8 rounded-3xl border border-navy-950/[0.06] bg-white p-8 shadow-card sm:p-10">
+            <ContactForm />
+          </div>
+        </div>
+      </Section>
+
       <Section tone="navy">
         <div className="mx-auto max-w-xl text-center">
           <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">{t("stillNeedHelp")}</h2>
@@ -50,9 +62,9 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
             <Button as={Link} href="/contact" icon={<Mail className="h-4 w-4" />}>
               {t("contactSupportButton")}
             </Button>
-            <Button variant="outline" className="!border-white/30 !bg-transparent !text-white hover:!border-white" icon={<MessageCircle className="h-4 w-4" />}>
+            <OpenChatButton className="!border-white/30 !bg-transparent !text-white hover:!border-white" icon={<MessageCircle className="h-4 w-4" />}>
               {t("chatButton")}
-            </Button>
+            </OpenChatButton>
           </div>
         </div>
       </Section>

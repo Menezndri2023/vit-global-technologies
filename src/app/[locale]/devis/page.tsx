@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { QuoteForm } from "@/components/forms/QuoteForm";
 import { getServiceBySlug } from "@/data/services";
+import { getSolutionBySlug } from "@/data/solutions";
 import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
 
@@ -30,7 +31,9 @@ export default async function QuotePage({
   const t = await getTranslations("quotePage");
   const sideSteps = t.raw("sideSteps") as string[];
 
-  const defaultService = serviceSlug ? getServiceBySlug(serviceSlug)?.title[loc] : undefined;
+  const defaultService = serviceSlug
+    ? (getServiceBySlug(serviceSlug)?.title[loc] ?? getSolutionBySlug(serviceSlug)?.title[loc])
+    : undefined;
 
   return (
     <>

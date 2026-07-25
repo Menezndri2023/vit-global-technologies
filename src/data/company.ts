@@ -190,8 +190,10 @@ export const companyValues: CompanyValue[] = [
 ];
 
 export const companyStats = [
-  { value: "120+", label: { fr: "collaborateurs", en: "employees", ar: "موظف" } },
-  { value: "14", label: { fr: "pays d'intervention", en: "countries served", ar: "دولة" } },
-  { value: "300+", label: { fr: "projets livrés", en: "projects delivered", ar: "مشروع منجز" } },
-  { value: "98%", label: { fr: "satisfaction client", en: "client satisfaction", ar: "رضا العملاء" } }
+  { value: "100+", label: { fr: "projets livrés", en: "projects delivered", ar: "مشروع منجز" } },
+  { value: "20+", label: { fr: "partenaires", en: "partners", ar: "شريك" } },
+  { value: "8", label: { fr: "pays d'intervention", en: "countries served", ar: "دولة" } },
+  { value: "99%", label: { fr: "satisfaction client", en: "client satisfaction", ar: "رضا العملاء" } },
+  { value: "24/7", label: { fr: "support disponible", en: "support available", ar: "دعم متواصل" } },
+  { value: "100%", label: { fr: "équipe internationale", en: "international team", ar: "فريق دولي" } }
 ];

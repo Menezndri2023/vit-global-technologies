@@ -4,14 +4,17 @@ import clsx from "clsx";
 export function Card({
   children,
   className,
-  hover = true
+  hover = true,
+  id
 }: {
   children: ReactNode;
   className?: string;
   hover?: boolean;
+  id?: string;
 }) {
   return (
     <div
+      id={id}
       className={clsx(
         "rounded-2xl border border-navy-950/[0.06] bg-white p-6 shadow-card sm:p-8",
         hover && "transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/20 hover:shadow-brand",
