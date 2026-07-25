@@ -315,9 +315,17 @@
       "Accéder à votre historique de demandes et tickets support"
     ],
     "loginTitle": "Connexion",
+    "loginBody": "Connectez-vous avec Google, Microsoft, LinkedIn ou votre email pour accéder à votre espace.",
     "requestAccessTitle": "Pas encore de compte ?",
     "requestAccessBody": "Demandez l'accès à votre espace client, notre équipe l'activera sous 24h.",
-    "requestAccessButton": "Demander mon accès"
+    "requestAccessButton": "Demander mon accès",
+    "welcomeBack": "Ravis de vous revoir",
+    "myQuotes": "Mes demandes de devis",
+    "myAppointments": "Mes rendez-vous",
+    "myMessages": "Mes messages",
+    "myApplications": "Mes candidatures",
+    "signed": "Signé",
+    "signProposal": "Signer la proposition"
   },
   "partnerArea": {
     "heroEyebrow": "Espace partenaire",
@@ -332,7 +340,50 @@
     ],
     "requestAccessTitle": "Devenir partenaire",
     "requestAccessBody": "Soumettez votre candidature pour rejoindre notre réseau de partenaires internationaux.",
-    "requestAccessButton": "Soumettre ma candidature"
+    "requestAccessButton": "Soumettre ma candidature",
+    "welcomeBack": "Ravis de vous revoir",
+    "myRequests": "Mes demandes de partenariat",
+    "resourcesTitle": "Ressources partenaires",
+    "resourcesServices": "Catalogue de services",
+    "resourcesCaseStudies": "Études de cas",
+    "resourcesContact": "Contacter l'équipe partenariats"
+  },
+  "auth": {
+    "continueWith": "Continuer avec {provider}",
+    "orEmail": "ou avec votre email",
+    "email": "Email",
+    "password": "Mot de passe",
+    "name": "Nom complet",
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "createAccount": "Créer mon compte",
+    "loading": "Chargement…",
+    "loginError": "Email ou mot de passe incorrect.",
+    "registerError": "Une erreur est survenue. Merci de réessayer.",
+    "emailTaken": "Un compte existe déjà avec cet email.",
+    "logout": "Déconnexion"
+  },
+  "signature": {
+    "eyebrow": "Signature électronique",
+    "title": "Validez et signez votre devis",
+    "subtitle": "Relisez le récapitulatif ci-dessous puis signez électroniquement pour valider votre commande.",
+    "summaryTitle": "Récapitulatif du devis",
+    "service": "Service",
+    "client": "Client",
+    "budget": "Budget",
+    "description": "Description",
+    "fullName": "Nom complet",
+    "emailLabel": "Adresse email",
+    "consent": "Je reconnais avoir pris connaissance des termes de ce devis et j'accepte de le signer électroniquement, avec la même valeur qu'une signature manuscrite.",
+    "error": "La signature n'a pas pu être enregistrée. Merci de réessayer.",
+    "submitting": "Signature en cours…",
+    "signButton": "Signer électroniquement",
+    "legalNote": "Votre signature enregistre votre nom, votre email, l'horodatage et votre adresse IP à titre de preuve.",
+    "successTitle": "Devis signé avec succès",
+    "successBody": "Un exemplaire signé est disponible ci-dessous. Notre équipe a été notifiée et vous recontactera prochainement.",
+    "downloadPdf": "Télécharger le PDF signé",
+    "alreadySignedTitle": "Ce devis a déjà été signé",
+    "alreadySignedBody": "Signé par {name}."
   },
   "chat": {
     "title": "VIT GLOBAL — Assistant",
@@ -379,7 +430,9 @@
       "appointment": "Rendez-vous",
       "job": "Candidatures",
       "partner": "Demandes partenaires",
-      "chat": "Leads du chat"
+      "chat": "Leads du chat",
+      "accounts": "Comptes",
+      "calendar": "Calendrier"
     },
     "empty": "Aucune donnée pour le moment.",
     "columns": {
@@ -389,7 +442,18 @@
       "subject": "Sujet",
       "service": "Service",
       "status": "Statut"
-    }
+    },
+    "accounts": {
+      "role": "Rôle"
+    },
+    "calendar": {
+      "connected": "Connecté",
+      "notConnected": "Non connecté",
+      "connect": "Connecter",
+      "disconnect": "Déconnecter"
+    },
+    "signed": "Signé",
+    "copySignatureLink": "Copier le lien de signature"
   },
   "notFound": {
     "title": "Page introuvable",

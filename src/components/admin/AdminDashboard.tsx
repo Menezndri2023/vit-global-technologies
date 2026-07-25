@@ -3,12 +3,16 @@
 import { useEffect, useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { Logo } from "@/components/ui/Logo";
-import { Lock, LogOut, RefreshCw, FileDown, Paperclip } from "lucide-react";
+import { AccountsPanel } from "./AccountsPanel";
+import { CalendarPanel } from "./CalendarPanel";
+import { Lock, LogOut, RefreshCw, FileDown, Paperclip, Link as LinkIcon, CheckCircle2 } from "lucide-react";
 import clsx from "clsx";
 
 type EntityType = "contact" | "quote" | "appointment" | "job" | "partner" | "chat";
+type MainTab = EntityType | "accounts" | "calendar";
 
-const TABS: EntityType[] = ["contact", "quote", "appointment", "job", "partner", "chat"];
+const LEAD_TABS: EntityType[] = ["contact", "quote", "appointment", "job", "partner", "chat"];
+const EXTRA_TABS: MainTab[] = ["accounts", "calendar"];
 const STATUSES = ["NEW", "IN_PROGRESS", "DONE", "ARCHIVED"];
 
 type Row = Record<string, unknown>;
@@ -18,11 +22,15 @@ export function AdminDashboard() {
   const [authState, setAuthState] = useState<"loading" | "in" | "out">("loading");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
-  const [tab, setTab] = useState<EntityType>("contact");
+  const [tab, setTab] = useState<MainTab>("contact");
   const [rows, setRows] = useState<Row[]>([]);
   const [loadingRows, setLoadingRows] = useState(false);
 
-  const loadRows = useCallback(async (type: EntityType) => {
+  const loadRows = useCallback(async (type: MainTab) => {
+    if (type === "accounts" || type === "calendar") {
+      setAuthState((prev) => (prev === "loading" ? "in" : prev));
+      return;
+    }
     setLoadingRows(true);
     const res = await fetch(`/api/admin/data?type=${type}`);
     if (res.status === 401) {
@@ -123,7 +131,7 @@ export function AdminDashboard() {
         </div>
 
         <div className="mb-6 flex flex-wrap gap-2">
-          {TABS.map((type) => (
+          {LEAD_TABS.map((type) => (
             <button
               key={type}
               type="button"
@@ -131,6 +139,20 @@ export function AdminDashboard() {
               className={clsx(
                 "rounded-full px-4 py-2 text-sm font-semibold transition-colors",
                 tab === type ? "bg-brand-600 text-white" : "bg-white text-navy-900 hover:bg-brand-500/10"
+              )}
+            >
+              {t(`tabs.${type}`)}
+            </button>
+          ))}
+          <span className="mx-1 h-6 w-px self-center bg-navy-950/10" />
+          {EXTRA_TABS.map((type) => (
+            <button
+              key={type}
+              type="button"
+              onClick={() => setTab(type)}
+              className={clsx(
+                "rounded-full px-4 py-2 text-sm font-semibold transition-colors",
+                tab === type ? "bg-navy-950 text-white" : "bg-white text-navy-900 hover:bg-navy-950/5"
               )}
             >
               {t(`tabs.${type}`)}
@@ -145,6 +167,10 @@ export function AdminDashboard() {
           </button>
         </div>
 
+        {tab === "accounts" && <AccountsPanel />}
+        {tab === "calendar" && <CalendarPanel />}
+
+        {tab !== "accounts" && tab !== "calendar" && (
         <div className="overflow-x-auto rounded-2xl border border-navy-950/[0.06] bg-white shadow-card">
           <table className="w-full text-start text-sm">
             <thead>
@@ -212,6 +238,22 @@ export function AdminDashboard() {
                           <Paperclip className="h-3.5 w-3.5" /> {(row.attachmentName as string) || "Fichier"}
                         </a>
                       ) : null}
+                      {tab === "quote" &&
+                        (row.signature ? (
+                          <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600">
+                            <CheckCircle2 className="h-3.5 w-3.5" /> {t("signed")}
+                          </span>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() =>
+                              navigator.clipboard.writeText(`${window.location.origin}/devis/signature/${row.id}`)
+                            }
+                            className="inline-flex items-center gap-1 text-xs font-semibold text-navy-900 hover:text-brand-600"
+                          >
+                            <LinkIcon className="h-3.5 w-3.5" /> {t("copySignatureLink")}
+                          </button>
+                        ))}
                     </div>
                   </td>
                 </tr>
@@ -219,6 +261,7 @@ export function AdminDashboard() {
             </tbody>
           </table>
         </div>
+        )}
       </div>
     </div>
   );

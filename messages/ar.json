@@ -315,9 +315,17 @@
       "الوصول إلى سجل طلباتك وتذاكر الدعم"
     ],
     "loginTitle": "تسجيل الدخول",
+    "loginBody": "سجّل الدخول عبر Google أو Microsoft أو LinkedIn أو بريدك الإلكتروني للوصول إلى فضائك.",
     "requestAccessTitle": "ليس لديك حساب بعد؟",
     "requestAccessBody": "اطلب الوصول إلى فضاء العملاء الخاص بك، سيقوم فريقنا بتفعيله خلال 24 ساعة.",
-    "requestAccessButton": "اطلب وصولي"
+    "requestAccessButton": "اطلب وصولي",
+    "welcomeBack": "سعداء بعودتك",
+    "myQuotes": "طلبات عروض الأسعار الخاصة بي",
+    "myAppointments": "مواعيدي",
+    "myMessages": "رسائلي",
+    "myApplications": "طلبات التوظيف الخاصة بي",
+    "signed": "موقّع",
+    "signProposal": "توقيع العرض"
   },
   "partnerArea": {
     "heroEyebrow": "فضاء الشركاء",
@@ -332,7 +340,50 @@
     ],
     "requestAccessTitle": "كن شريكًا",
     "requestAccessBody": "قدّم طلبك للانضمام إلى شبكة شركائنا الدوليين.",
-    "requestAccessButton": "إرسال طلبي"
+    "requestAccessButton": "إرسال طلبي",
+    "welcomeBack": "سعداء بعودتك",
+    "myRequests": "طلبات الشراكة الخاصة بي",
+    "resourcesTitle": "موارد الشركاء",
+    "resourcesServices": "كتالوج الخدمات",
+    "resourcesCaseStudies": "دراسات الحالة",
+    "resourcesContact": "تواصل مع فريق الشراكات"
+  },
+  "auth": {
+    "continueWith": "المتابعة عبر {provider}",
+    "orEmail": "أو عبر بريدك الإلكتروني",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "name": "الاسم الكامل",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "createAccount": "إنشاء حسابي",
+    "loading": "جارٍ التحميل…",
+    "loginError": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+    "registerError": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "emailTaken": "يوجد حساب بالفعل بهذا البريد الإلكتروني.",
+    "logout": "تسجيل الخروج"
+  },
+  "signature": {
+    "eyebrow": "التوقيع الإلكتروني",
+    "title": "راجع ووقّع عرض سعرك",
+    "subtitle": "راجع الملخص أدناه ثم وقّع إلكترونيًا لتأكيد طلبك.",
+    "summaryTitle": "ملخص عرض السعر",
+    "service": "الخدمة",
+    "client": "العميل",
+    "budget": "الميزانية",
+    "description": "الوصف",
+    "fullName": "الاسم الكامل",
+    "emailLabel": "البريد الإلكتروني",
+    "consent": "أقر بأنني اطلعت على شروط عرض السعر هذا وأوافق على توقيعه إلكترونيًا، بنفس قيمة التوقيع اليدوي.",
+    "error": "تعذر حفظ التوقيع. يرجى المحاولة مرة أخرى.",
+    "submitting": "جارٍ التوقيع…",
+    "signButton": "توقيع إلكتروني",
+    "legalNote": "يسجل توقيعك اسمك وبريدك الإلكتروني والتوقيت الزمني وعنوان IP كإثبات.",
+    "successTitle": "تم توقيع عرض السعر بنجاح",
+    "successBody": "نسخة موقعة متاحة أدناه. تم إبلاغ فريقنا وسيتواصل معك قريبًا.",
+    "downloadPdf": "تحميل PDF الموقّع",
+    "alreadySignedTitle": "تم توقيع عرض السعر هذا بالفعل",
+    "alreadySignedBody": "وقّعه {name}."
   },
   "chat": {
     "title": "VIT GLOBAL — المساعد",
@@ -379,7 +430,9 @@
       "appointment": "المواعيد",
       "job": "طلبات التوظيف",
       "partner": "طلبات الشراكة",
-      "chat": "عملاء المحادثة"
+      "chat": "عملاء المحادثة",
+      "accounts": "الحسابات",
+      "calendar": "التقويم"
     },
     "empty": "لا توجد بيانات حتى الآن.",
     "columns": {
@@ -389,7 +442,18 @@
       "subject": "الموضوع",
       "service": "الخدمة",
       "status": "الحالة"
-    }
+    },
+    "accounts": {
+      "role": "الدور"
+    },
+    "calendar": {
+      "connected": "متصل",
+      "notConnected": "غير متصل",
+      "connect": "ربط",
+      "disconnect": "إلغاء الربط"
+    },
+    "signed": "موقّع",
+    "copySignatureLink": "نسخ رابط التوقيع"
   },
   "notFound": {
     "title": "الصفحة غير موجودة",

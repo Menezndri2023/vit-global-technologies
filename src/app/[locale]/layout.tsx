@@ -7,6 +7,7 @@ import { getDirection } from "@/i18n/direction";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ChatWidget } from "@/components/layout/ChatWidget";
+import { AuthSessionProvider } from "@/components/providers/AuthSessionProvider";
 import { buildMetadata, SITE_URL } from "@/lib/seo";
 import "../globals.css";
 
@@ -67,10 +68,12 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <ChatWidget />
+          <AuthSessionProvider>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <ChatWidget />
+          </AuthSessionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

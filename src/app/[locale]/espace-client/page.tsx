@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { auth, configuredOAuthProviders } from "@/auth";
 import { Section, Eyebrow } from "@/components/ui/Section";
-import { Field, Input } from "@/components/forms/fields";
-import { Button } from "@/components/ui/Button";
-import { AccessRequestForm } from "@/components/forms/AccessRequestForm";
+import { AuthPanel } from "@/components/auth/AuthPanel";
+import { ClientDashboard } from "@/components/dashboard/ClientDashboard";
 import { buildMetadata } from "@/lib/seo";
-import { CheckCircle2, LogIn, Lock } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export async function generateMetadata({
   params
@@ -21,7 +21,16 @@ export default async function ClientAreaPage({ params }: { params: Promise<{ loc
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("clientArea");
-  const tForm = await getTranslations("form");
+  const session = await auth();
+
+  if (session?.user?.email) {
+    return (
+      <Section tone="muted" className="min-h-[70vh]">
+        <ClientDashboard name={session.user.name} email={session.user.email} />
+      </Section>
+    );
+  }
+
   const features = t.raw("features") as string[];
 
   return (
@@ -50,30 +59,13 @@ export default async function ClientAreaPage({ params }: { params: Promise<{ loc
                 </div>
               ))}
             </div>
-
-            <div className="mt-8 rounded-2xl border border-navy-950/[0.06] bg-white p-6">
-              <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-navy-950">
-                <LogIn className="h-4 w-4 text-brand-600" /> {t("loginTitle")}
-              </div>
-              <div className="grid gap-4">
-                <Field label={tForm("email")} htmlFor="login-email">
-                  <Input id="login-email" type="email" disabled placeholder="vous@entreprise.com" className="opacity-60" />
-                </Field>
-                <Field label="Mot de passe" htmlFor="login-password">
-                  <Input id="login-password" type="password" disabled placeholder="••••••••" className="opacity-60" />
-                </Field>
-                <Button type="button" disabled variant="secondary" icon={<Lock className="h-4 w-4" />}>
-                  {t("loginTitle")}
-                </Button>
-              </div>
-            </div>
           </div>
 
           <div>
-            <h2 className="font-display text-lg font-bold text-navy-950">{t("requestAccessTitle")}</h2>
-            <p className="mt-2 text-sm text-silver-600">{t("requestAccessBody")}</p>
-            <div className="mt-5 rounded-3xl border border-navy-950/[0.06] bg-white p-8 shadow-card">
-              <AccessRequestForm subject="Demande d'accès — Espace Client" buttonLabel={t("requestAccessButton")} />
+            <h2 className="font-display text-lg font-bold text-navy-950">{t("loginTitle")}</h2>
+            <p className="mt-2 text-sm text-silver-600">{t("loginBody")}</p>
+            <div className="mt-5">
+              <AuthPanel callbackUrl="/espace-client" enabledProviders={configuredOAuthProviders} />
             </div>
           </div>
         </div>

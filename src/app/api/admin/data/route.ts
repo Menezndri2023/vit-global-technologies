@@ -4,7 +4,7 @@ import { isAdminAuthenticated } from "@/lib/admin-auth";
 
 const getters = {
   contact: () => prisma.contactMessage.findMany({ orderBy: { createdAt: "desc" } }),
-  quote: () => prisma.quoteRequest.findMany({ orderBy: { createdAt: "desc" } }),
+  quote: () => prisma.quoteRequest.findMany({ orderBy: { createdAt: "desc" }, include: { signature: true } }),
   appointment: () => prisma.appointment.findMany({ orderBy: { createdAt: "desc" } }),
   job: () => prisma.jobApplication.findMany({ orderBy: { createdAt: "desc" } }),
   partner: () => prisma.partnerRequest.findMany({ orderBy: { createdAt: "desc" } }),

@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { auth, configuredOAuthProviders } from "@/auth";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { PartnerRequestForm } from "@/components/forms/PartnerRequestForm";
+import { AuthPanel } from "@/components/auth/AuthPanel";
+import { PartnerDashboard } from "@/components/dashboard/PartnerDashboard";
 import { buildMetadata } from "@/lib/seo";
 import { CheckCircle2 } from "lucide-react";
 
@@ -19,6 +22,16 @@ export default async function PartnerAreaPage({ params }: { params: Promise<{ lo
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("partnerArea");
+  const session = await auth();
+
+  if (session?.user?.email) {
+    return (
+      <Section tone="muted" className="min-h-[70vh]">
+        <PartnerDashboard name={session.user.name} email={session.user.email} />
+      </Section>
+    );
+  }
+
   const features = t.raw("features") as string[];
 
   return (
@@ -46,6 +59,9 @@ export default async function PartnerAreaPage({ params }: { params: Promise<{ lo
                   <span className="text-sm text-navy-900">{feature}</span>
                 </div>
               ))}
+            </div>
+            <div className="mt-6">
+              <AuthPanel callbackUrl="/espace-partenaire" enabledProviders={configuredOAuthProviders} />
             </div>
           </div>
 
