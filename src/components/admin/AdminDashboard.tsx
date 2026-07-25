@@ -230,9 +230,9 @@ export function AdminDashboard() {
                           <FileDown className="h-3.5 w-3.5" /> PDF
                         </a>
                       )}
-                      {tab === "quote" && row.attachmentPath ? (
+                      {tab === "quote" && row.attachmentName ? (
                         <a
-                          href={`/api/admin/uploads/${row.attachmentPath}`}
+                          href={`/api/admin/quote/${row.id}/attachment`}
                           className="inline-flex items-center gap-1 text-xs font-semibold text-navy-900 hover:text-brand-600"
                         >
                           <Paperclip className="h-3.5 w-3.5" /> {(row.attachmentName as string) || "Fichier"}

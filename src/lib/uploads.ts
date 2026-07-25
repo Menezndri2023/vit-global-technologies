@@ -1,35 +1,32 @@
-import { mkdir, writeFile } from "fs/promises";
-import path from "path";
-import crypto from "crypto";
-
-const UPLOADS_ROOT = path.join(process.cwd(), "uploads");
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
 const ALLOWED_EXTENSIONS = [".pdf", ".doc", ".docx", ".xls", ".xlsx", ".png", ".jpg", ".jpeg", ".zip"];
+const MIME_BY_EXTENSION: Record<string, string> = {
+  ".pdf": "application/pdf",
+  ".doc": "application/msword",
+  ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  ".xls": "application/vnd.ms-excel",
+  ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".zip": "application/zip"
+};
 
-export async function saveUploadedFile(file: File, subdir: string) {
+export async function readUploadedFile(file: File) {
   if (file.size > MAX_FILE_SIZE) {
     throw new Error("FILE_TOO_LARGE");
   }
 
-  const ext = path.extname(file.name).toLowerCase();
+  const ext = `.${file.name.split(".").pop()?.toLowerCase() ?? ""}`;
   if (!ALLOWED_EXTENSIONS.includes(ext)) {
     throw new Error("FILE_TYPE_NOT_ALLOWED");
   }
 
-  const dir = path.join(UPLOADS_ROOT, subdir);
-  await mkdir(dir, { recursive: true });
+  const data = new Uint8Array(await file.arrayBuffer());
 
-  const safeName = `${crypto.randomUUID()}${ext}`;
-  const buffer = Buffer.from(await file.arrayBuffer());
-  await writeFile(path.join(dir, safeName), buffer);
-
-  return { relativePath: `${subdir}/${safeName}`, originalName: file.name };
-}
-
-export function resolveUploadPath(relativePath: string) {
-  const resolved = path.normalize(path.join(UPLOADS_ROOT, relativePath));
-  if (!resolved.startsWith(UPLOADS_ROOT)) {
-    throw new Error("INVALID_PATH");
-  }
-  return resolved;
+  return {
+    data,
+    originalName: file.name,
+    mimeType: MIME_BY_EXTENSION[ext] ?? "application/octet-stream"
+  };
 }

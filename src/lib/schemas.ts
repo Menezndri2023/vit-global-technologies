@@ -20,8 +20,6 @@ export const quoteSchema = z.object({
   budget: z.string().optional(),
   timeline: z.string().optional(),
   description: z.string().min(10),
-  attachmentPath: z.string().optional(),
-  attachmentName: z.string().optional(),
   locale: z.string().default("fr")
 });
 

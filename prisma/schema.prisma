@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -114,8 +114,9 @@ model QuoteRequest {
   budget         String?
   timeline       String?
   description    String
-  attachmentPath String?
-  attachmentName String?
+  attachmentData     Bytes?
+  attachmentName     String?
+  attachmentMimeType String?
   locale         String     @default("fr")
   status         LeadStatus @default(NEW)
   createdAt      DateTime   @default(now())
