@@ -1,16 +1,36 @@
-# React + Vite
+# VIT GLOBAL TECHNOLOGIES GROUP — Site officiel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site vitrine, commercial et back-office minimal de VIT GLOBAL TECHNOLOGIES GROUP : présentation de l'entreprise, des services, des filiales, des réalisations, prise de rendez-vous, demandes de devis, candidatures, espaces client/partenaire et mini-tableau de bord admin.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Next.js 15** (App Router) + TypeScript
+- **Tailwind CSS v4** — design system (couleurs, typographies) dans `src/app/globals.css`
+- **next-intl** — multilingue FR / EN / AR (arabe en RTL natif), routes préfixées par langue (`/fr`, `/en`, `/ar`)
+- **Prisma + SQLite** — persistance réelle des formulaires (contact, devis, rendez-vous, candidatures, demandes partenaires, leads du chat)
+- **lucide-react** — iconographie
 
-## React Compiler
+## Démarrage
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npx prisma migrate dev   # première fois seulement
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Le site est servi sur http://localhost:3000 (redirection automatique vers `/fr`).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Copier `.env.example` en `.env` et ajuster `ADMIN_PASSWORD` avant tout déploiement.
+
+## Contenu éditorial
+
+Tout le contenu (services, filiales, réalisations, blog, offres d'emploi, FAQ, équipe, partenaires) est centralisé dans `src/data/*.ts`, avec une traduction FR/EN/AR par élément. Les chaînes d'interface (navigation, formulaires, libellés) sont dans `messages/{fr,en,ar}.json`.
+
+## Back-office
+
+- `/[locale]/admin` — tableau de bord protégé par mot de passe (`ADMIN_PASSWORD`), affiche les soumissions de chaque formulaire.
+- Routes API sous `src/app/api/*` : `contact`, `quote`, `appointment`, `careers/apply`, `partners`, `chat`, `admin/*`.
+
+## Périmètre actuel
+
+Cette version couvre l'intégralité des pages et parcours demandés avec un back-end minimal réel (formulaires → base de données). Ne sont pas connectés à ce stade : passerelle de paiement, génération PDF, CRM externe, assistant IA connecté à un LLM, authentification complète des espaces client/partenaire — le chat et les espaces sont fonctionnels comme générateurs de leads (UI complète, données enregistrées) en attendant l'intégration de ces briques.

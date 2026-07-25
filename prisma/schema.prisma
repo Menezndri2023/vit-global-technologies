@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum LeadStatus {
+  NEW
+  IN_PROGRESS
+  DONE
+  ARCHIVED
+}
+
+model ContactMessage {
+  id        String     @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  company   String?
+  subject   String
+  message   String
+  locale    String     @default("fr")
+  status    LeadStatus @default(NEW)
+  createdAt DateTime   @default(now())
+}
+
+model QuoteRequest {
+  id          String     @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  country     String?
+  service     String
+  budget      String?
+  timeline    String?
+  description String
+  locale      String     @default("fr")
+  status      LeadStatus @default(NEW)
+  createdAt   DateTime   @default(now())
+}
+
+model Appointment {
+  id        String     @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  company   String?
+  topic     String
+  date      DateTime
+  timeSlot  String
+  notes     String?
+  locale    String     @default("fr")
+  status    LeadStatus @default(NEW)
+  createdAt DateTime   @default(now())
+}
+
+model JobApplication {
+  id          String     @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  position    String
+  portfolioUrl String?
+  linkedinUrl String?
+  message     String?
+  locale      String     @default("fr")
+  status      LeadStatus @default(NEW)
+  createdAt   DateTime   @default(now())
+}
+
+model PartnerRequest {
+  id          String     @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  company     String
+  country     String?
+  partnerType String
+  message     String
+  locale      String     @default("fr")
+  status      LeadStatus @default(NEW)
+  createdAt   DateTime   @default(now())
+}
+
+model ChatLead {
+  id        String     @id @default(cuid())
+  name      String?
+  email     String?
+  message   String
+  page      String?
+  locale    String     @default("fr")
+  status    LeadStatus @default(NEW)
+  createdAt DateTime   @default(now())
+}
