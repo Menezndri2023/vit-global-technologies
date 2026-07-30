@@ -25,7 +25,7 @@ function buildGoogleCalendarUrl(date: string, timeSlot: string, topic: string, n
     text: `VIT GLOBAL — ${topic}`,
     dates: `${format(start)}/${format(end)}`,
     details: notes || "Rendez-vous VIT GLOBAL TECHNOLOGIES GROUP",
-    location: "VIT GLOBAL TECHNOLOGIES GROUP, Abidjan"
+    location: "VIT GLOBAL TECHNOLOGIES GROUP, Casablanca"
   });
 
   return `https://calendar.google.com/calendar/render?${params.toString()}`;

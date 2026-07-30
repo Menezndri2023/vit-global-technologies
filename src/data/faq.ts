@@ -15,9 +15,9 @@ export const faqItems: FaqItem[] = [
       ar: "في أي دول تعمل مجموعة VIT GLOBAL التقنية؟"
     },
     answer: {
-      fr: "Notre siège est basé à Abidjan et nous intervenons dans toute l'Afrique de l'Ouest, en Afrique du Nord ainsi qu'en Europe, via nos équipes locales et nos filiales partenaires.",
-      en: "Our headquarters is based in Abidjan and we operate across West Africa, North Africa and Europe, through our local teams and partner subsidiaries.",
-      ar: "يقع مقرنا الرئيسي في أبيدجان ونعمل في جميع أنحاء غرب أفريقيا وشمال أفريقيا وأوروبا، عبر فرقنا المحلية وفروعنا الشريكة."
+      fr: "Notre siège est basé à Casablanca, avec un bureau à Abidjan, et nous intervenons dans toute l'Afrique de l'Ouest, en Afrique du Nord ainsi qu'en Europe, via nos équipes locales et nos filiales partenaires.",
+      en: "Our headquarters is based in Casablanca, with an office in Abidjan, and we operate across West Africa, North Africa and Europe, through our local teams and partner subsidiaries.",
+      ar: "يقع مقرنا الرئيسي في الدار البيضاء، مع مكتب في أبيدجان، ونعمل في جميع أنحاء غرب أفريقيا وشمال أفريقيا وأوروبا، عبر فرقنا المحلية وفروعنا الشريكة."
     }
   },
   {

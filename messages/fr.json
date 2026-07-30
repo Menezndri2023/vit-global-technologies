@@ -123,7 +123,7 @@
   "about": {
     "heroEyebrow": "À propos de nous",
     "heroTitle": "Un cabinet international au service de la transformation digitale",
-    "heroSubtitle": "Depuis Abidjan, VIT GLOBAL TECHNOLOGIES GROUP accompagne des entreprises, institutions et investisseurs à travers le monde dans leurs projets technologiques les plus ambitieux.",
+    "heroSubtitle": "Depuis Casablanca, VIT GLOBAL TECHNOLOGIES GROUP accompagne des entreprises, institutions et investisseurs à travers le monde dans leurs projets technologiques les plus ambitieux.",
     "storyTitle": "Notre histoire",
     "storyBody": "Fondé pour combler le fossé entre l'ambition digitale des organisations africaines et internationales et l'excellence technologique mondiale, VIT GLOBAL TECHNOLOGIES GROUP a rapidement grandi jusqu'à devenir un groupe multi-filiales reconnu, actif dans plus de 14 pays.",
     "visionTitle": "Notre vision",
@@ -227,7 +227,7 @@
     "heroTitle": "Parlons de votre projet",
     "heroSubtitle": "Notre équipe vous répond sous 24 à 48h ouvrées, où que vous soyez dans le monde.",
     "officeTitle": "Notre siège",
-    "officeAddress": "Abidjan, Côte d'Ivoire",
+    "officeAddress": "Boulevard Lalla Yacout & Rue El Arrar, Résidence Galis, Casablanca, Maroc",
     "emailLabel": "Email",
     "phoneLabel": "Téléphone",
     "hoursLabel": "Horaires",
@@ -416,7 +416,7 @@
     "newsletterPlaceholder": "Votre adresse email",
     "newsletterButton": "S'abonner",
     "rights": "Tous droits réservés.",
-    "address": "Abidjan, Côte d'Ivoire"
+    "address": "Casablanca, Maroc"
   },
   "admin": {
     "title": "Tableau de bord — Administration",

@@ -19,8 +19,9 @@ const organizationJsonLd = {
   logo: `${SITE_URL}/icon.svg`,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Abidjan",
-    addressCountry: "CI"
+    streetAddress: "Boulevard Lalla Yacout & Rue El Arrar, Résidence Galis",
+    addressLocality: "Casablanca",
+    addressCountry: "MA"
   },
   sameAs: []
 };

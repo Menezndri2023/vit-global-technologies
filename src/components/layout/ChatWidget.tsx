@@ -90,7 +90,7 @@ export function ChatWidget() {
 
             <div className="flex flex-wrap gap-2">
               <a
-                href="https://wa.me/2250700000000"
+                href="https://wa.me/212607742672"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-700 hover:bg-emerald-500/20"

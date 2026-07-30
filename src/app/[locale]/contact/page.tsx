@@ -52,14 +52,18 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 </p>
                 <p className="flex items-center gap-3">
                   <Mail className="h-4 w-4 shrink-0 text-brand-400" />
-                  <a href="mailto:contact@vitglobaltech.com" className="hover:text-white">
-                    contact@vitglobaltech.com
+                  <a href="mailto:ndrimanasse437@gmail.com" className="hover:text-white">
+                    ndrimanasse437@gmail.com
                   </a>
                 </p>
                 <p className="flex items-center gap-3">
                   <Phone className="h-4 w-4 shrink-0 text-brand-400" />
-                  <a href="tel:+2250700000000" className="hover:text-white">
-                    +225 07 00 00 00 00
+                  <a href="tel:+212607742672" className="hover:text-white">
+                    +212 06 07 74 26 72
+                  </a>
+                  <span className="text-white/40">·</span>
+                  <a href="tel:+2250748124635" className="hover:text-white">
+                    +225 07 48 12 46 35
                   </a>
                 </p>
                 <p className="flex items-start gap-3">
@@ -67,7 +71,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 </p>
               </div>
               <a
-                href="https://wa.me/2250700000000?text=Bonjour%20VIT%20GLOBAL%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services."
+                href="https://wa.me/212607742672?text=Bonjour%20VIT%20GLOBAL%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 flex items-center justify-center gap-2 rounded-full bg-emerald-500 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-600"
@@ -79,7 +83,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             <div className="mt-6 overflow-hidden rounded-2xl border border-navy-950/[0.06]">
               <iframe
                 title={t("mapTitle")}
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-4.05%2C5.28%2C-3.95%2C5.38&layer=mapnik&marker=5.33%2C-4.0"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-7.6650%2C33.5695%2C-7.5750%2C33.6195&layer=mapnik&marker=33.5945%2C-7.6200"
                 className="h-56 w-full grayscale-[15%]"
                 loading="lazy"
               />

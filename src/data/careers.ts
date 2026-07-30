@@ -14,7 +14,7 @@ export const jobOpenings: JobOpening[] = [
   {
     slug: "ingenieur-full-stack-senior",
     department: { fr: "Développement", en: "Development", ar: "التطوير" },
-    location: { fr: "Abidjan / Hybride", en: "Abidjan / Hybrid", ar: "أبيدجان / هجين" },
+    location: { fr: "Casablanca / Abidjan / Hybride", en: "Casablanca / Abidjan / Hybrid", ar: "الدار البيضاء / أبيدجان / هجين" },
     type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
     title: {
       fr: "Ingénieur·e Full Stack Senior (React / Node.js)",
@@ -35,7 +35,7 @@ export const jobOpenings: JobOpening[] = [
   {
     slug: "expert-cybersecurite",
     department: { fr: "Cybersécurité", en: "Cybersecurity", ar: "الأمن السيبراني" },
-    location: { fr: "Abidjan", en: "Abidjan", ar: "أبيدجان" },
+    location: { fr: "Casablanca / Abidjan", en: "Casablanca / Abidjan", ar: "الدار البيضاء / أبيدجان" },
     type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
     title: {
       fr: "Expert·e Cybersécurité & Pentest",
@@ -56,7 +56,7 @@ export const jobOpenings: JobOpening[] = [
   {
     slug: "data-scientist-ia",
     department: { fr: "Data & IA", en: "Data & AI", ar: "البيانات والذكاء الاصطناعي" },
-    location: { fr: "Abidjan / Télétravail", en: "Abidjan / Remote", ar: "أبيدجان / عن بُعد" },
+    location: { fr: "Casablanca / Abidjan / Télétravail", en: "Casablanca / Abidjan / Remote", ar: "الدار البيضاء / أبيدجان / عن بُعد" },
     type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
     title: {
       fr: "Data Scientist / Ingénieur·e IA",
@@ -77,7 +77,7 @@ export const jobOpenings: JobOpening[] = [
   {
     slug: "product-designer-ui-ux",
     department: { fr: "Design", en: "Design", ar: "التصميم" },
-    location: { fr: "Abidjan / Hybride", en: "Abidjan / Hybrid", ar: "أبيدجان / هجين" },
+    location: { fr: "Casablanca / Abidjan / Hybride", en: "Casablanca / Abidjan / Hybrid", ar: "الدار البيضاء / أبيدجان / هجين" },
     type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
     title: {
       fr: "Product Designer UI/UX",
@@ -98,7 +98,7 @@ export const jobOpenings: JobOpening[] = [
   {
     slug: "consultant-transformation-digitale",
     department: { fr: "Conseil", en: "Consulting", ar: "الاستشارات" },
-    location: { fr: "Abidjan / Déplacements", en: "Abidjan / Travel required", ar: "أبيدجان / يتطلب تنقل" },
+    location: { fr: "Casablanca / Abidjan / Déplacements", en: "Casablanca / Abidjan / Travel required", ar: "الدار البيضاء / أبيدجان / يتطلب تنقل" },
     type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
     title: {
       fr: "Consultant·e Senior Transformation Digitale",
@@ -119,7 +119,7 @@ export const jobOpenings: JobOpening[] = [
   {
     slug: "chef-de-projet-devops",
     department: { fr: "DevOps", en: "DevOps", ar: "DevOps" },
-    location: { fr: "Abidjan / Télétravail", en: "Abidjan / Remote", ar: "أبيدجان / عن بُعد" },
+    location: { fr: "Casablanca / Abidjan / Télétravail", en: "Casablanca / Abidjan / Remote", ar: "الدار البيضاء / أبيدجان / عن بُعد" },
     type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
     title: {
       fr: "Ingénieur·e DevOps / SRE",

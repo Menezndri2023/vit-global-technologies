@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 
-export const SITE_URL = "https://www.vitglobaltech.com";
+export const SITE_URL = "https://vit-global.tech";
 
 export function buildMetadata({
   locale,
