@@ -1,4 +1,5 @@
 import twilio from "twilio";
+import { sendMail } from "@/lib/mail";
 
 function getClient() {
   const sid = process.env.TWILIO_ACCOUNT_SID;
@@ -40,9 +41,11 @@ export async function sendWhatsApp(to: string, body: string) {
 }
 
 export async function notifyAdmin(body: string) {
+  await sendMail("🔔 Nouvelle activité — VIT GLOBAL TECHNOLOGIES GROUP", body);
+
   const adminPhone = process.env.ADMIN_NOTIFY_PHONE;
   if (!adminPhone) {
-    console.info("[notify] Admin notification skipped (no ADMIN_NOTIFY_PHONE):", body);
+    console.info("[notify] WhatsApp skipped (no ADMIN_NOTIFY_PHONE):", body);
     return;
   }
   await sendWhatsApp(adminPhone, body);
