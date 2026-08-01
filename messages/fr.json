@@ -29,6 +29,8 @@
     "solutionsDesc": "Des logiciels métiers prêts à déployer",
     "filiales": "Filiales",
     "filialesDesc": "Les entités spécialisées du groupe",
+    "modeleEconomique": "Modèle économique",
+    "modeleEconomiqueDesc": "Vision, pôles d'activité et tarification",
     "work": "Réalisations",
     "realisations": "Réalisations",
     "realisationsDesc": "Nos succès clients dans le monde",
@@ -177,6 +179,26 @@
     "foundedLabel": "Créée en",
     "offeringsTitle": "Nos offres"
   },
+  "modeleEconomique": {
+    "heroEyebrow": "Modèle économique",
+    "heroTitle": "Un modèle économique clair, structuré autour de 6 pôles d'expertise",
+    "heroSubtitle": "De la vision à la tarification, découvrez comment VIT GLOBAL TECHNOLOGIES GROUP transforme votre besoin en solution livrée — en toute transparence.",
+    "visionTitle": "Notre vision",
+    "visionText": "Devenir un leader africain de la transformation digitale en développant des solutions technologiques innovantes pour les entreprises, les administrations et les particuliers.",
+    "businessUnitsTitle": "6 Business Units, une seule vision",
+    "businessUnitsSubtitle": "Chaque pôle porte une expertise dédiée, activable seule ou combinée selon votre projet.",
+    "categoriesTitle": "4 catégories de prestations",
+    "categoriesSubtitle": "Un mode de facturation adapté à la nature de chaque mission.",
+    "pricingTitle": "Tarification",
+    "pricingSubtitle": "Des tarifs indicatifs, convertis automatiquement dans votre devise.",
+    "pricingDisclaimer": "Tarifs de départ, hors taxes, à titre indicatif. La grille tarifaire complète et personnalisée vous est communiquée lors de votre demande de devis.",
+    "pricingCurrencyLabel": "Afficher en",
+    "pricingFrom": "à partir de",
+    "processTitle": "Comment nous travaillons",
+    "processSubtitle": "Un parcours structuré, de la prise de contact au support après livraison.",
+    "ctaTitle": "Prêt à donner vie à votre projet ?",
+    "ctaSubtitle": "Décrivez-nous votre besoin : nous vous répondons avec un devis détaillé et notre grille tarifaire complète."
+  },
   "realisations": {
     "heroEyebrow": "Portfolio",
     "heroTitle": "Des résultats concrets pour nos clients dans le monde",
@@ -198,7 +220,7 @@
     "whyTitle": "Pourquoi rejoindre VIT GLOBAL ?",
     "whyReasons": [
       { "title": "Projets internationaux", "description": "Travaillez sur des projets à impact dans plus de 14 pays." },
-      { "title": "Montée en compétences", "description": "Formations continues et certifications via VIT ACADEMY." },
+      { "title": "Montée en compétences", "description": "Formations continues, certifications et mentorat en interne." },
       { "title": "Flexibilité", "description": "Modes de travail hybrides et télétravail selon les postes." },
       { "title": "Évolution rapide", "description": "Une croissance qui ouvre des opportunités d'évolution constantes." }
     ],
@@ -432,7 +454,8 @@
       "partner": "Demandes partenaires",
       "chat": "Leads du chat",
       "accounts": "Comptes",
-      "calendar": "Calendrier"
+      "calendar": "Calendrier",
+      "model": "Modèle économique"
     },
     "empty": "Aucune donnée pour le moment.",
     "columns": {
@@ -453,7 +476,20 @@
       "disconnect": "Déconnecter"
     },
     "signed": "Signé",
-    "copySignatureLink": "Copier le lien de signature"
+    "copySignatureLink": "Copier le lien de signature",
+    "sendPricing": "Envoyer la grille tarifaire",
+    "sendPricingSuccess": "Grille tarifaire envoyée",
+    "sendPricingError": "Échec de l'envoi",
+    "configurePricing": "Configurer",
+    "pricingConfig": {
+      "title": "Grille tarifaire sur mesure",
+      "subtitle": "Personnalisée pour la demande de {name}",
+      "itemLabel": "Prestation",
+      "amountLabel": "Montant",
+      "addLine": "Ajouter une ligne",
+      "cancel": "Annuler",
+      "save": "Enregistrer"
+    }
   },
   "notFound": {
     "title": "Page introuvable",

@@ -27,3 +27,34 @@ export async function sendMail(subject: string, body: string) {
     console.error("[notify] Email failed", error);
   }
 }
+
+interface ClientMailAttachment {
+  filename: string;
+  content: Buffer;
+  contentType?: string;
+}
+
+export async function sendMailTo(
+  to: string,
+  subject: string,
+  html: string,
+  attachments?: ClientMailAttachment[]
+) {
+  const transport = getTransport();
+  if (!to || !transport) {
+    console.info("[notify] Client email skipped (SMTP not configured or no recipient):", subject);
+    return;
+  }
+  try {
+    // Plain text/HTML only — never pass a `raw` MIME option here (GHSA-p6gq-j5cr-w38f).
+    await transport.sendMail({
+      from: `"VIT GLOBAL TECHNOLOGIES GROUP" <${process.env.SMTP_USER}>`,
+      to,
+      subject,
+      html,
+      attachments
+    });
+  } catch (error) {
+    console.error("[notify] Client email failed", error);
+  }
+}

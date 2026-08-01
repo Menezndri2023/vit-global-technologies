@@ -5,14 +5,16 @@ import { useTranslations } from "next-intl";
 import { Logo } from "@/components/ui/Logo";
 import { AccountsPanel } from "./AccountsPanel";
 import { CalendarPanel } from "./CalendarPanel";
-import { Lock, LogOut, RefreshCw, FileDown, Paperclip, Link as LinkIcon, CheckCircle2 } from "lucide-react";
+import { BusinessModelPanel } from "./BusinessModelPanel";
+import { QuotePricingModal, type PricingLine } from "./QuotePricingModal";
+import { Lock, LogOut, RefreshCw, FileDown, Paperclip, Link as LinkIcon, CheckCircle2, Send, Settings2 } from "lucide-react";
 import clsx from "clsx";
 
 type EntityType = "contact" | "quote" | "appointment" | "job" | "partner" | "chat";
-type MainTab = EntityType | "accounts" | "calendar";
+type MainTab = EntityType | "accounts" | "calendar" | "model";
 
 const LEAD_TABS: EntityType[] = ["contact", "quote", "appointment", "job", "partner", "chat"];
-const EXTRA_TABS: MainTab[] = ["accounts", "calendar"];
+const EXTRA_TABS: MainTab[] = ["accounts", "calendar", "model"];
 const STATUSES = ["NEW", "IN_PROGRESS", "DONE", "ARCHIVED"];
 
 type Row = Record<string, unknown>;
@@ -25,9 +27,11 @@ export function AdminDashboard() {
   const [tab, setTab] = useState<MainTab>("contact");
   const [rows, setRows] = useState<Row[]>([]);
   const [loadingRows, setLoadingRows] = useState(false);
+  const [sendingPricingId, setSendingPricingId] = useState<string | null>(null);
+  const [pricingModalRow, setPricingModalRow] = useState<{ id: string; name: string } | null>(null);
 
   const loadRows = useCallback(async (type: MainTab) => {
-    if (type === "accounts" || type === "calendar") {
+    if (type === "accounts" || type === "calendar" || type === "model") {
       setAuthState((prev) => (prev === "loading" ? "in" : prev));
       return;
     }
@@ -71,6 +75,18 @@ export function AdminDashboard() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ type: tab, id, status })
     });
+  }
+
+  async function sendPricing(id: string) {
+    setSendingPricingId(id);
+    try {
+      const res = await fetch(`/api/admin/quote/${id}/send-pricing`, { method: "POST" });
+      window.alert(res.ok ? t("sendPricingSuccess") : t("sendPricingError"));
+    } catch {
+      window.alert(t("sendPricingError"));
+    } finally {
+      setSendingPricingId(null);
+    }
   }
 
   async function handleLogout() {
@@ -169,8 +185,9 @@ export function AdminDashboard() {
 
         {tab === "accounts" && <AccountsPanel />}
         {tab === "calendar" && <CalendarPanel />}
+        {tab === "model" && <BusinessModelPanel />}
 
-        {tab !== "accounts" && tab !== "calendar" && (
+        {tab !== "accounts" && tab !== "calendar" && tab !== "model" && (
         <div className="overflow-x-auto rounded-2xl border border-navy-950/[0.06] bg-white shadow-card">
           <table className="w-full text-start text-sm">
             <thead>
@@ -230,6 +247,28 @@ export function AdminDashboard() {
                           <FileDown className="h-3.5 w-3.5" /> PDF
                         </a>
                       )}
+                      {tab === "quote" && (
+                        <button
+                          type="button"
+                          onClick={() => setPricingModalRow({ id: String(row.id), name: (row.name as string) || "" })}
+                          className={clsx(
+                            "inline-flex items-center gap-1 text-xs font-semibold hover:text-brand-600",
+                            row.customPricing ? "text-brand-600" : "text-navy-900"
+                          )}
+                        >
+                          <Settings2 className="h-3.5 w-3.5" /> {t("configurePricing")}
+                        </button>
+                      )}
+                      {tab === "quote" && (
+                        <button
+                          type="button"
+                          onClick={() => sendPricing(String(row.id))}
+                          disabled={sendingPricingId === row.id}
+                          className="inline-flex items-center gap-1 text-xs font-semibold text-navy-900 hover:text-brand-600 disabled:opacity-50"
+                        >
+                          <Send className="h-3.5 w-3.5" /> {t("sendPricing")}
+                        </button>
+                      )}
                       {tab === "quote" && row.attachmentName ? (
                         <a
                           href={`/api/admin/quote/${row.id}/attachment`}
@@ -263,6 +302,18 @@ export function AdminDashboard() {
         </div>
         )}
       </div>
+
+      {pricingModalRow && (
+        <QuotePricingModal
+          quoteId={pricingModalRow.id}
+          quoteName={pricingModalRow.name}
+          initialLines={(rows.find((r) => String(r.id) === pricingModalRow.id)?.customPricing as PricingLine[] | null) ?? null}
+          onClose={() => setPricingModalRow(null)}
+          onSaved={(lines) => {
+            setRows((prev) => prev.map((r) => (String(r.id) === pricingModalRow.id ? { ...r, customPricing: lines } : r)));
+          }}
+        />
+      )}
     </div>
   );
 }

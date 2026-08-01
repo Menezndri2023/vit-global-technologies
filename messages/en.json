@@ -29,6 +29,8 @@
     "solutionsDesc": "Ready-to-deploy business software",
     "filiales": "Subsidiaries",
     "filialesDesc": "The group's specialized entities",
+    "modeleEconomique": "Business model",
+    "modeleEconomiqueDesc": "Vision, business units and pricing",
     "work": "Work",
     "realisations": "Case Studies",
     "realisationsDesc": "Our client success stories worldwide",
@@ -177,6 +179,26 @@
     "foundedLabel": "Founded in",
     "offeringsTitle": "Our offerings"
   },
+  "modeleEconomique": {
+    "heroEyebrow": "Business model",
+    "heroTitle": "A clear business model, built around 6 areas of expertise",
+    "heroSubtitle": "From vision to pricing, see how VIT GLOBAL TECHNOLOGIES GROUP turns your need into a delivered solution — with full transparency.",
+    "visionTitle": "Our vision",
+    "visionText": "Becoming an African leader in digital transformation by developing innovative technology solutions for businesses, public institutions and individuals.",
+    "businessUnitsTitle": "6 Business Units, one vision",
+    "businessUnitsSubtitle": "Each unit carries dedicated expertise, activated alone or combined depending on your project.",
+    "categoriesTitle": "4 service categories",
+    "categoriesSubtitle": "A billing model suited to the nature of each engagement.",
+    "pricingTitle": "Pricing",
+    "pricingSubtitle": "Indicative rates, automatically converted into your currency.",
+    "pricingDisclaimer": "Starting rates, excluding tax, for guidance only. The complete, tailored rate card is shared with you when you request a quote.",
+    "pricingCurrencyLabel": "Display in",
+    "pricingFrom": "starting at",
+    "processTitle": "How we work",
+    "processSubtitle": "A structured journey, from first contact to post-delivery support.",
+    "ctaTitle": "Ready to bring your project to life?",
+    "ctaSubtitle": "Tell us about your needs: we'll get back to you with a detailed quote and our full rate card."
+  },
   "realisations": {
     "heroEyebrow": "Case Studies",
     "heroTitle": "Concrete results for our clients worldwide",
@@ -198,7 +220,7 @@
     "whyTitle": "Why join VIT GLOBAL?",
     "whyReasons": [
       { "title": "International projects", "description": "Work on impactful projects across more than 14 countries." },
-      { "title": "Upskilling", "description": "Continuous training and certifications through VIT ACADEMY." },
+      { "title": "Upskilling", "description": "Continuous in-house training, certifications and mentoring." },
       { "title": "Flexibility", "description": "Hybrid and remote work arrangements depending on the role." },
       { "title": "Fast growth", "description": "Growth that opens up constant opportunities for advancement." }
     ],
@@ -432,7 +454,8 @@
       "partner": "Partner requests",
       "chat": "Chat leads",
       "accounts": "Accounts",
-      "calendar": "Calendar"
+      "calendar": "Calendar",
+      "model": "Business model"
     },
     "empty": "No data yet.",
     "columns": {
@@ -453,7 +476,20 @@
       "disconnect": "Disconnect"
     },
     "signed": "Signed",
-    "copySignatureLink": "Copy signature link"
+    "copySignatureLink": "Copy signature link",
+    "sendPricing": "Send rate card",
+    "sendPricingSuccess": "Rate card sent",
+    "sendPricingError": "Failed to send",
+    "configurePricing": "Configure",
+    "pricingConfig": {
+      "title": "Custom rate card",
+      "subtitle": "Tailored for {name}'s request",
+      "itemLabel": "Item",
+      "amountLabel": "Amount",
+      "addLine": "Add a line",
+      "cancel": "Cancel",
+      "save": "Save"
+    }
   },
   "notFound": {
     "title": "Page not found",

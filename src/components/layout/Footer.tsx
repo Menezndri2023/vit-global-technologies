@@ -40,6 +40,7 @@ export function Footer() {
               <li><Link href="/partenaires" className="hover:text-brand-300">{t("nav.partners")}</Link></li>
               <li><Link href="/carrieres" className="hover:text-brand-300">{t("nav.careersLink")}</Link></li>
               <li><Link href="/blog" className="hover:text-brand-300">{t("nav.blog")}</Link></li>
+              <li><Link href="/modele-economique" className="hover:text-brand-300">{t("nav.modeleEconomique")}</Link></li>
             </ul>
           </div>
 

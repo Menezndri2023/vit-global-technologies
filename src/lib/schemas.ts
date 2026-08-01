@@ -67,6 +67,15 @@ export const chatLeadSchema = z.object({
   locale: z.string().default("fr")
 });
 
+export const customPricingLineSchema = z.object({
+  title: z.string().min(1).max(120),
+  amount: z.string().min(1).max(80)
+});
+
+export const customPricingSchema = z.array(customPricingLineSchema).max(30);
+
+export type CustomPricingLine = z.infer<typeof customPricingLineSchema>;
+
 export type ContactInput = z.infer<typeof contactSchema>;
 export type QuoteInput = z.infer<typeof quoteSchema>;
 export type AppointmentInput = z.infer<typeof appointmentSchema>;

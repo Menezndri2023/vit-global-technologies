@@ -117,6 +117,7 @@ model QuoteRequest {
   attachmentData     Bytes?
   attachmentName     String?
   attachmentMimeType String?
+  customPricing  Json?
   locale         String     @default("fr")
   status         LeadStatus @default(NEW)
   createdAt      DateTime   @default(now())

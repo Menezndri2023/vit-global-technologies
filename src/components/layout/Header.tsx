@@ -52,7 +52,8 @@ export function Header() {
     { href: "/a-propos#valeurs", label: t("nav.companyValues"), desc: t("nav.companyValuesDesc"), icon: "Gem" },
     { href: "/equipe", label: t("nav.team"), desc: t("nav.teamDesc"), icon: "Users" },
     { href: "/partenaires", label: t("nav.partners"), desc: t("nav.partnersDesc"), icon: "Handshake" },
-    { href: "/carrieres", label: t("nav.careersLink"), desc: t("nav.careersDesc"), icon: "Briefcase" }
+    { href: "/carrieres", label: t("nav.careersLink"), desc: t("nav.careersDesc"), icon: "Briefcase" },
+    { href: "/modele-economique", label: t("nav.modeleEconomique"), desc: t("nav.modeleEconomiqueDesc"), icon: "PieChart" }
   ];
 
   const resourceLinks = [

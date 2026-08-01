@@ -29,6 +29,8 @@
     "solutionsDesc": "برمجيات أعمال جاهزة للنشر",
     "filiales": "الشركات التابعة",
     "filialesDesc": "الكيانات المتخصصة للمجموعة",
+    "modeleEconomique": "النموذج الاقتصادي",
+    "modeleEconomiqueDesc": "الرؤية وأقطاب النشاط والتسعير",
     "work": "أعمالنا",
     "realisations": "دراسات الحالة",
     "realisationsDesc": "قصص نجاح عملائنا حول العالم",
@@ -177,6 +179,26 @@
     "foundedLabel": "تأسست في",
     "offeringsTitle": "عروضنا"
   },
+  "modeleEconomique": {
+    "heroEyebrow": "النموذج الاقتصادي",
+    "heroTitle": "نموذج اقتصادي واضح، مبني حول 6 أقطاب من الخبرة",
+    "heroSubtitle": "من الرؤية إلى التسعير، اكتشفوا كيف تحوّل VIT GLOBAL TECHNOLOGIES GROUP احتياجكم إلى حل مُنجز — بكل شفافية.",
+    "visionTitle": "رؤيتنا",
+    "visionText": "أن نصبح رائدًا أفريقيًا في التحول الرقمي من خلال تطوير حلول تكنولوجية مبتكرة للشركات والإدارات والأفراد.",
+    "businessUnitsTitle": "6 أقطاب أعمال، رؤية واحدة",
+    "businessUnitsSubtitle": "يحمل كل قطب خبرة مخصصة، يمكن تفعيلها بمفردها أو مجتمعة حسب مشروعكم.",
+    "categoriesTitle": "4 فئات من الخدمات",
+    "categoriesSubtitle": "نمط فوترة يتناسب مع طبيعة كل مهمة.",
+    "pricingTitle": "التسعير",
+    "pricingSubtitle": "أسعار إرشادية، تُحوَّل تلقائيًا إلى عملتكم.",
+    "pricingDisclaimer": "أسعار ابتداءً من، غير شاملة للضريبة، لأغراض توضيحية فقط. تُرسل إليكم الشبكة التسعيرية الكاملة والمخصصة عند طلب عرض السعر.",
+    "pricingCurrencyLabel": "العرض بعملة",
+    "pricingFrom": "ابتداءً من",
+    "processTitle": "كيف نعمل",
+    "processSubtitle": "مسار منظم، من أول تواصل إلى الدعم بعد التسليم.",
+    "ctaTitle": "جاهزون لتجسيد مشروعكم؟",
+    "ctaSubtitle": "أخبرونا باحتياجكم، وسنعاود التواصل معكم بعرض سعر مفصل وشبكتنا التسعيرية الكاملة."
+  },
   "realisations": {
     "heroEyebrow": "أعمالنا",
     "heroTitle": "نتائج ملموسة لعملائنا حول العالم",
@@ -198,7 +220,7 @@
     "whyTitle": "لماذا الانضمام إلى VIT GLOBAL؟",
     "whyReasons": [
       { "title": "مشاريع دولية", "description": "اعمل على مشاريع ذات أثر في أكثر من 14 دولة." },
-      { "title": "تطوير المهارات", "description": "تدريب مستمر وشهادات عبر VIT ACADEMY." },
+      { "title": "تطوير المهارات", "description": "تدريب مستمر داخلي وشهادات ومرافقة مهنية." },
       { "title": "المرونة", "description": "أنماط عمل هجينة وعن بُعد حسب المنصب." },
       { "title": "نمو سريع", "description": "نمو يفتح فرصًا مستمرة للتطور الوظيفي." }
     ],
@@ -432,7 +454,8 @@
       "partner": "طلبات الشراكة",
       "chat": "عملاء المحادثة",
       "accounts": "الحسابات",
-      "calendar": "التقويم"
+      "calendar": "التقويم",
+      "model": "النموذج الاقتصادي"
     },
     "empty": "لا توجد بيانات حتى الآن.",
     "columns": {
@@ -453,7 +476,20 @@
       "disconnect": "إلغاء الربط"
     },
     "signed": "موقّع",
-    "copySignatureLink": "نسخ رابط التوقيع"
+    "copySignatureLink": "نسخ رابط التوقيع",
+    "sendPricing": "إرسال الشبكة التسعيرية",
+    "sendPricingSuccess": "تم إرسال الشبكة التسعيرية",
+    "sendPricingError": "فشل الإرسال",
+    "configurePricing": "تخصيص",
+    "pricingConfig": {
+      "title": "شبكة تسعيرية مخصصة",
+      "subtitle": "مخصصة لطلب {name}",
+      "itemLabel": "الخدمة",
+      "amountLabel": "المبلغ",
+      "addLine": "إضافة سطر",
+      "cancel": "إلغاء",
+      "save": "حفظ"
+    }
   },
   "notFound": {
     "title": "الصفحة غير موجودة",
