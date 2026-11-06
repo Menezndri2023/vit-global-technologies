@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { quoteSchema } from "@/lib/schemas";
 import { readUploadedFile } from "@/lib/uploads";
@@ -90,7 +90,7 @@ export async function POST(request: Request) {
       attachmentMimeType
     }
   });
-  notifyAdmin(`Nouvelle demande de devis de ${entry.name} — ${entry.service}`);
-  sendQuoteConfirmation(entry);
+  after(() => notifyAdmin(`Nouvelle demande de devis de ${entry.name} — ${entry.service}`));
+  after(() => sendQuoteConfirmation(entry));
   return NextResponse.json({ id: entry.id }, { status: 201 });
 }

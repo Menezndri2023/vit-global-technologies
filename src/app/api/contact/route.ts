@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { contactSchema } from "@/lib/schemas";
 import { notifyAdmin } from "@/lib/notify";
@@ -12,6 +12,6 @@ export async function POST(request: Request) {
   }
 
   const entry = await prisma.contactMessage.create({ data: parsed.data });
-  notifyAdmin(`Nouveau message de contact de ${entry.name} — "${entry.subject}"`);
+  after(() => notifyAdmin(`Nouveau message de contact de ${entry.name} — "${entry.subject}"`));
   return NextResponse.json({ id: entry.id }, { status: 201 });
 }

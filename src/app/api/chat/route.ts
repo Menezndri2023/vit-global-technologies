@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { chatLeadSchema } from "@/lib/schemas";
 import { notifyAdmin } from "@/lib/notify";
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
   const entry = await prisma.chatLead.create({ data: parsed.data });
   if (entry.email) {
-    notifyAdmin(`Nouveau lead chat de ${entry.name ?? entry.email} sur ${entry.page ?? "le site"}`);
+    after(() => notifyAdmin(`Nouveau lead chat de ${entry.name ?? entry.email} sur ${entry.page ?? "le site"}`));
   }
   return NextResponse.json({ id: entry.id }, { status: 201 });
 }

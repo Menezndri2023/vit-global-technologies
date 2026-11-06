@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { appointmentSchema } from "@/lib/schemas";
 import { notifyAdmin, sendWhatsApp } from "@/lib/notify";
@@ -17,12 +17,15 @@ export async function POST(request: Request) {
     data: { ...rest, date: new Date(date) }
   });
 
-  notifyAdmin(`Nouveau rendez-vous : ${entry.name} — ${entry.topic} le ${date} à ${entry.timeSlot}`);
+  after(() => notifyAdmin(`Nouveau rendez-vous : ${entry.name} — ${entry.topic} le ${date} à ${entry.timeSlot}`));
 
-  if (entry.phone) {
-    sendWhatsApp(
-      entry.phone,
-      `Bonjour ${entry.name}, votre rendez-vous VIT GLOBAL (${entry.topic}) du ${date} à ${entry.timeSlot} est bien enregistré. À très vite !`
+  const clientPhone = entry.phone;
+  if (clientPhone) {
+    after(() =>
+      sendWhatsApp(
+        clientPhone,
+        `Bonjour ${entry.name}, votre rendez-vous VIT GLOBAL (${entry.topic}) du ${date} à ${entry.timeSlot} est bien enregistré. À très vite !`
+      )
     );
   }
 
@@ -31,14 +34,16 @@ export async function POST(request: Request) {
   start.setHours(hour, minute, 0, 0);
   const end = new Date(start.getTime() + 45 * 60 * 1000);
 
-  syncAppointmentToCalendars({
-    summary: `VIT GLOBAL — ${entry.topic}`,
-    description: `${entry.name} (${entry.email})${entry.notes ? `\n${entry.notes}` : ""}`,
-    start,
-    end,
-    location: entry.mode ?? undefined,
-    attendeeEmail: entry.email
-  });
+  after(() =>
+    syncAppointmentToCalendars({
+      summary: `VIT GLOBAL — ${entry.topic}`,
+      description: `${entry.name} (${entry.email})${entry.notes ? `\n${entry.notes}` : ""}`,
+      start,
+      end,
+      location: entry.mode ?? undefined,
+      attendeeEmail: entry.email
+    })
+  );
 
   return NextResponse.json({ id: entry.id }, { status: 201 });
 }

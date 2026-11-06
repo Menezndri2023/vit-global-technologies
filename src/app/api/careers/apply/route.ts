@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { jobApplicationSchema } from "@/lib/schemas";
 import { notifyAdmin } from "@/lib/notify";
@@ -12,6 +12,6 @@ export async function POST(request: Request) {
   }
 
   const entry = await prisma.jobApplication.create({ data: parsed.data });
-  notifyAdmin(`Nouvelle candidature de ${entry.name} — ${entry.position}`);
+  after(() => notifyAdmin(`Nouvelle candidature de ${entry.name} — ${entry.position}`));
   return NextResponse.json({ id: entry.id }, { status: 201 });
 }

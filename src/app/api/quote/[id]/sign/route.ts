@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { notifyAdmin } from "@/lib/notify";
 import { z } from "zod";
@@ -39,7 +39,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     }
   });
 
-  notifyAdmin(`Devis ${id} signé électroniquement par ${signature.signerName}`);
+  after(() => notifyAdmin(`Devis ${id} signé électroniquement par ${signature.signerName}`));
 
   return NextResponse.json({ ok: true }, { status: 201 });
 }
