@@ -5,6 +5,7 @@ import { services } from "@/data/services";
 import { filiales } from "@/data/filiales";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
 import type { Locale } from "@/data/types";
+import { CONTACT_EMAIL, CONTACT_PHONES } from "@/lib/contact";
 
 export function Footer() {
   const t = useTranslations();
@@ -83,16 +84,14 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 shrink-0 text-brand-400" />
-                <a href="mailto:ndrimanasse437@gmail.com" className="hover:text-brand-300">ndrimanasse437@gmail.com</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-brand-300">{CONTACT_EMAIL}</a>
               </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 shrink-0 text-brand-400" />
-                <a href="tel:+212607742672" className="hover:text-brand-300">+212 06 07 74 26 72</a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 shrink-0 text-brand-400" />
-                <a href="tel:+2250748124635" className="hover:text-brand-300">+225 07 48 12 46 35</a>
-              </li>
+              {CONTACT_PHONES.map((phone) => (
+                <li key={phone.e164} className="flex items-center gap-2.5">
+                  <Phone className="h-4 w-4 shrink-0 text-brand-400" />
+                  <a href={phone.href} className="hover:text-brand-300">{phone.label}</a>
+                </li>
+              ))}
             </ul>
             <div className="mt-6">
               <Link

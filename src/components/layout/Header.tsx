@@ -75,7 +75,7 @@ export function Header() {
           <Logo />
         </Link>
 
-        <div ref={navRef} className="hidden items-center gap-1 lg:flex">
+        <div ref={navRef} className="hidden items-center gap-0.5 xl:flex 2xl:gap-1">
           <NavDropdown
             label={t("nav.company")}
             isOpen={openMenu === "company"}
@@ -149,19 +149,19 @@ export function Header() {
           </NavLink>
         </div>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden shrink-0 items-center gap-2 xl:flex">
           <LanguageSwitcher />
-          <Link href="/espace-client" className="px-3 text-sm font-medium text-navy-900/70 hover:text-brand-600">
+          <Link href="/espace-client" className="whitespace-nowrap px-2 text-sm font-medium text-navy-900/70 hover:text-brand-600">
             {t("nav.clientArea")}
           </Link>
-          <Button as={Link} href="/devis" size="sm">
+          <Button as={Link} href="/devis" size="sm" className="whitespace-nowrap">
             {t("nav.getStarted")}
           </Button>
         </div>
 
         <button
           type="button"
-          className="flex items-center justify-center rounded-full border border-navy-900/10 p-2 lg:hidden"
+          className="flex items-center justify-center rounded-full border border-navy-900/10 p-2 xl:hidden"
           onClick={() => setMobileOpen(true)}
           aria-label={t("common.menu")}
         >
@@ -170,7 +170,7 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-white lg:hidden">
+        <div className="fixed inset-0 z-50 flex flex-col bg-white xl:hidden">
           <div className="container-vit flex h-18 items-center justify-between border-b border-navy-950/[0.06] py-3">
             <Logo />
             <button
@@ -240,7 +240,7 @@ function NavLink({ href, children, onClick }: { href: string; children: React.Re
     <Link
       href={href}
       onClick={onClick}
-      className="rounded-full px-4 py-2 text-sm font-medium text-navy-900/80 transition-colors hover:bg-navy-900/5 hover:text-navy-950"
+      className="whitespace-nowrap rounded-full px-3 py-2 2xl:px-4 text-sm font-medium text-navy-900/80 transition-colors hover:bg-navy-900/5 hover:text-navy-950"
     >
       {children}
     </Link>
@@ -264,7 +264,7 @@ function NavDropdown({
         type="button"
         onClick={onToggle}
         className={clsx(
-          "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+          "flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 2xl:px-4 text-sm font-medium transition-colors",
           isOpen ? "bg-navy-900/5 text-navy-950" : "text-navy-900/80 hover:bg-navy-900/5 hover:text-navy-950"
         )}
       >

@@ -10,6 +10,7 @@ import { ChatWidget } from "@/components/layout/ChatWidget";
 import { AuthSessionProvider } from "@/components/providers/AuthSessionProvider";
 import { CurrencyProvider } from "@/components/providers/CurrencyProvider";
 import { buildMetadata, SITE_URL } from "@/lib/seo";
+import { CONTACT_EMAIL, CONTACT_PHONES } from "@/lib/contact";
 import "../globals.css";
 
 const organizationJsonLd = {
@@ -18,6 +19,16 @@ const organizationJsonLd = {
   name: "VIT GLOBAL TECHNOLOGIES GROUP",
   url: SITE_URL,
   logo: `${SITE_URL}/icon.svg`,
+  email: CONTACT_EMAIL,
+  telephone: CONTACT_PHONES[0].e164,
+  contactPoint: CONTACT_PHONES.map((phone) => ({
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: CONTACT_EMAIL,
+    telephone: phone.e164,
+    areaServed: phone.country,
+    availableLanguage: ["French", "English", "Arabic"]
+  })),
   address: {
     "@type": "PostalAddress",
     streetAddress: "Boulevard Lalla Yacout & Rue El Arrar, Résidence Galis",

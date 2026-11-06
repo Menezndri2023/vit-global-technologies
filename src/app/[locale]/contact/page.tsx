@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { buildMetadata } from "@/lib/seo";
+import { CONTACT_EMAIL } from "@/lib/contact";
 import { Mail, Phone, Clock, MapPin, FileText, CalendarCheck, LifeBuoy, ArrowRight, MessageCircle } from "lucide-react";
 
 export async function generateMetadata({
@@ -52,8 +53,8 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 </p>
                 <p className="flex items-center gap-3">
                   <Mail className="h-4 w-4 shrink-0 text-brand-400" />
-                  <a href="mailto:ndrimanasse437@gmail.com" className="hover:text-white">
-                    ndrimanasse437@gmail.com
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white">
+                    {CONTACT_EMAIL}
                   </a>
                 </p>
                 <p className="flex items-center gap-3">

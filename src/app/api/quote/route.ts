@@ -48,7 +48,12 @@ async function sendQuoteConfirmation(entry: { name: string; email: string; local
 }
 
 export async function POST(request: Request) {
-  const formData = await request.formData();
+  let formData: FormData;
+  try {
+    formData = await request.formData();
+  } catch {
+    return NextResponse.json({ error: "INVALID_BODY" }, { status: 400 });
+  }
 
   const fields = Object.fromEntries(
     Array.from(formData.entries()).filter(([, value]) => typeof value === "string")

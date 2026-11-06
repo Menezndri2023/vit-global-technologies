@@ -7,6 +7,7 @@ import { realisations } from "@/data/realisations";
 import type { Locale } from "@/data/types";
 import { ArrowUpRight } from "lucide-react";
 import clsx from "clsx";
+import { RealisationCover } from "@/components/ui/RealisationCover";
 
 export function PortfolioGrid({ locale }: { locale: Locale }) {
   const tCommon = useTranslations("common");
@@ -55,12 +56,7 @@ export function PortfolioGrid({ locale }: { locale: Locale }) {
             href={`/realisations/${item.slug}`}
             className="group overflow-hidden rounded-2xl border border-navy-950/[0.06] bg-white shadow-card transition-all hover:-translate-y-1 hover:shadow-brand"
           >
-            <div
-              className="flex h-40 items-center justify-center text-3xl font-bold text-white"
-              style={{ background: `linear-gradient(135deg, ${item.color}, #0A1730)` }}
-            >
-              {item.client.slice(0, 2).toUpperCase()}
-            </div>
+            <RealisationCover item={item} className="h-40" />
             <div className="p-5">
               <span className="inline-flex items-center rounded-full bg-brand-500/10 px-2.5 py-1 text-xs font-semibold text-brand-600">
                 {item.portfolioType[locale]}

@@ -79,3 +79,12 @@
     @apply py-16 sm:py-20 lg:py-28;
   }
 }
+
+/* RTL (arabe) : les flèches directionnelles pointent dans le sens de lecture */
+[dir="rtl"] .lucide-arrow-right,
+[dir="rtl"] .lucide-arrow-left,
+[dir="rtl"] .lucide-arrow-up-right,
+[dir="rtl"] .lucide-chevron-right,
+[dir="rtl"] .lucide-chevron-left {
+  transform: scaleX(-1);
+}

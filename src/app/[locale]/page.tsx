@@ -15,6 +15,7 @@ import { faqItems } from "@/data/faq";
 import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
 import { ArrowRight, ArrowUpRight, Quote, ChevronDown } from "lucide-react";
+import { RealisationCover } from "@/components/ui/RealisationCover";
 
 export async function generateMetadata({
   params
@@ -171,12 +172,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           {realisations.slice(0, 3).map((item) => (
             <Link key={item.slug} href={`/realisations/${item.slug}`}>
               <Card className="flex h-full flex-col">
-                <div
-                  className="flex h-32 items-center justify-center rounded-xl text-3xl font-bold text-white"
-                  style={{ background: `linear-gradient(135deg, ${item.color}, #0A1730)` }}
-                >
-                  {item.client.slice(0, 2).toUpperCase()}
-                </div>
+                <RealisationCover item={item} className="h-32 rounded-xl" />
                 <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-brand-600">{item.industry[loc]}</p>
                 <h3 className="mt-1 font-display text-lg font-semibold text-navy-950">{item.title[loc]}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-silver-600">{item.summary[loc]}</p>
