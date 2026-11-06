@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 
-export const SITE_URL = "https://vit-global.tech";
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.vit-global.tech";
+export const SITE_URL = rawSiteUrl.replace(/\/$/, "");
 
 export function buildMetadata({
   locale,
@@ -21,6 +22,7 @@ export function buildMetadata({
   const ogTitle = typeof title === "string" ? title : undefined;
 
   return {
+    metadataBase: new URL(SITE_URL),
     title,
     description,
     alternates: {
