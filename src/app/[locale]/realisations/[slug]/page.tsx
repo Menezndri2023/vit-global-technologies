@@ -9,7 +9,8 @@ import { getServiceBySlug } from "@/data/services";
 import { routing } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) => realisations.map((r) => ({ locale, slug: r.slug })));
@@ -51,7 +52,44 @@ export default async function RealisationDetailPage({
             </Eyebrow>
             <h1 className="font-display mt-6 text-3xl font-bold tracking-tight sm:text-5xl">{item.title[loc]}</h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">{item.summary[loc]}</p>
+            {item.website && (
+              <div className="mt-8 flex justify-center">
+                <Button
+                  as="a"
+                  href={item.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  icon={<ArrowUpRight className="h-4 w-4" />}
+                >
+                  {tCommon("visitWebsite")}
+                </Button>
+              </div>
+            )}
           </div>
+
+          {item.image && (
+            <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-2xl shadow-navy-950/40">
+              <div className="flex items-center gap-1.5 border-b border-white/10 bg-navy-950/60 px-4 py-2.5" aria-hidden="true">
+                <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                {item.website && (
+                  <span className="ms-3 truncate rounded-md bg-white/10 px-3 py-0.5 text-xs text-white/60" dir="ltr">
+                    {item.website.replace(/^https?:\/\//, "")}
+                  </span>
+                )}
+              </div>
+              <Image
+                src={item.image}
+                alt={item.title[loc]}
+                width={1440}
+                height={900}
+                sizes="(min-width: 1024px) 1024px, 100vw"
+                className="h-auto w-full"
+                priority
+              />
+            </div>
+          )}
         </div>
       </section>
 

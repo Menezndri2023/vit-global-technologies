@@ -15,9 +15,97 @@ export interface Realisation {
   results: Localized<string[]>;
   stats: { value: string; label: Localized<string> }[];
   color: string;
+  /** Capture d'écran réelle du projet (dans /public) */
+  image?: string;
+  /** Adresse du projet en ligne */
+  website?: string;
 }
 
 export const realisations: Realisation[] = [
+  {
+    slug: "vit-auto-plateforme-automobile",
+    client: "VIT AUTO",
+    year: "2026",
+    country: { fr: "Maroc", en: "Morocco", ar: "المغرب" },
+    industry: { fr: "Automobile & Mobilité", en: "Automotive & Mobility", ar: "السيارات والتنقل" },
+    portfolioType: { fr: "Marketplace", en: "Marketplace", ar: "سوق إلكتروني" },
+    services: ["developpement-web", "ui-ux-design", "cloud-computing"],
+    title: {
+      fr: "VIT AUTO, la plateforme automobile du Maroc",
+      en: "VIT AUTO, Morocco's automotive platform",
+      ar: "VIT AUTO، منصة السيارات في المغرب"
+    },
+    summary: {
+      fr: "Plateforme de location, vente, chauffeur privé et import de véhicules qui réunit loueurs, vendeurs et acheteurs partout au Maroc.",
+      en: "A platform for vehicle rental, sales, private drivers and imports that brings together rental agencies, sellers and buyers across Morocco.",
+      ar: "منصة لتأجير وبيع السيارات وخدمة السائق الخاص والاستيراد، تجمع وكالات التأجير والبائعين والمشترين في جميع أنحاء المغرب."
+    },
+    challenge: {
+      fr: "Rassembler sur un seul service des besoins aujourd'hui éclatés (location, achat, chauffeur, import depuis la Chine, Dubaï ou l'Europe) tout en inspirant confiance aux particuliers comme aux professionnels.",
+      en: "Bring needs that are usually scattered (rental, purchase, private driver, imports from China, Dubai or Europe) into a single service, while earning the trust of both individuals and professionals.",
+      ar: "جمع احتياجات متفرقة عادةً (التأجير، الشراء، السائق الخاص، الاستيراد من الصين أو دبي أو أوروبا) في خدمة واحدة، مع كسب ثقة الأفراد والمهنيين على حد سواء."
+    },
+    solution: {
+      fr: "Catalogue multi-vendeurs avec recherche par ville, état et modèle, identité des partenaires vérifiée, contrat digital, paiement sécurisé, livraison suivie par GPS et parcours d'import accompagné.",
+      en: "Multi-vendor catalogue with search by city, condition and model, verified partner identities, digital contracts, secure payment, GPS-tracked delivery and an assisted import journey.",
+      ar: "كتالوج متعدد البائعين مع بحث حسب المدينة والحالة والطراز، والتحقق من هوية الشركاء، وعقد رقمي، ودفع آمن، وتوصيل متتبَّع عبر GPS، ومسار استيراد مرافَق."
+    },
+    results: {
+      fr: ["Plus de 600 véhicules disponibles en ligne", "Import accompagné depuis la Chine, Dubaï et l'Europe", "Location, vente, chauffeur et loisirs réunis sur une seule plateforme"],
+      en: ["Over 600 vehicles available online", "Assisted imports from China, Dubai and Europe", "Rental, sales, drivers and leisure activities on a single platform"],
+      ar: ["أكثر من 600 مركبة متاحة عبر الإنترنت", "استيراد مرافَق من الصين ودبي وأوروبا", "التأجير والبيع والسائق والأنشطة الترفيهية في منصة واحدة"]
+    },
+    stats: [
+      { value: "600+", label: { fr: "véhicules en ligne", en: "vehicles online", ar: "مركبة متاحة" } },
+      { value: "5", label: { fr: "services réunis", en: "services in one", ar: "خدمات مجتمعة" } },
+      { value: "3", label: { fr: "zones d'import", en: "import regions", ar: "مناطق استيراد" } }
+    ],
+    color: "#EA580C",
+    image: "/realisations/vit-auto.jpg",
+    website: "https://vit-auto.com"
+  },
+  {
+    slug: "korva-os-gestion-entreprise",
+    client: "KORVA OS",
+    year: "2026",
+    country: { fr: "International", en: "International", ar: "دولي" },
+    industry: { fr: "SaaS & Gestion d'entreprise", en: "SaaS & Business management", ar: "البرمجيات السحابية وإدارة الأعمال" },
+    portfolioType: { fr: "Applications", en: "Applications", ar: "تطبيقات" },
+    services: ["developpement-logiciel-sur-mesure", "intelligence-artificielle", "cloud-computing"],
+    title: {
+      fr: "KORVA OS, la gestion de l'entreprise au même endroit",
+      en: "KORVA OS, running a business in one place",
+      ar: "KORVA OS، إدارة الشركة في مكان واحد"
+    },
+    summary: {
+      fr: "Logiciel de gestion tout-en-un : clients, réservations, commandes, stock, factures et site public dans un seul compte, configuré selon le métier.",
+      en: "All-in-one management software: customers, bookings, orders, stock, invoices and a public website in a single account, configured for each trade.",
+      ar: "برنامج إدارة شامل: العملاء والحجوزات والطلبات والمخزون والفواتير والموقع العام في حساب واحد، مُعدّ حسب نوع النشاط."
+    },
+    challenge: {
+      fr: "Remplacer les carnets, les tableurs et les commandes perdues dans les messages par un outil que les petites entreprises adoptent dès le premier jour, sans formation ni configuration technique.",
+      en: "Replace notebooks, spreadsheets and orders lost in message threads with a tool small businesses adopt from day one, without training or technical setup.",
+      ar: "استبدال الدفاتر وجداول البيانات والطلبات الضائعة في الرسائل بأداة تعتمدها الشركات الصغيرة من اليوم الأول، دون تدريب أو إعداد تقني."
+    },
+    solution: {
+      fr: "Un compte prêt à l'emploi selon le métier choisi : fiches clients avec historique, carnet de réservations partagé, stock mis à jour à chaque vente, devis et factures, automatisations, assistant IA et site public en ligne dès l'ouverture.",
+      en: "An account ready to use for the chosen trade: customer records with history, a shared booking calendar, stock updated with every sale, quotes and invoices, automations, an AI assistant and a public website live from day one.",
+      ar: "حساب جاهز للاستخدام حسب النشاط المختار: ملفات العملاء مع السجل، ودفتر حجوزات مشترك، ومخزون يُحدَّث مع كل عملية بيع، وعروض أسعار وفواتير، وأتمتة، ومساعد ذكاء اصطناعي، وموقع عام متاح منذ اليوم الأول."
+    },
+    results: {
+      fr: ["17 métiers configurés d'avance", "Site public en ligne dès l'ouverture du compte", "Démarrage gratuit, sans carte bancaire"],
+      en: ["17 trades pre-configured", "Public website live as soon as the account opens", "Free to start, no credit card required"],
+      ar: ["17 نشاطًا مُعدًّا مسبقًا", "موقع عام متاح فور فتح الحساب", "بداية مجانية دون بطاقة بنكية"]
+    },
+    stats: [
+      { value: "17", label: { fr: "métiers configurés", en: "trades configured", ar: "نشاطًا مُعدًّا" } },
+      { value: "1", label: { fr: "seul compte", en: "single account", ar: "حساب واحد" } },
+      { value: "14", label: { fr: "jours de Pro offerts", en: "days of free Pro", ar: "يومًا من Pro مجانًا" } }
+    ],
+    color: "#0F766E",
+    image: "/realisations/korva-os.jpg",
+    website: "https://app.korvasuite.com"
+  },
   {
     slug: "banque-digitale-panafricaine",
     client: "NovaBank Group",
