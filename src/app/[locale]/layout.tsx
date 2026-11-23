@@ -60,6 +60,10 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={direction}>
+      <head>
+        {/* Langue de la page déclarée aussi pour Bing, en plus de l'attribut lang. */}
+        <meta httpEquiv="content-language" content={locale} />
+      </head>
       <body className="flex min-h-screen flex-col font-sans">
         <JsonLd data={siteGraph(locale)} />
         <NextIntlClientProvider locale={locale} messages={messages}>
