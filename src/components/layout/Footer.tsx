@@ -3,7 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { services } from "@/data/services";
 import { filiales } from "@/data/filiales";
-import { Mail, Phone, MapPin, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin } from "lucide-react";
 import type { Locale } from "@/data/types";
 import { CONTACT_EMAIL, CONTACT_PHONES, SOCIAL_LINKS } from "@/lib/contact";
 import { companyLegalLine } from "@/data/legal";
@@ -38,7 +38,13 @@ export function Footer() {
                   aria-label={social.label}
                   className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-brand-400 hover:text-brand-300"
                 >
-                  {social.network === "facebook" ? <Facebook className="h-4 w-4" /> : <TikTokIcon className="h-4 w-4" />}
+                  {social.network === "facebook" ? (
+                    <Facebook className="h-4 w-4" />
+                  ) : social.network === "linkedin" ? (
+                    <Linkedin className="h-4 w-4" />
+                  ) : (
+                    <TikTokIcon className="h-4 w-4" />
+                  )}
                 </a>
               ))}
             </div>

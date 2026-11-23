@@ -10,6 +10,7 @@ export const CONTACT_PHONES = [
 // N'ajouter ici que des comptes appartenant réellement à VIT GLOBAL TECHNOLOGIES GROUP.
 export const SOCIAL_LINKS = [
   { network: "facebook", label: "Facebook", url: "https://www.facebook.com/profile.php?id=1475412788979303" },
+  { network: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/company/vit-global-technologies-group/" },
   { network: "tiktok", label: "TikTok", url: "https://www.tiktok.com/@vitglobaltech" }
 ] as const;
 
