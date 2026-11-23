@@ -29,11 +29,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
-  return buildMetadata({
-    locale,
-    title: { default: t("defaultTitle"), template: `%s${TITLE_SUFFIX}` },
-    description: t("defaultDescription")
-  });
+  return {
+    ...buildMetadata({
+      locale,
+      title: { default: t("defaultTitle"), template: `%s${TITLE_SUFFIX}` },
+      description: t("defaultDescription")
+    }),
+    // Codes publics de validation des outils pour webmasters (Google Search Console, Bing…).
+    verification: { google: "661F9dUxbdf0H-gv4m1_Dv6o2vPkWjUUcWPQSvP_v-Q" }
+  };
 }
 
 export default async function LocaleLayout({
