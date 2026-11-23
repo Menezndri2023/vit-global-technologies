@@ -168,7 +168,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {/* Work */}
       <Section tone="white">
         <SectionHeading eyebrow={t("nav.realisations")} title={t("home.workTitle")} subtitle={t("home.workSubtitle")} align="center" />
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className={`mt-12 grid gap-5 ${realisations.length >= 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}>
           {realisations.slice(0, 3).map((item) => (
             <Link key={item.slug} href={`/realisations/${item.slug}`}>
               <Card className="flex h-full flex-col">
@@ -190,7 +190,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </Section>
 
-      {/* Testimonials */}
+      {/* Testimonials — affichés uniquement lorsqu'il existe des témoignages réels */}
+      {testimonials.length > 0 && (
       <Section tone="muted">
         <SectionHeading title={t("home.testimonialsTitle")} align="center" />
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
@@ -213,6 +214,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           ))}
         </div>
       </Section>
+      )}
 
       {/* Pourquoi nous choisir */}
       <Section tone="white">

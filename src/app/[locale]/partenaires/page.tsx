@@ -6,7 +6,7 @@ import { partners } from "@/data/company";
 import { PartnerRequestForm } from "@/components/forms/PartnerRequestForm";
 import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
-import { Handshake } from "lucide-react";
+import { Layers } from "lucide-react";
 
 export async function generateMetadata({
   params
@@ -42,7 +42,7 @@ export default async function PartnersPage({ params }: { params: Promise<{ local
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {partners.map((partner) => (
             <Card key={partner.name} hover={false} className="flex flex-col items-center justify-center text-center">
-              <Handshake className="h-6 w-6 text-brand-500" />
+              <Layers className="h-6 w-6 text-brand-500" />
               <p className="mt-3 font-display text-base font-semibold text-navy-950">{partner.name}</p>
               <p className="mt-1 text-xs text-silver-500">{partner.category[loc]}</p>
             </Card>

@@ -94,7 +94,7 @@
     "heroCtaPrimary": "Demander un devis",
     "heroCtaSecondary": "Prendre rendez-vous",
     "heroTags": ["Transformation Digitale", "Développement Logiciel", "Intelligence Artificielle", "Cloud", "Cybersécurité", "Automobile", "Logistique"],
-    "trustedBy": "Ils nous font confiance",
+    "trustedBy": "Technologies avec lesquelles nous travaillons",
     "servicesTitle": "Une expertise technologique complète",
     "servicesSubtitle": "De la stratégie à l'exploitation, nous couvrons l'intégralité de votre chaîne de valeur digitale.",
     "filialesTitle": "Un groupe, plusieurs expertises",
@@ -137,7 +137,7 @@
     "heroTitle": "Un cabinet international au service de la transformation digitale",
     "heroSubtitle": "Depuis Casablanca, VIT GLOBAL TECHNOLOGIES GROUP accompagne des entreprises, institutions et investisseurs à travers le monde dans leurs projets technologiques les plus ambitieux.",
     "storyTitle": "Notre histoire",
-    "storyBody": "Fondé pour combler le fossé entre l'ambition digitale des organisations africaines et internationales et l'excellence technologique mondiale, VIT GLOBAL TECHNOLOGIES GROUP a rapidement grandi jusqu'à devenir un groupe multi-filiales reconnu, actif dans plus de 14 pays.",
+    "storyBody": "Fondé à Casablanca en 2026 pour rapprocher l'ambition digitale des entreprises africaines de l'excellence technologique, VIT GLOBAL TECHNOLOGIES GROUP développe ses propres produits — VIT AUTO, KORVA OS, MARGOKIT et VITPAY — et accompagne les entreprises du Maroc et de Côte d'Ivoire dans leur transformation digitale.",
     "visionTitle": "Notre vision",
     "visionBody": "Devenir le partenaire technologique de référence des organisations africaines et internationales, reconnu pour son excellence, son intégrité et sa capacité à transformer des ambitions en résultats mesurables.",
     "missionTitle": "Notre mission",
@@ -145,19 +145,19 @@
     "valuesTitle": "Nos valeurs",
     "valuesSubtitle": "Les principes qui guident chacune de nos décisions et de nos relations.",
     "statsTitle": "Le groupe en quelques chiffres",
-    "teamCtaTitle": "Rencontrez l'équipe dirigeante",
-    "teamCtaBody": "Des experts passionnés, à la tête de chaque pôle d'expertise du groupe.",
+    "teamCtaTitle": "Rencontrez le fondateur",
+    "teamCtaBody": "Découvrez qui pilote le groupe et ses produits.",
     "teamCtaButton": "Découvrir l'équipe"
   },
   "team": {
-    "heroEyebrow": "Équipe dirigeante",
-    "heroTitle": "Les experts qui pilotent VIT GLOBAL",
-    "heroSubtitle": "Une équipe pluridisciplinaire et internationale, unie par une même exigence d'excellence."
+    "heroEyebrow": "Direction",
+    "heroTitle": "Qui pilote VIT GLOBAL",
+    "heroSubtitle": "Un groupe fondé et dirigé depuis Casablanca. Vous souhaitez nous rejoindre ? Consultez nos offres d'emploi."
   },
   "partners": {
     "heroEyebrow": "Écosystème",
-    "heroTitle": "Un réseau de partenaires internationaux",
-    "heroSubtitle": "Nous collaborons avec les leaders technologiques mondiaux pour garantir à nos clients les meilleures solutions du marché.",
+    "heroTitle": "Notre écosystème technologique",
+    "heroSubtitle": "Nous concevons nos solutions avec des technologies et des plateformes reconnues. Vous souhaitez collaborer avec nous ? Rejoignez notre réseau de partenaires.",
     "ctaTitle": "Vous souhaitez devenir partenaire ?",
     "ctaBody": "Rejoignez notre écosystème de partenaires technologiques, commerciaux ou institutionnels.",
     "ctaButton": "Devenir partenaire"
