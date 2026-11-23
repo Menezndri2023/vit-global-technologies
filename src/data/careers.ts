@@ -10,131 +10,82 @@ export interface JobOpening {
   requirements: Localized<string[]>;
 }
 
+// Appels ouverts réels : VIT GLOBAL mobilise des freelances et des partenaires selon les projets.
+// N'ajouter un poste salarié (CDI, CDD, stage) que lorsqu'un recrutement est effectivement ouvert.
+const REMOTE: Localized<string> = {
+  fr: "À distance (Maroc, Afrique francophone, France)",
+  en: "Remote (Morocco, French-speaking Africa, France)",
+  ar: "عن بُعد (المغرب، أفريقيا الفرنكوفونية، فرنسا)"
+};
+
+const FREELANCE: Localized<string> = { fr: "Mission freelance", en: "Freelance assignment", ar: "مهمة حرة" };
+
 export const jobOpenings: JobOpening[] = [
   {
-    slug: "ingenieur-full-stack-senior",
+    slug: "developpeur-full-stack-freelance",
     department: { fr: "Développement", en: "Development", ar: "التطوير" },
-    location: { fr: "Casablanca / Abidjan / Hybride", en: "Casablanca / Abidjan / Hybrid", ar: "الدار البيضاء / أبيدجان / هجين" },
-    type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
+    location: REMOTE,
+    type: FREELANCE,
     title: {
-      fr: "Ingénieur·e Full Stack Senior (React / Node.js)",
-      en: "Senior Full Stack Engineer (React / Node.js)",
-      ar: "مهندس/ة برمجيات متكامل أول (React / Node.js)"
+      fr: "Développeur·se full stack freelance (Next.js / TypeScript)",
+      en: "Freelance full stack developer (Next.js / TypeScript)",
+      ar: "مطور/ة متكامل/ة مستقل/ة (Next.js / TypeScript)"
     },
     description: {
-      fr: "Vous concevrez et développerez des plateformes web et mobiles pour nos clients internationaux, au sein d'équipes agiles pluridisciplinaires.",
-      en: "You will design and build web and mobile platforms for our international clients within multidisciplinary agile teams.",
-      ar: "ستصمم/ين وتطور/ين منصات ويب وجوال لعملائنا الدوليين ضمن فرق رشيقة متعددة التخصصات."
+      fr: "Nous constituons un réseau de développeurs que nous mobilisons sur les projets clients et sur nos produits (KORVA OS, MARGOKIT, VIT AUTO, VITPAY). Les missions sont proposées selon les besoins, avec un périmètre, une durée et une rémunération fixés à l'avance.",
+      en: "We are building a network of developers we bring in on client projects and on our own products (KORVA OS, MARGOKIT, VIT AUTO, VITPAY). Assignments are offered as needs arise, with scope, duration and pay agreed upfront.",
+      ar: "نكوّن شبكة من المطورين نستعين بهم في مشاريع العملاء وفي منتجاتنا (KORVA OS وMARGOKIT وVIT AUTO وVITPAY). تُقترح المهام حسب الحاجة، مع تحديد النطاق والمدة والأجر مسبقًا."
     },
     requirements: {
-      fr: ["5+ ans d'expérience Full Stack", "Maîtrise de React, Node.js, TypeScript", "Expérience en architecture cloud", "Anglais professionnel"],
-      en: ["5+ years of Full Stack experience", "Proficiency in React, Node.js, TypeScript", "Experience with cloud architecture", "Professional English"],
-      ar: ["خبرة 5 سنوات فأكثر في التطوير المتكامل", "إتقان React وNode.js وTypeScript", "خبرة في البنية السحابية", "إنجليزية مهنية"]
+      fr: ["Expérience confirmée en React / Next.js et TypeScript", "Bases de données SQL (PostgreSQL, Prisma)", "Portfolio ou dépôt GitHub consultable", "Autonomie et communication écrite claire en français"],
+      en: ["Solid experience with React / Next.js and TypeScript", "SQL databases (PostgreSQL, Prisma)", "Portfolio or public GitHub profile", "Autonomy and clear written communication in French"],
+      ar: ["خبرة مؤكدة في React / Next.js وTypeScript", "قواعد بيانات SQL (PostgreSQL وPrisma)", "معرض أعمال أو حساب GitHub متاح", "استقلالية وتواصل كتابي واضح بالفرنسية"]
     }
   },
   {
-    slug: "expert-cybersecurite",
-    department: { fr: "Cybersécurité", en: "Cybersecurity", ar: "الأمن السيبراني" },
-    location: { fr: "Casablanca / Abidjan", en: "Casablanca / Abidjan", ar: "الدار البيضاء / أبيدجان" },
-    type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
-    title: {
-      fr: "Expert·e Cybersécurité & Pentest",
-      en: "Cybersecurity & Pentest Expert",
-      ar: "خبير/ة أمن سيبراني واختبار اختراق"
-    },
-    description: {
-      fr: "Vous piloterez les audits de sécurité, tests d'intrusion et la mise en conformité de nos clients grands comptes.",
-      en: "You will lead security audits, penetration tests and compliance efforts for our key accounts.",
-      ar: "ستقود/ين عمليات التدقيق الأمني واختبارات الاختراق وجهود الامتثال لعملائنا الكبار."
-    },
-    requirements: {
-      fr: ["Certification OSCP / CEH appréciée", "Expérience en pentest applicatif & réseau", "Bonne connaissance ISO 27001", "Esprit d'analyse et rigueur"],
-      en: ["OSCP / CEH certification a plus", "Experience in application & network pentesting", "Good knowledge of ISO 27001", "Analytical mindset and rigor"],
-      ar: ["يُفضل شهادة OSCP / CEH", "خبرة في اختبار اختراق التطبيقات والشبكات", "معرفة جيدة بمعيار ISO 27001", "روح تحليلية ودقة"]
-    }
-  },
-  {
-    slug: "data-scientist-ia",
-    department: { fr: "Data & IA", en: "Data & AI", ar: "البيانات والذكاء الاصطناعي" },
-    location: { fr: "Casablanca / Abidjan / Télétravail", en: "Casablanca / Abidjan / Remote", ar: "الدار البيضاء / أبيدجان / عن بُعد" },
-    type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
-    title: {
-      fr: "Data Scientist / Ingénieur·e IA",
-      en: "Data Scientist / AI Engineer",
-      ar: "عالم بيانات / مهندس ذكاء اصطناعي"
-    },
-    description: {
-      fr: "Vous concevrez des modèles de machine learning et des solutions d'IA appliquée pour des cas d'usage métiers concrets.",
-      en: "You will design machine learning models and applied AI solutions for concrete business use cases.",
-      ar: "ستصمم/ين نماذج تعلم آلي وحلول ذكاء اصطناعي تطبيقية لحالات استخدام تجارية ملموسة."
-    },
-    requirements: {
-      fr: ["Master en data science / IA ou équivalent", "Python, PyTorch/TensorFlow", "Expérience en mise en production de modèles", "Anglais technique"],
-      en: ["Master's in data science / AI or equivalent", "Python, PyTorch/TensorFlow", "Experience deploying models to production", "Technical English"],
-      ar: ["ماجستير في علم البيانات / الذكاء الاصطناعي أو ما يعادله", "Python وPyTorch/TensorFlow", "خبرة في نشر النماذج للإنتاج", "إنجليزية تقنية"]
-    }
-  },
-  {
-    slug: "product-designer-ui-ux",
+    slug: "designer-ui-ux-freelance",
     department: { fr: "Design", en: "Design", ar: "التصميم" },
-    location: { fr: "Casablanca / Abidjan / Hybride", en: "Casablanca / Abidjan / Hybrid", ar: "الدار البيضاء / أبيدجان / هجين" },
-    type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
+    location: REMOTE,
+    type: FREELANCE,
     title: {
-      fr: "Product Designer UI/UX",
-      en: "UI/UX Product Designer",
-      ar: "مصمم/ة منتج UI/UX"
+      fr: "Designer UI/UX freelance",
+      en: "Freelance UI/UX designer",
+      ar: "مصمم/ة واجهات وتجربة مستخدم مستقل/ة"
     },
     description: {
-      fr: "Vous concevrez des expériences digitales intuitives, du wireframe au design system, en étroite collaboration avec les équipes produit.",
-      en: "You will design intuitive digital experiences, from wireframe to design system, in close collaboration with product teams.",
-      ar: "ستصمم/ين تجارب رقمية بديهية، من الإطار الشبكي إلى نظام التصميم، بالتعاون الوثيق مع فرق المنتج."
+      fr: "Pour concevoir les interfaces de nos produits et des projets clients : parcours utilisateurs, maquettes et systèmes de design, en lien direct avec le développement.",
+      en: "To design the interfaces of our products and client projects: user journeys, mockups and design systems, working directly with development.",
+      ar: "لتصميم واجهات منتجاتنا ومشاريع العملاء: مسارات المستخدم والنماذج وأنظمة التصميم، بالتنسيق المباشر مع فريق التطوير."
     },
     requirements: {
-      fr: ["3+ ans en UI/UX design", "Maîtrise de Figma", "Portfolio démontrant une approche centrée utilisateur", "Sensibilité à l'accessibilité"],
-      en: ["3+ years in UI/UX design", "Figma proficiency", "Portfolio demonstrating user-centered approach", "Accessibility awareness"],
-      ar: ["خبرة 3 سنوات فأكثر في تصميم UI/UX", "إتقان Figma", "معرض أعمال يظهر نهجًا محوره المستخدم", "وعي بإمكانية الوصول"]
+      fr: ["Portfolio d'interfaces web ou mobiles", "Maîtrise de Figma", "Sens de l'accessibilité et du responsive", "Interfaces en français, idéalement aussi en arabe (RTL)"],
+      en: ["Portfolio of web or mobile interfaces", "Proficiency in Figma", "Attention to accessibility and responsive design", "French interfaces, ideally Arabic (RTL) too"],
+      ar: ["معرض أعمال لواجهات ويب أو جوال", "إتقان Figma", "اهتمام بإمكانية الوصول والتصميم المتجاوب", "واجهات بالفرنسية، ويُفضل بالعربية أيضًا (RTL)"]
     }
   },
   {
-    slug: "consultant-transformation-digitale",
-    department: { fr: "Conseil", en: "Consulting", ar: "الاستشارات" },
-    location: { fr: "Casablanca / Abidjan / Déplacements", en: "Casablanca / Abidjan / Travel required", ar: "الدار البيضاء / أبيدجان / يتطلب تنقل" },
-    type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
+    slug: "partenaire-commercial",
+    department: { fr: "Partenariats", en: "Partnerships", ar: "الشراكات" },
+    location: {
+      fr: "Côte d'Ivoire, Sénégal, Mali, Burkina Faso, France, Maroc",
+      en: "Côte d'Ivoire, Senegal, Mali, Burkina Faso, France, Morocco",
+      ar: "كوت ديفوار، السنغال، مالي، بوركينا فاسو، فرنسا، المغرب"
+    },
+    type: { fr: "Partenariat à la commission", en: "Commission-based partnership", ar: "شراكة بالعمولة" },
     title: {
-      fr: "Consultant·e Senior Transformation Digitale",
-      en: "Senior Digital Transformation Consultant",
-      ar: "مستشار/ة أول للتحول الرقمي"
+      fr: "Partenaire commercial / apporteur d'affaires",
+      en: "Sales partner / business referrer",
+      ar: "شريك تجاري / وسيط أعمال"
     },
     description: {
-      fr: "Vous accompagnerez nos clients grands comptes dans la définition et le pilotage de leur stratégie de transformation digitale.",
-      en: "You will support our key accounts in defining and steering their digital transformation strategy.",
-      ar: "سترافق/ين عملاءنا الكبار في تحديد وقيادة استراتيجية التحول الرقمي الخاصة بهم."
+      fr: "Vous connaissez des PME, commerçants ou indépendants dans l'un de nos marchés ? Présentez-leur nos services et nos logiciels (KORVA OS, MARGOKIT) et percevez une commission sur les contrats signés, selon des conditions écrites.",
+      en: "Do you know SMEs, retailers or freelancers in one of our markets? Introduce them to our services and software (KORVA OS, MARGOKIT) and earn a commission on signed contracts, under written terms.",
+      ar: "هل تعرف شركات صغيرة ومتوسطة أو تجارًا أو مستقلين في أحد أسواقنا؟ عرّفهم بخدماتنا وبرامجنا (KORVA OS وMARGOKIT) واحصل على عمولة على العقود الموقعة وفق شروط مكتوبة."
     },
     requirements: {
-      fr: ["5+ ans en conseil ou direction de projets digitaux", "Excellentes capacités de communication", "Expérience internationale appréciée", "Français et anglais courants"],
-      en: ["5+ years in consulting or digital project leadership", "Excellent communication skills", "International experience a plus", "Fluent French and English"],
-      ar: ["خبرة 5 سنوات فأكثر في الاستشارات أو قيادة المشاريع الرقمية", "مهارات تواصل ممتازة", "يُفضل خبرة دولية", "إتقان الفرنسية والإنجليزية"]
-    }
-  },
-  {
-    slug: "chef-de-projet-devops",
-    department: { fr: "DevOps", en: "DevOps", ar: "DevOps" },
-    location: { fr: "Casablanca / Abidjan / Télétravail", en: "Casablanca / Abidjan / Remote", ar: "الدار البيضاء / أبيدجان / عن بُعد" },
-    type: { fr: "CDI", en: "Full-time", ar: "دوام كامل" },
-    title: {
-      fr: "Ingénieur·e DevOps / SRE",
-      en: "DevOps / SRE Engineer",
-      ar: "مهندس/ة DevOps / SRE"
-    },
-    description: {
-      fr: "Vous industrialiserez nos pipelines de déploiement et garantirez la fiabilité de nos infrastructures et de celles de nos clients.",
-      en: "You will industrialize our deployment pipelines and ensure the reliability of our infrastructure and that of our clients.",
-      ar: "ستعملون/ين على تصنيع خطوط النشر لدينا وضمان موثوقية بنيتنا التحتية وبنية عملائنا."
-    },
-    requirements: {
-      fr: ["Expérience CI/CD, Docker, Kubernetes", "Maîtrise d'un cloud provider majeur", "Culture Infrastructure as Code", "Astreinte occasionnelle"],
-      en: ["CI/CD, Docker, Kubernetes experience", "Proficiency with a major cloud provider", "Infrastructure as Code culture", "Occasional on-call"],
-      ar: ["خبرة في CI/CD وDocker وKubernetes", "إتقان مزود سحابي رئيسي", "ثقافة البنية التحتية ككود", "مناوبة طوارئ أحيانًا"]
+      fr: ["Réseau professionnel dans le pays concerné", "Aisance commerciale", "Statut permettant de facturer (auto-entrepreneur, société…)", "Intérêt pour le numérique"],
+      en: ["Professional network in the country concerned", "Sales skills", "A status that allows invoicing (sole trader, company…)", "Interest in digital technology"],
+      ar: ["شبكة علاقات مهنية في البلد المعني", "مهارات تجارية", "وضع قانوني يسمح بالفوترة (مقاول ذاتي، شركة…)", "اهتمام بالمجال الرقمي"]
     }
   }
 ];

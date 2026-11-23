@@ -27,8 +27,8 @@
     "servicesDesc": "15 خبرة تقنية واستراتيجية",
     "solutions": "حلولنا",
     "solutionsDesc": "برمجيات أعمال جاهزة للنشر",
-    "filiales": "الشركات التابعة",
-    "filialesDesc": "الكيانات المتخصصة للمجموعة",
+    "filiales": "مجالات الخبرة",
+    "filialesDesc": "مجالات تدخلنا",
     "modeleEconomique": "النموذج الاقتصادي",
     "modeleEconomiqueDesc": "الرؤية وأقطاب النشاط والتسعير",
     "work": "أعمالنا",
@@ -63,7 +63,7 @@
     "submitting": "جارٍ الإرسال…",
     "viewCaseStudy": "عرض دراسة الحالة",
     "ourServices": "خدماتنا",
-    "ourSubsidiaries": "شركاتنا التابعة",
+    "ourSubsidiaries": "مجالات خبرتنا",
     "keyResults": "النتائج الرئيسية",
     "relatedServices": "خدمات ذات صلة",
     "since": "منذ",
@@ -97,10 +97,10 @@
     "trustedBy": "التقنيات التي نعمل بها",
     "servicesTitle": "خبرة تقنية شاملة",
     "servicesSubtitle": "من الاستراتيجية إلى التشغيل، نغطي كامل سلسلة القيمة الرقمية لديكم.",
-    "filialesTitle": "مجموعة واحدة، خبرات متعددة",
-    "filialesSubtitle": "اكتشفوا الشركات التابعة المتخصصة لمجموعة VIT GLOBAL التقنية.",
+    "filialesTitle": "شركة واحدة، خبرات متعددة",
+    "filialesSubtitle": "اكتشفوا مجالات خبرة VIT GLOBAL TECHNOLOGIES GROUP.",
     "workTitle": "نتائج ملموسة، على المستوى الدولي",
-    "workSubtitle": "أعمالنا تتحدث عن نفسها في أكثر من 14 دولة.",
+    "workSubtitle": "منتجاتنا الخاصة، صُممت في الدار البيضاء للمغرب وأفريقيا الفرنكوفونية وأوروبا.",
     "statsTitle": "VIT GLOBAL بالأرقام",
     "testimonialsTitle": "ماذا يقول عملاؤنا عنا",
     "blogTitle": "الأخبار والتحليلات",
@@ -189,12 +189,12 @@
     "metaTitle": "معرض الأعمال"
   },
   "filiales": {
-    "heroEyebrow": "المجموعة",
-    "heroTitle": "مجموعة واحدة، عدة كيانات متخصصة",
-    "heroSubtitle": "تحمل كل شركة تابعة لمجموعة VIT GLOBAL التقنية خبرة مخصصة، في خدمة رؤية مشتركة.",
-    "foundedLabel": "تأسست في",
+    "heroEyebrow": "خبراتنا",
+    "heroTitle": "شركة واحدة، عدة مجالات خبرة",
+    "heroSubtitle": "تنظّم VIT GLOBAL TECHNOLOGIES GROUP خبرتها في مجالات متخصصة: هي علامات خدمات تابعة للشركة، وليست شركات مستقلة.",
     "offeringsTitle": "عروضنا",
-    "metaTitle": "مجالات خبرتنا"
+    "metaTitle": "مجالات خبرتنا",
+    "discover": "اكتشف"
   },
   "modeleEconomique": {
     "heroEyebrow": "النموذج الاقتصادي",
@@ -236,21 +236,21 @@
   "careers": {
     "heroEyebrow": "الوظائف",
     "heroTitle": "شكّل التحول الرقمي لعالم الغد",
-    "heroSubtitle": "انضموا إلى فريق دولي شغوف وملتزم، يعمل على مشاريع عالية الأثر.",
+    "heroSubtitle": "مطورون ومصممون وشركاء تجاريون: انضموا إلى الشبكة التي تبني VIT AUTO وKORVA OS وMARGOKIT وVITPAY وترافق عملاءنا.",
     "whyTitle": "لماذا الانضمام إلى VIT GLOBAL؟",
     "whyReasons": [
-      { "title": "مشاريع دولية", "description": "اعمل على مشاريع ذات أثر في أكثر من 14 دولة." },
-      { "title": "تطوير المهارات", "description": "تدريب مستمر داخلي وشهادات ومرافقة مهنية." },
-      { "title": "المرونة", "description": "أنماط عمل هجينة وعن بُعد حسب المنصب." },
-      { "title": "نمو سريع", "description": "نمو يفتح فرصًا مستمرة للتطور الوظيفي." }
+      { "title": "مشاريع دولية", "description": "مشاريع لعملاء في المغرب وأفريقيا الفرنكوفونية وأوروبا." },
+      { "title": "تطوير المهارات", "description": "تقنيات حديثة (Next.js وTypeScript والسحابة والذكاء الاصطناعي) على منتجات قيد التشغيل." },
+      { "title": "المرونة", "description": "مهام عن بُعد تُنظَّم حسب أوقات توفرك." },
+      { "title": "شركة ناشئة", "description": "تأسست سنة 2026: أفكارك تؤثر مباشرة في منتجاتنا." }
     ],
-    "openPositions": "الوظائف الشاغرة",
-    "applyButton": "التقدم لهذه الوظيفة",
+    "openPositions": "فرص مفتوحة",
+    "applyButton": "قدّم طلبي",
     "applyFormTitle": "طلب الترشح",
     "noPositionTitle": "لم تجد الوظيفة المناسبة؟",
     "noPositionBody": "أرسل لنا طلبًا تلقائيًا، ندرس كل ملف بعناية.",
     "spontaneousButton": "ترشح تلقائي",
-    "metaTitle": "الوظائف والفرص المتاحة"
+    "metaTitle": "الوظائف: مستقلون وشركاء"
   },
   "support": {
     "heroEyebrow": "مركز الدعم",

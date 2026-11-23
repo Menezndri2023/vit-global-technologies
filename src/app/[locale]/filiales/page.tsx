@@ -56,7 +56,7 @@ export default async function FilialesPage({ params }: { params: Promise<{ local
               <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-silver-500">{filiale.sector[loc]}</p>
               <p className="mt-4 text-sm leading-relaxed text-silver-600">{filiale.tagline[loc]}</p>
               <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 group-hover:gap-2">
-                {t("foundedLabel")} {filiale.founded} <ArrowUpRight className="h-3.5 w-3.5" />
+                {t("discover")} <ArrowUpRight className="h-3.5 w-3.5" />
               </span>
             </Link>
           ))}

@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "ia-generative-entreprises-africaines",
     category: { fr: "Intelligence Artificielle", en: "Artificial Intelligence", ar: "الذكاء الاصطناعي" },
-    date: "2026-06-12",
+    date: "2026-11-10",
     readTime: "6 min",
     author: "Équipe VIT GLOBAL",
     authorRole: { fr: "Directrice IA & Data", en: "Head of AI & Data", ar: "مديرة الذكاء الاصطناعي والبيانات" },
@@ -53,7 +53,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "cybersecurite-pme-guide",
     category: { fr: "Cybersécurité", en: "Cybersecurity", ar: "الأمن السيبراني" },
-    date: "2026-05-20",
+    date: "2026-10-14",
     readTime: "5 min",
     author: "Équipe VIT GLOBAL",
     authorRole: { fr: "Responsable Cybersécurité", en: "Head of Cybersecurity", ar: "مسؤول الأمن السيبراني" },
@@ -63,9 +63,9 @@ export const blogPosts: BlogPost[] = [
       ar: "الأمن السيبراني: الدليل الأساسي للشركات الصغيرة والمتوسطة النامية"
     },
     excerpt: {
-      fr: "80% des cyberattaques visent des PME insuffisamment protégées. Voici les 6 réflexes à adopter dès maintenant.",
-      en: "80% of cyberattacks target under-protected SMEs. Here are the 6 practices to adopt right now.",
-      ar: "80٪ من الهجمات السيبرانية تستهدف شركات صغيرة ومتوسطة غير محمية بشكل كافٍ. إليك 6 ممارسات يجب تبنيها الآن."
+      fr: "Les PME insuffisamment protégées sont une cible de choix pour les cyberattaques. Voici les 6 réflexes à adopter dès maintenant.",
+      en: "Under-protected SMEs are a prime target for cyberattacks. Here are the 6 practices to adopt right now.",
+      ar: "الشركات الصغيرة والمتوسطة غير المحمية بشكل كافٍ هدف مفضل للهجمات السيبرانية. إليك 6 ممارسات يجب تبنيها الآن."
     },
     content: {
       fr: [
@@ -89,7 +89,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "cloud-hybride-choisir-architecture",
     category: { fr: "Cloud Computing", en: "Cloud Computing", ar: "الحوسبة السحابية" },
-    date: "2026-04-08",
+    date: "2026-09-16",
     readTime: "7 min",
     author: "Équipe VIT GLOBAL",
     authorRole: { fr: "Architecte Cloud Principal", en: "Principal Cloud Architect", ar: "كبير مهندسي الحوسبة السحابية" },
@@ -121,42 +121,6 @@ export const blogPosts: BlogPost[] = [
       ]
     },
     color: "#1D4ED8"
-  },
-  {
-    slug: "recrutement-tech-talents-2026",
-    category: { fr: "Vie de l'entreprise", en: "Company Life", ar: "حياة الشركة" },
-    date: "2026-03-02",
-    readTime: "4 min",
-    author: "Équipe VIT GLOBAL",
-    authorRole: { fr: "Directrice des Talents", en: "Head of Talent", ar: "مديرة المواهب" },
-    title: {
-      fr: "Pourquoi VIT GLOBAL recrute 50 nouveaux talents tech en 2026",
-      en: "Why VIT GLOBAL is hiring 50 new tech talents in 2026",
-      ar: "لماذا توظف VIT GLOBAL 50 موهبة تقنية جديدة في 2026"
-    },
-    excerpt: {
-      fr: "Portée par une croissance internationale soutenue, VIT GLOBAL ouvre 50 postes en développement, cybersécurité, IA et conseil.",
-      en: "Driven by sustained international growth, VIT GLOBAL is opening 50 positions in development, cybersecurity, AI and consulting.",
-      ar: "مدفوعة بنمو دولي مستدام، تفتح VIT GLOBAL 50 منصبًا في البرمجة والأمن السيبراني والذكاء الاصطناعي والاستشارات."
-    },
-    content: {
-      fr: [
-        "L'année 2026 marque une nouvelle étape de croissance pour VIT GLOBAL TECHNOLOGIES GROUP, avec l'ouverture de nouveaux bureaux et le renforcement de nos filiales.",
-        "Nous recherchons des profils passionnés, curieux et orientés impact, prêts à travailler sur des projets à dimension internationale.",
-        "Retrouvez toutes nos offres sur notre page Carrières et rejoignez une équipe qui façonne la transformation digitale de demain."
-      ],
-      en: [
-        "2026 marks a new stage of growth for VIT GLOBAL TECHNOLOGIES GROUP, with new offices opening and our subsidiaries expanding.",
-        "We are looking for passionate, curious, impact-driven profiles ready to work on internationally scaled projects.",
-        "Find all our openings on our Careers page and join a team shaping tomorrow's digital transformation."
-      ],
-      ar: [
-        "يمثل عام 2026 مرحلة نمو جديدة لمجموعة VIT GLOBAL التقنية، مع افتتاح مكاتب جديدة وتوسيع فروعنا.",
-        "نبحث عن كفاءات شغوفة وفضولية وموجهة نحو الأثر، مستعدة للعمل على مشاريع ذات بعد دولي.",
-        "اطّلع على جميع عروضنا في صفحة الوظائف وانضم إلى فريق يشكّل التحول الرقمي لعالم الغد."
-      ]
-    },
-    color: "#475569"
   }
 ];
 
