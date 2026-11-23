@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteName": "VIT GLOBAL TECHNOLOGIES GROUP",
-    "defaultTitle": "VIT GLOBAL TECHNOLOGIES GROUP — Cabinet international de transformation digitale",
+    "defaultTitle": "VIT GLOBAL TECHNOLOGIES GROUP — Transformation digitale",
     "defaultDescription": "VIT GLOBAL TECHNOLOGIES GROUP accompagne entreprises, institutions et investisseurs dans leur transformation digitale : développement, IA, cloud, cybersécurité et conseil, à l'échelle internationale."
   },
   "nav": {
@@ -147,12 +147,14 @@
     "statsTitle": "Le groupe en quelques chiffres",
     "teamCtaTitle": "Rencontrez le fondateur",
     "teamCtaBody": "Découvrez qui pilote le groupe et ses produits.",
-    "teamCtaButton": "Découvrir l'équipe"
+    "teamCtaButton": "Découvrir l'équipe",
+    "metaTitle": "À propos : notre histoire et notre mission"
   },
   "team": {
     "heroEyebrow": "Direction",
     "heroTitle": "Qui pilote VIT GLOBAL",
-    "heroSubtitle": "Un groupe fondé et dirigé depuis Casablanca. Vous souhaitez nous rejoindre ? Consultez nos offres d'emploi."
+    "heroSubtitle": "Un groupe fondé et dirigé depuis Casablanca. Vous souhaitez nous rejoindre ? Consultez nos offres d'emploi.",
+    "metaTitle": "Équipe et fondateur"
   },
   "partners": {
     "heroEyebrow": "Écosystème",
@@ -160,7 +162,8 @@
     "heroSubtitle": "Nous concevons nos solutions avec des technologies et des plateformes reconnues. Vous souhaitez collaborer avec nous ? Rejoignez notre réseau de partenaires.",
     "ctaTitle": "Vous souhaitez devenir partenaire ?",
     "ctaBody": "Rejoignez notre écosystème de partenaires technologiques, commerciaux ou institutionnels.",
-    "ctaButton": "Devenir partenaire"
+    "ctaButton": "Devenir partenaire",
+    "metaTitle": "Technologies utilisées"
   },
   "services": {
     "heroEyebrow": "Nos expertises",
@@ -168,26 +171,30 @@
     "heroSubtitle": "De la stratégie à l'exploitation, nos équipes pluridisciplinaires interviennent à chaque étape de votre transformation.",
     "detailCtaTitle": "Discutons de votre projet",
     "detailCtaBody": "Nos experts analysent votre besoin et vous proposent la meilleure approche, sans engagement.",
-    "includedTitle": "Ce que comprend ce service"
+    "includedTitle": "Ce que comprend ce service",
+    "metaTitle": "Services : web, IA, cloud, cybersécurité"
   },
   "solutionsPage": {
     "heroEyebrow": "Nos solutions",
     "heroTitle": "Des logiciels métiers prêts à déployer pour votre secteur",
     "heroSubtitle": "Au-delà du sur-mesure, VIT GLOBAL propose des solutions logicielles verticales, éprouvées et rapides à mettre en place.",
     "ctaTitle": "Une solution vous intéresse ?",
-    "ctaSubtitle": "Nos experts vous présentent une démonstration adaptée à votre secteur d'activité."
+    "ctaSubtitle": "Nos experts vous présentent une démonstration adaptée à votre secteur d'activité.",
+    "metaTitle": "Solutions logicielles métiers"
   },
   "portfolioPage": {
     "heroEyebrow": "Portfolio",
     "heroTitle": "Un aperçu visuel de nos réalisations",
-    "heroSubtitle": "Applications, sites web, solutions IA, dashboards et marketplaces conçus pour nos clients."
+    "heroSubtitle": "Applications, sites web, solutions IA, dashboards et marketplaces conçus pour nos clients.",
+    "metaTitle": "Portfolio de réalisations"
   },
   "filiales": {
     "heroEyebrow": "Le groupe",
     "heroTitle": "Un groupe, plusieurs entités spécialisées",
     "heroSubtitle": "Chaque filiale de VIT GLOBAL TECHNOLOGIES GROUP porte une expertise dédiée, au service d'une vision commune.",
     "foundedLabel": "Créée en",
-    "offeringsTitle": "Nos offres"
+    "offeringsTitle": "Nos offres",
+    "metaTitle": "Nos pôles d'expertise"
   },
   "modeleEconomique": {
     "heroEyebrow": "Modèle économique",
@@ -207,7 +214,8 @@
     "processTitle": "Comment nous travaillons",
     "processSubtitle": "Un parcours structuré, de la prise de contact au support après livraison.",
     "ctaTitle": "Prêt à donner vie à votre projet ?",
-    "ctaSubtitle": "Décrivez-nous votre besoin : nous vous répondons avec un devis détaillé et notre grille tarifaire complète."
+    "ctaSubtitle": "Décrivez-nous votre besoin : nous vous répondons avec un devis détaillé et notre grille tarifaire complète.",
+    "metaTitle": "Modèle économique et offres"
   },
   "realisations": {
     "heroEyebrow": "Portfolio",
@@ -215,13 +223,15 @@
     "heroSubtitle": "Découvrez comment nous aidons des entreprises et institutions à transformer leurs ambitions en résultats mesurables.",
     "challengeTitle": "Le défi",
     "solutionTitle": "Notre solution",
-    "resultsTitle": "Les résultats"
+    "resultsTitle": "Les résultats",
+    "metaTitle": "Réalisations : VIT AUTO, KORVA OS, MARGOKIT"
   },
   "blog": {
     "heroEyebrow": "Actualités & analyses",
     "heroTitle": "Nos regards sur la technologie et l'innovation",
     "heroSubtitle": "Analyses, tendances et retours d'expérience de nos experts.",
-    "byAuthor": "Par"
+    "byAuthor": "Par",
+    "metaTitle": "Blog : IA, cloud et cybersécurité"
   },
   "careers": {
     "heroEyebrow": "Carrières",
@@ -239,7 +249,8 @@
     "applyFormTitle": "Votre candidature",
     "noPositionTitle": "Vous ne trouvez pas le poste idéal ?",
     "noPositionBody": "Envoyez-nous une candidature spontanée, nous étudions chaque profil avec attention.",
-    "spontaneousButton": "Candidature spontanée"
+    "spontaneousButton": "Candidature spontanée",
+    "metaTitle": "Carrières et offres d'emploi"
   },
   "support": {
     "heroEyebrow": "Centre de support",
@@ -252,7 +263,8 @@
     "contactSupportButton": "Contacter le support",
     "chatButton": "Démarrer un chat",
     "ticketTitle": "Créer un ticket de support",
-    "ticketBody": "Décrivez votre problème, notre équipe technique vous répond rapidement."
+    "ticketBody": "Décrivez votre problème, notre équipe technique vous répond rapidement.",
+    "metaTitle": "Centre de support et FAQ"
   },
   "contactPage": {
     "heroEyebrow": "Contact",
@@ -272,7 +284,8 @@
     "appointmentCard": "Prise de rendez-vous",
     "appointmentCardDesc": "Réservez un créneau avec un conseiller.",
     "supportCard": "Centre de support",
-    "supportCardDesc": "Trouvez une réponse rapide dans notre FAQ."
+    "supportCardDesc": "Trouvez une réponse rapide dans notre FAQ.",
+    "metaTitle": "Contact et coordonnées à Casablanca"
   },
   "form": {
     "name": "Nom complet",
@@ -322,7 +335,8 @@
       "Analyse de votre demande par un expert du domaine concerné",
       "Appel de cadrage pour affiner le périmètre",
       "Réception d'un devis détaillé sous 48h"
-    ]
+    ],
+    "metaTitle": "Demander un devis"
   },
   "appointmentPage": {
     "heroEyebrow": "Prise de rendez-vous",
@@ -334,7 +348,8 @@
       "Présentation personnalisée de nos solutions",
       "Réponse concrète à vos questions techniques ou stratégiques"
     ],
-    "calendarButton": "Ajouter à Google Calendar"
+    "calendarButton": "Ajouter à Google Calendar",
+    "metaTitle": "Prendre rendez-vous avec un conseiller"
   },
   "clientArea": {
     "heroEyebrow": "Espace client",
@@ -359,7 +374,8 @@
     "myApplications": "Mes candidatures",
     "signed": "Signé",
     "signProposal": "Signer la proposition",
-    "proposalPending": "Proposition en préparation"
+    "proposalPending": "Proposition en préparation",
+    "metaTitle": "Espace client"
   },
   "partnerArea": {
     "heroEyebrow": "Espace partenaire",
@@ -381,7 +397,8 @@
     "resourcesServices": "Catalogue de services",
     "resourcesCaseStudies": "Études de cas",
     "resourcesContact": "Contacter l'équipe partenariats",
-    "pendingApproval": "Votre compte partenaire est en attente de validation par notre équipe. Vous retrouverez ici le suivi de vos demandes ; les ressources partenaires seront accessibles dès la validation."
+    "pendingApproval": "Votre compte partenaire est en attente de validation par notre équipe. Vous retrouverez ici le suivi de vos demandes ; les ressources partenaires seront accessibles dès la validation.",
+    "metaTitle": "Espace partenaire"
   },
   "auth": {
     "continueWith": "Continuer avec {provider}",

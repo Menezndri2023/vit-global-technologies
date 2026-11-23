@@ -11,6 +11,8 @@ import { routing } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumb, serviceSchema } from "@/lib/structured-data";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) => services.map((s) => ({ locale, slug: s.slug })));
@@ -45,11 +47,14 @@ export default async function ServiceDetailPage({
   if (!service) notFound();
 
   const t = await getTranslations("services");
+  const tNav = await getTranslations("nav");
   const tCommon = await getTranslations("common");
   const related = services.filter((s) => s.slug !== slug).slice(0, 3);
 
   return (
     <>
+      <JsonLd data={serviceSchema(service, loc)} />
+      <JsonLd data={breadcrumb(loc, [[tNav("services"), "/services"], [service.title[loc], `/services/${slug}`]])} />
       <section className="bg-grid bg-white pb-16 pt-16 sm:pb-20 sm:pt-24">
         <div className="container-vit">
           <div className="mx-auto max-w-3xl text-center">

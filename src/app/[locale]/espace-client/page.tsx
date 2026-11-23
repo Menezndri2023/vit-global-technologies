@@ -16,7 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "clientArea" });
-  return buildMetadata({ locale, title: t("heroTitle"), description: t("heroSubtitle"), path: "/espace-client" });
+  return buildMetadata({ locale, title: t("metaTitle"), description: t("heroSubtitle"), path: "/espace-client" });
 }
 
 export default async function ClientAreaPage({

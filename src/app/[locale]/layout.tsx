@@ -9,47 +9,14 @@ import { Footer } from "@/components/layout/Footer";
 import { ChatWidget } from "@/components/layout/ChatWidget";
 import { AuthSessionProvider } from "@/components/providers/AuthSessionProvider";
 import { CurrencyProvider } from "@/components/providers/CurrencyProvider";
-import { buildMetadata, SITE_URL } from "@/lib/seo";
-import { CONTACT_EMAIL, CONTACT_PHONES, SOCIAL_LINKS } from "@/lib/contact";
-import { TARGET_MARKETS } from "@/data/company";
+import { buildMetadata, TITLE_SUFFIX } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { siteGraph } from "@/lib/structured-data";
 import "../globals.css";
 
-const COUNTRY_NAMES: Record<(typeof TARGET_MARKETS)[number], string> = {
-  MA: "Morocco",
-  CI: "Côte d'Ivoire",
-  SN: "Senegal",
-  ML: "Mali",
-  BF: "Burkina Faso",
-  FR: "France"
-};
-
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "VIT GLOBAL TECHNOLOGIES GROUP",
-  legalName: "VIT GLOBAL TECHNOLOGIES GROUP S.A.R.L.A.U.",
-  foundingDate: "2026-07-27",
-  url: SITE_URL,
-  logo: `${SITE_URL}/icon.svg`,
-  email: CONTACT_EMAIL,
-  telephone: CONTACT_PHONES[0].e164,
-  contactPoint: CONTACT_PHONES.map((phone) => ({
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    email: CONTACT_EMAIL,
-    telephone: phone.e164,
-    areaServed: phone.country,
-    availableLanguage: ["French", "English", "Arabic"]
-  })),
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Angle Bd Lalla Yacout et Rue El Araar, Résidence Galis, Imm. 9, 4e étage, Apt 17",
-    addressLocality: "Casablanca",
-    addressCountry: "MA"
-  },
-  areaServed: TARGET_MARKETS.map((code) => ({ "@type": "Country", name: COUNTRY_NAMES[code], identifier: code })),
-  sameAs: SOCIAL_LINKS.map((social) => social.url)
-};
+// Seules les traductions utilisées par les composants client (« use client ») sont envoyées au navigateur ;
+// les autres restent côté serveur. Ajouter ici tout nouvel espace de noms lu par un composant client.
+const CLIENT_NAMESPACES = ["common", "nav", "form", "auth", "chat", "support", "signature", "admin", "appointmentPage", "careers"] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -64,7 +31,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta" });
   return buildMetadata({
     locale,
-    title: { default: t("defaultTitle"), template: `%s — ${t("siteName")}` },
+    title: { default: t("defaultTitle"), template: `%s${TITLE_SUFFIX}` },
     description: t("defaultDescription")
   });
 }
@@ -84,15 +51,13 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const direction = getDirection(locale as AppLocale);
-  const messages = await getMessages();
+  const allMessages = await getMessages();
+  const messages = Object.fromEntries(CLIENT_NAMESPACES.map((ns) => [ns, allMessages[ns]]));
 
   return (
     <html lang={locale} dir={direction}>
       <body className="flex min-h-screen flex-col font-sans">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
+        <JsonLd data={siteGraph(locale)} />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AuthSessionProvider>
             <CurrencyProvider>

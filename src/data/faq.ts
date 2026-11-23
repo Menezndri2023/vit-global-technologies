@@ -15,9 +15,9 @@ export const faqItems: FaqItem[] = [
       ar: "في أي دول تعمل مجموعة VIT GLOBAL التقنية؟"
     },
     answer: {
-      fr: "Notre siège est basé à Casablanca, avec un bureau à Abidjan, et nous intervenons dans toute l'Afrique de l'Ouest, en Afrique du Nord ainsi qu'en Europe, via nos équipes locales et nos filiales partenaires.",
-      en: "Our headquarters is based in Casablanca, with an office in Abidjan, and we operate across West Africa, North Africa and Europe, through our local teams and partner subsidiaries.",
-      ar: "يقع مقرنا الرئيسي في الدار البيضاء، مع مكتب في أبيدجان، ونعمل في جميع أنحاء غرب أفريقيا وشمال أفريقيا وأوروبا، عبر فرقنا المحلية وفروعنا الشريكة."
+      fr: "Notre siège est à Casablanca (Maroc). Nous accompagnons des clients au Maroc, en Côte d'Ivoire, au Sénégal, au Mali, au Burkina Faso et en France, sur place ou à distance, en français, en anglais et en arabe.",
+      en: "Our headquarters is in Casablanca, Morocco. We work with clients in Morocco, Côte d'Ivoire, Senegal, Mali, Burkina Faso and France, on site or remotely, in French, English and Arabic.",
+      ar: "يقع مقرنا في الدار البيضاء (المغرب). نرافق عملاء في المغرب وكوت ديفوار والسنغال ومالي وبوركينا فاسو وفرنسا، حضوريًا أو عن بُعد، بالفرنسية والإنجليزية والعربية."
     }
   },
   {
@@ -28,9 +28,9 @@ export const faqItems: FaqItem[] = [
       ar: "ما حجم فرقكم؟"
     },
     answer: {
-      fr: "Le groupe compte plus de 120 collaborateurs répartis entre le siège et nos filiales, couvrant l'ensemble des expertises technologiques, créatives et stratégiques.",
-      en: "The group has over 120 employees spread across headquarters and our subsidiaries, covering all technology, creative and strategic expertise.",
-      ar: "تضم المجموعة أكثر من 120 موظفًا موزعين بين المقر الرئيسي وفروعنا، يغطون جميع الخبرات التقنية والإبداعية والاستراتيجية."
+      fr: "VIT GLOBAL TECHNOLOGIES GROUP a été fondée en 2026 à Casablanca et reste une structure à taille humaine, pilotée par son fondateur. L'équipe de chaque projet est dimensionnée selon son périmètre et précisée dans le devis.",
+      en: "VIT GLOBAL TECHNOLOGIES GROUP was founded in 2026 in Casablanca and remains a small, founder-led company. The team for each project is sized to its scope and specified in the quote.",
+      ar: "تأسست VIT GLOBAL TECHNOLOGIES GROUP سنة 2026 في الدار البيضاء، وهي شركة صغيرة يديرها مؤسسها. يُحدَّد فريق كل مشروع حسب نطاقه ويُذكر في عرض السعر."
     }
   },
   {

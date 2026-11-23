@@ -48,7 +48,7 @@ export const blogPosts: BlogPost[] = [
         "يكمن مفتاح النجاح في حوكمة البيانات وتدريب الفرق واختيار بنية قادرة على التطور مع نضج المؤسسة."
       ]
     },
-    color: "#38BDF8"
+    color: "#0369A1"
   },
   {
     slug: "cybersecurite-pme-guide",
@@ -120,7 +120,7 @@ export const blogPosts: BlogPost[] = [
         "تقيّم منهجيتنا بشكل منهجي حساسية البيانات وزمن الاستجابة المطلوب والتكلفة الإجمالية قبل تقديم أي توصية."
       ]
     },
-    color: "#7fa8f7"
+    color: "#1D4ED8"
   },
   {
     slug: "recrutement-tech-talents-2026",
@@ -156,7 +156,7 @@ export const blogPosts: BlogPost[] = [
         "اطّلع على جميع عروضنا في صفحة الوظائف وانضم إلى فريق يشكّل التحول الرقمي لعالم الغد."
       ]
     },
-    color: "#93a0b1"
+    color: "#475569"
   }
 ];
 

@@ -85,12 +85,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {/* Trusted by */}
       <div className="border-y border-navy-950/[0.06] bg-navy-950/[0.02] py-8">
         <div className="container-vit">
-          <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.2em] text-silver-500">
+          <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.2em] text-silver-600">
             {t("home.trustedBy")}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {partners.map((p) => (
-              <span key={p.name} className="text-sm font-semibold tracking-tight text-navy-900/40">
+              <span key={p.name} className="text-sm font-semibold tracking-tight text-navy-900/70">
                 {p.name}
               </span>
             ))}
@@ -130,7 +130,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((step, i) => (
             <div key={step.title} className="relative rounded-2xl bg-white p-6 shadow-card">
-              <span className="font-display text-4xl font-bold text-brand-500/20">{String(i + 1).padStart(2, "0")}</span>
+              <span aria-hidden="true" className="font-display text-4xl font-bold text-brand-500/70">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-3 font-display text-base font-semibold text-navy-950">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-silver-600">{step.description}</p>
             </div>
@@ -155,7 +155,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <Icon name={filiale.icon} className="h-5 w-5" />
               </span>
               <h3 className="mt-4 font-display text-lg font-semibold text-white">{filiale.name}</h3>
-              <p className="mt-1 text-xs uppercase tracking-wide text-white/40">{filiale.sector[loc]}</p>
+              <p className="mt-1 text-xs uppercase tracking-wide text-white/60">{filiale.sector[loc]}</p>
               <p className="mt-3 text-sm leading-relaxed text-white/60">{filiale.tagline[loc]}</p>
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-cyan-300 group-hover:text-cyan-200">
                 {t("common.learnMore")} <ArrowUpRight className="h-3.5 w-3.5" />
