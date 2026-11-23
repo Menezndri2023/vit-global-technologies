@@ -1,0 +1,16 @@
+name: IndexNow
+
+# Après chaque déploiement de production réussi sur Vercel, signale les URL du sitemap aux moteurs IndexNow.
+on:
+  deployment_status:
+
+jobs:
+  indexnow:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production' && contains(github.event.deployment_status.target_url, 'vit-global-technologies-') && !contains(github.event.deployment_status.target_url, 'sllw')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/indexnow.mjs https://www.vit-global.tech

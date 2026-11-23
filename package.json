@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "db:migrate:deploy": "prisma migrate deploy",
+    "indexnow": "node scripts/indexnow.mjs",
     "postinstall": "prisma generate"
   },
   "dependencies": {

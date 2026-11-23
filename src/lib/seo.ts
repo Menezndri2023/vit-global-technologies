@@ -24,6 +24,21 @@ function fitTitle(title: Metadata["title"]): Metadata["title"] {
   return title.length + TITLE_SUFFIX.length <= MAX_TITLE_LENGTH ? title : { absolute: title };
 }
 
+const MAX_DESCRIPTION_LENGTH = 160;
+
+/**
+ * Description de 160 caractères au plus (limite de Bing et de Google) : coupe à la dernière fin de phrase,
+ * sinon au dernier mot, avec des points de suspension.
+ */
+export function fitDescription(text: string): string {
+  const clean = text.replace(/\s+/g, " ").trim();
+  if (clean.length <= MAX_DESCRIPTION_LENGTH) return clean;
+  const slice = clean.slice(0, MAX_DESCRIPTION_LENGTH);
+  const sentenceEnd = Math.max(slice.lastIndexOf(". "), slice.lastIndexOf("? "), slice.lastIndexOf("! "));
+  if (sentenceEnd >= 80) return slice.slice(0, sentenceEnd + 1);
+  return `${slice.slice(0, slice.lastIndexOf(" ", MAX_DESCRIPTION_LENGTH - 1)).replace(/[\s,;:—–-]+$/, "")}…`;
+}
+
 export function buildMetadata({
   locale,
   title,
@@ -38,6 +53,7 @@ export function buildMetadata({
   const languages = alternateLanguages(path);
 
   const ogTitle = typeof title === "string" ? title : undefined;
+  description = fitDescription(description);
 
   return {
     metadataBase: new URL(SITE_URL),

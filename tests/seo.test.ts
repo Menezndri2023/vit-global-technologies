@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildMetadata, TITLE_SUFFIX } from "@/lib/seo";
+import { buildMetadata, fitDescription, TITLE_SUFFIX } from "@/lib/seo";
 import { breadcrumb, faqPage, ORGANIZATION_ID, siteGraph } from "@/lib/structured-data";
 import { faqItems } from "@/data/faq";
 
@@ -9,6 +9,19 @@ describe("titres de page", () => {
     const long = "Un titre d'article de blog très long qui dépasse déjà la limite à lui seul";
     expect(buildMetadata({ locale: "fr", title: long, description: "d" }).title).toEqual({ absolute: long });
     expect(`Réalisations : VIT AUTO, KORVA OS, MARGOKIT${TITLE_SUFFIX}`.length).toBeLessThanOrEqual(65);
+  });
+});
+
+describe("descriptions", () => {
+  it("reste entre 25 et 160 caractères, coupée en fin de phrase ou de mot", () => {
+    const court = "Une description courte et complète.";
+    expect(fitDescription(court)).toBe(court);
+    const phrases = `${"Première phrase assez longue pour dépasser quatre-vingts caractères au total. ".repeat(2)}Suite.`;
+    expect(fitDescription(phrases).endsWith(".")).toBe(true);
+    expect(fitDescription(phrases).length).toBeLessThanOrEqual(160);
+    const mots = "mot ".repeat(80);
+    expect(fitDescription(mots)).toMatch(/mot…$/);
+    expect(fitDescription(mots).length).toBeLessThanOrEqual(160);
   });
 });
 
