@@ -144,6 +144,7 @@ export const realisations: Realisation[] = [
       { value: "Pro", label: { fr: "offre par abonnement", en: "subscription plan", ar: "اشتراك مدفوع" } }
     ],
     color: "#7C3AED",
+    image: "/realisations/margokit.jpg",
     website: "https://margokit.com"
   },
   {
@@ -155,14 +156,14 @@ export const realisations: Realisation[] = [
     portfolioType: { fr: "Plateformes", en: "Platforms", ar: "منصات" },
     services: ["developpement-logiciel-sur-mesure", "cybersecurite", "cloud-computing"],
     title: {
-      fr: "VITPAY, l'encaissement par lien et QR code (en préparation)",
-      en: "VITPAY, payment collection by link and QR code (in preparation)",
-      ar: "VITPAY، التحصيل عبر رابط ورمز QR (قيد الإعداد)"
+      fr: "VITPAY, l'encaissement par lien et QR code (phase pilote)",
+      en: "VITPAY, payment collection by link and QR code (pilot phase)",
+      ar: "VITPAY، التحصيل عبر رابط ورمز QR (مرحلة تجريبية)"
     },
     summary: {
-      fr: "Plateforme d'encaissement par lien et QR code, adossée à des prestataires de paiement agréés. Actuellement en environnement de test : le lancement est soumis à la levée des points réglementaires.",
-      en: "Payment collection platform using links and QR codes, backed by licensed payment providers. Currently in a test environment: launch depends on clearing regulatory requirements.",
-      ar: "منصة تحصيل عبر روابط ورموز QR بالاعتماد على مزودي أداء معتمدين. حاليًا في بيئة اختبار، ويتوقف الإطلاق على استيفاء المتطلبات التنظيمية."
+      fr: "Plateforme d'encaissement par lien et QR code, adossée à des prestataires de paiement agréés. En phase pilote à Casablanca : l'ouverture générale est soumise à la levée des points réglementaires.",
+      en: "Payment collection platform using links and QR codes, backed by licensed payment providers. In a pilot phase in Casablanca: general availability depends on clearing regulatory requirements.",
+      ar: "منصة تحصيل عبر روابط ورموز QR بالاعتماد على مزودي أداء معتمدين. في مرحلة تجريبية بالدار البيضاء، ويتوقف الإطلاق العام على استيفاء المتطلبات التنظيمية."
     },
     challenge: {
       fr: "Permettre à un commerçant d'encaisser simplement, sans terminal coûteux, tout en garantissant qu'aucun paiement n'est confirmé sans preuve et que la plateforme ne détient jamais les fonds.",
@@ -183,7 +184,9 @@ export const realisations: Realisation[] = [
       { value: "Lien + QR", label: { fr: "modes d'encaissement", en: "collection methods", ar: "طرق التحصيل" } },
       { value: "3", label: { fr: "langues", en: "languages", ar: "لغات" } }
     ],
-    color: "#0E7490"
+    color: "#0E7490",
+    image: "/realisations/vitpay.jpg",
+    website: "https://vitpay-ma.com"
   }
 ];
 
