@@ -8,7 +8,6 @@ export interface Filiale {
   tagline: Localized<string>;
   description: Localized<string>;
   offerings: Localized<string[]>;
-  founded: string;
   color: string;
 }
 
@@ -28,16 +27,15 @@ export const filiales: Filiale[] = [
       ar: "القطب الذي يصمم ويطور منصاتكم الرقمية المخصصة."
     },
     description: {
-      fr: "VIT DIGITAL est le pôle historique du groupe dédié au développement informatique : sites vitrines, sites e-commerce, plateformes SaaS, marketplaces, CRM, ERP, applications métier, API et portails clients, avec un engagement de maintenance dans la durée.",
-      en: "VIT DIGITAL is the group's founding software development unit: showcase websites, e-commerce sites, SaaS platforms, marketplaces, CRM, ERP, business applications, APIs and client portals, backed by long-term maintenance.",
-      ar: "VIT DIGITAL هو القطب التأسيسي للمجموعة المتخصص في التطوير المعلوماتي: مواقع تعريفية، متاجر إلكترونية، منصات SaaS، أسواق إلكترونية، أنظمة CRM وERP، تطبيقات أعمال، واجهات برمجية وبوابات عملاء، مع التزام بالصيانة على المدى الطويل."
+      fr: "VIT DIGITAL est le pôle dédié au développement informatique : sites vitrines, sites e-commerce, plateformes SaaS, marketplaces, CRM, ERP, applications métier, API et portails clients, avec un engagement de maintenance dans la durée.",
+      en: "VIT DIGITAL is the software development unit: showcase websites, e-commerce sites, SaaS platforms, marketplaces, CRM, ERP, business applications, APIs and client portals, backed by long-term maintenance.",
+      ar: "VIT DIGITAL هو القطب المتخصص في التطوير المعلوماتي: مواقع تعريفية، متاجر إلكترونية، منصات SaaS، أسواق إلكترونية، أنظمة CRM وERP، تطبيقات أعمال، واجهات برمجية وبوابات عملاء، مع التزام بالصيانة على المدى الطويل."
     },
     offerings: {
       fr: ["Sites vitrines & e-commerce", "Plateformes SaaS & marketplaces", "CRM, ERP & applications métier", "API, portails clients & maintenance"],
       en: ["Showcase & e-commerce sites", "SaaS platforms & marketplaces", "CRM, ERP & business applications", "APIs, client portals & maintenance"],
       ar: ["مواقع تعريفية ومتاجر إلكترونية", "منصات SaaS وأسواق إلكترونية", "أنظمة CRM وERP وتطبيقات أعمال", "واجهات برمجية وبوابات عملاء وصيانة"]
     },
-    founded: "2020",
     color: "#38BDF8"
   },
   {
@@ -64,7 +62,6 @@ export const filiales: Filiale[] = [
       en: ["Native Android & iOS apps", "Flutter & React Native development", "Progressive Web Apps (PWA)", "Store publishing, monitoring & maintenance"],
       ar: ["تطبيقات أصلية لـ Android وiOS", "تطوير باستخدام Flutter وReact Native", "تطبيقات ويب تقدمية (PWA)", "النشر والمتابعة والصيانة"]
     },
-    founded: "2022",
     color: "#22C55E"
   },
   {
@@ -91,7 +88,6 @@ export const filiales: Filiale[] = [
       en: ["AI chatbots & agents", "Intelligent automation & OCR", "Generative AI & computer vision", "Data analysis & virtual assistants"],
       ar: ["روبوتات محادثة ووكلاء ذكاء اصطناعي", "أتمتة ذكية والتعرف الضوئي على الحروف", "الذكاء الاصطناعي التوليدي والرؤية الحاسوبية", "تحليل البيانات والمساعدون الافتراضيون"]
     },
-    founded: "2023",
     color: "#A855F7"
   },
   {
@@ -118,7 +114,6 @@ export const filiales: Filiale[] = [
       en: ["Hosting & deployment", "DevOps, Docker & Kubernetes", "AWS, Azure & Google Cloud", "Monitoring & backups"],
       ar: ["الاستضافة والنشر", "DevOps وDocker وKubernetes", "AWS وAzure وGoogle Cloud", "المراقبة والنسخ الاحتياطي"]
     },
-    founded: "2023",
     color: "#0D9488"
   },
   {
@@ -145,7 +140,6 @@ export const filiales: Filiale[] = [
       en: ["IT audit & digital transformation", "Software architecture & project management", "Cybersecurity & compliance", "Startup mentoring"],
       ar: ["التدقيق المعلوماتي والتحول الرقمي", "بنية البرمجيات وإدارة المشاريع", "الأمن السيبراني والامتثال", "مرافقة الشركات الناشئة"]
     },
-    founded: "2021",
     color: "#1436A8"
   },
   {
@@ -172,7 +166,6 @@ export const filiales: Filiale[] = [
       en: ["Vehicle sales & rentals", "Chauffeur & B2B services", "Import & export", "Fleet management"],
       ar: ["بيع وتأجير المركبات", "خدمات السائقين وB2B", "الاستيراد والتصدير", "إدارة الأسطول"]
     },
-    founded: "2022",
     color: "#1D4ED8"
   }
 ];

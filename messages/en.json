@@ -27,8 +27,8 @@
     "servicesDesc": "15 technology and strategic expertises",
     "solutions": "Solutions",
     "solutionsDesc": "Ready-to-deploy business software",
-    "filiales": "Subsidiaries",
-    "filialesDesc": "The group's specialized entities",
+    "filiales": "Areas of expertise",
+    "filialesDesc": "What we work on",
     "modeleEconomique": "Business model",
     "modeleEconomiqueDesc": "Vision, business units and pricing",
     "work": "Work",
@@ -63,7 +63,7 @@
     "submitting": "Sending…",
     "viewCaseStudy": "View case study",
     "ourServices": "Our services",
-    "ourSubsidiaries": "Our subsidiaries",
+    "ourSubsidiaries": "Our areas of expertise",
     "keyResults": "Key results",
     "relatedServices": "Related services",
     "since": "Since",
@@ -97,10 +97,10 @@
     "trustedBy": "Technologies we work with",
     "servicesTitle": "Complete technology expertise",
     "servicesSubtitle": "From strategy to operations, we cover your entire digital value chain.",
-    "filialesTitle": "One group, several expertises",
-    "filialesSubtitle": "Discover the specialized subsidiaries of VIT GLOBAL TECHNOLOGIES GROUP.",
+    "filialesTitle": "One company, several areas of expertise",
+    "filialesSubtitle": "Discover the areas of expertise of VIT GLOBAL TECHNOLOGIES GROUP.",
     "workTitle": "Concrete results, worldwide",
-    "workSubtitle": "Our work speaks for itself, across more than 14 countries.",
+    "workSubtitle": "Our own products, built in Casablanca for Morocco, French-speaking Africa and Europe.",
     "statsTitle": "VIT GLOBAL in numbers",
     "testimonialsTitle": "What our clients say about us",
     "blogTitle": "News & insights",
@@ -189,12 +189,12 @@
     "metaTitle": "Project portfolio"
   },
   "filiales": {
-    "heroEyebrow": "The group",
-    "heroTitle": "One group, several specialized entities",
-    "heroSubtitle": "Each VIT GLOBAL TECHNOLOGIES GROUP subsidiary carries dedicated expertise, in service of a shared vision.",
-    "foundedLabel": "Founded in",
+    "heroEyebrow": "Our expertise",
+    "heroTitle": "One company, several areas of expertise",
+    "heroSubtitle": "VIT GLOBAL TECHNOLOGIES GROUP organizes its know-how into areas of expertise: they are service brands of the company, not separate companies.",
     "offeringsTitle": "Our offerings",
-    "metaTitle": "Our areas of expertise"
+    "metaTitle": "Our areas of expertise",
+    "discover": "Discover"
   },
   "modeleEconomique": {
     "heroEyebrow": "Business model",
@@ -236,21 +236,21 @@
   "careers": {
     "heroEyebrow": "Careers",
     "heroTitle": "Shape tomorrow's digital transformation",
-    "heroSubtitle": "Join an international, passionate and committed team, working on high-impact projects.",
+    "heroSubtitle": "Developers, designers and sales partners: join the network building VIT AUTO, KORVA OS, MARGOKIT and VITPAY and supporting our clients.",
     "whyTitle": "Why join VIT GLOBAL?",
     "whyReasons": [
-      { "title": "International projects", "description": "Work on impactful projects across more than 14 countries." },
-      { "title": "Upskilling", "description": "Continuous in-house training, certifications and mentoring." },
-      { "title": "Flexibility", "description": "Hybrid and remote work arrangements depending on the role." },
-      { "title": "Fast growth", "description": "Growth that opens up constant opportunities for advancement." }
+      { "title": "International projects", "description": "Projects for clients in Morocco, French-speaking Africa and Europe." },
+      { "title": "Upskilling", "description": "Current technologies (Next.js, TypeScript, cloud, AI) on products in production." },
+      { "title": "Flexibility", "description": "Remote assignments, organized around your availability." },
+      { "title": "A young company", "description": "Founded in 2026: your ideas directly shape our products." }
     ],
-    "openPositions": "Open positions",
-    "applyButton": "Apply for this role",
+    "openPositions": "Open calls",
+    "applyButton": "Submit my application",
     "applyFormTitle": "Your application",
     "noPositionTitle": "Can't find the right role?",
     "noPositionBody": "Send us a spontaneous application, we review every profile carefully.",
     "spontaneousButton": "Spontaneous application",
-    "metaTitle": "Careers and job openings"
+    "metaTitle": "Careers: freelancers and partners"
   },
   "support": {
     "heroEyebrow": "Support center",

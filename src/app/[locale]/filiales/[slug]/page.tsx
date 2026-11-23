@@ -57,9 +57,6 @@ export default async function FilialeDetailPage({
             </span>
             <h1 className="font-display mt-6 text-3xl font-bold tracking-tight sm:text-5xl">{filiale.name}</h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">{filiale.tagline[loc]}</p>
-            <p className="mt-4 text-sm text-white/60">
-              {t("foundedLabel")} {filiale.founded}
-            </p>
           </div>
         </div>
       </section>

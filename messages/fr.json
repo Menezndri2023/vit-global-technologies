@@ -27,8 +27,8 @@
     "servicesDesc": "15 expertises technologiques et stratégiques",
     "solutions": "Solutions",
     "solutionsDesc": "Des logiciels métiers prêts à déployer",
-    "filiales": "Filiales",
-    "filialesDesc": "Les entités spécialisées du groupe",
+    "filiales": "Pôles d'expertise",
+    "filialesDesc": "Nos domaines d'intervention",
     "modeleEconomique": "Modèle économique",
     "modeleEconomiqueDesc": "Vision, pôles d'activité et tarification",
     "work": "Réalisations",
@@ -63,7 +63,7 @@
     "submitting": "Envoi en cours…",
     "viewCaseStudy": "Voir l'étude de cas",
     "ourServices": "Nos services",
-    "ourSubsidiaries": "Nos filiales",
+    "ourSubsidiaries": "Nos pôles d'expertise",
     "keyResults": "Résultats clés",
     "relatedServices": "Services associés",
     "since": "Depuis",
@@ -97,10 +97,10 @@
     "trustedBy": "Technologies avec lesquelles nous travaillons",
     "servicesTitle": "Une expertise technologique complète",
     "servicesSubtitle": "De la stratégie à l'exploitation, nous couvrons l'intégralité de votre chaîne de valeur digitale.",
-    "filialesTitle": "Un groupe, plusieurs expertises",
-    "filialesSubtitle": "Découvrez les filiales spécialisées de VIT GLOBAL TECHNOLOGIES GROUP.",
+    "filialesTitle": "Une entreprise, plusieurs expertises",
+    "filialesSubtitle": "Découvrez les pôles d'expertise de VIT GLOBAL TECHNOLOGIES GROUP.",
     "workTitle": "Des résultats concrets, à l'international",
-    "workSubtitle": "Nos réalisations parlent pour nous, dans plus de 14 pays.",
+    "workSubtitle": "Nos propres produits, conçus à Casablanca pour le Maroc, l'Afrique francophone et l'Europe.",
     "statsTitle": "VIT GLOBAL en chiffres",
     "testimonialsTitle": "Ce que nos clients disent de nous",
     "blogTitle": "Actualités & analyses",
@@ -189,12 +189,12 @@
     "metaTitle": "Portfolio de réalisations"
   },
   "filiales": {
-    "heroEyebrow": "Le groupe",
-    "heroTitle": "Un groupe, plusieurs entités spécialisées",
-    "heroSubtitle": "Chaque filiale de VIT GLOBAL TECHNOLOGIES GROUP porte une expertise dédiée, au service d'une vision commune.",
-    "foundedLabel": "Créée en",
+    "heroEyebrow": "Nos expertises",
+    "heroTitle": "Une entreprise, plusieurs pôles d'expertise",
+    "heroSubtitle": "VIT GLOBAL TECHNOLOGIES GROUP organise son savoir-faire en pôles d'expertise : ce sont des marques de services de la société, pas des sociétés distinctes.",
     "offeringsTitle": "Nos offres",
-    "metaTitle": "Nos pôles d'expertise"
+    "metaTitle": "Nos pôles d'expertise",
+    "discover": "Découvrir"
   },
   "modeleEconomique": {
     "heroEyebrow": "Modèle économique",
@@ -236,21 +236,21 @@
   "careers": {
     "heroEyebrow": "Carrières",
     "heroTitle": "Façonnez la transformation digitale de demain",
-    "heroSubtitle": "Rejoignez une équipe internationale, passionnée et engagée, au service de projets à fort impact.",
+    "heroSubtitle": "Développeurs, designers et partenaires commerciaux : rejoignez le réseau qui construit VIT AUTO, KORVA OS, MARGOKIT et VITPAY et accompagne nos clients.",
     "whyTitle": "Pourquoi rejoindre VIT GLOBAL ?",
     "whyReasons": [
-      { "title": "Projets internationaux", "description": "Travaillez sur des projets à impact dans plus de 14 pays." },
-      { "title": "Montée en compétences", "description": "Formations continues, certifications et mentorat en interne." },
-      { "title": "Flexibilité", "description": "Modes de travail hybrides et télétravail selon les postes." },
-      { "title": "Évolution rapide", "description": "Une croissance qui ouvre des opportunités d'évolution constantes." }
+      { "title": "Projets internationaux", "description": "Des projets pour des clients au Maroc, en Afrique francophone et en Europe." },
+      { "title": "Montée en compétences", "description": "Des technologies actuelles (Next.js, TypeScript, cloud, IA) sur des produits en production." },
+      { "title": "Flexibilité", "description": "Missions à distance, organisées selon vos disponibilités." },
+      { "title": "Une jeune entreprise", "description": "Fondée en 2026 : vos idées ont un effet direct sur nos produits." }
     ],
-    "openPositions": "Postes ouverts",
-    "applyButton": "Postuler à cette offre",
+    "openPositions": "Appels ouverts",
+    "applyButton": "Proposer ma candidature",
     "applyFormTitle": "Votre candidature",
     "noPositionTitle": "Vous ne trouvez pas le poste idéal ?",
     "noPositionBody": "Envoyez-nous une candidature spontanée, nous étudions chaque profil avec attention.",
     "spontaneousButton": "Candidature spontanée",
-    "metaTitle": "Carrières et offres d'emploi"
+    "metaTitle": "Carrières : freelances et partenaires"
   },
   "support": {
     "heroEyebrow": "Centre de support",
