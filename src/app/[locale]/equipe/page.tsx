@@ -46,6 +46,16 @@ export default async function TeamPage({ params }: { params: Promise<{ locale: s
               <h3 className="mt-4 font-display text-lg font-semibold text-navy-950">{member.name}</h3>
               <p className="mt-1 text-sm font-medium text-brand-600">{member.role[loc]}</p>
               <p className="mt-3 text-sm leading-relaxed text-silver-600">{member.bio[loc]}</p>
+              {member.linkedin && (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  className="mt-4 inline-flex text-sm font-semibold text-brand-600 hover:text-brand-700"
+                >
+                  LinkedIn
+                </a>
+              )}
             </Card>
           ))}
         </div>

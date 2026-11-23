@@ -2,8 +2,8 @@
 // Une seule entité « Organization » (@id stable) à laquelle toutes les autres se rattachent,
 // pour que moteurs de recherche et moteurs de réponse IA identifient sans ambiguïté l'entreprise.
 import { SITE_URL } from "@/lib/seo";
-import { CONTACT_EMAIL, CONTACT_PHONES, SOCIAL_LINKS } from "@/lib/contact";
-import { TARGET_MARKETS } from "@/data/company";
+import { CONTACT_EMAIL, CONTACT_PHONES, GOOGLE_BUSINESS_PROFILE_URL, SOCIAL_LINKS } from "@/lib/contact";
+import { TARGET_MARKETS, teamMembers } from "@/data/company";
 import { companyLegal } from "@/data/legal";
 import type { Locale } from "@/data/types";
 import type { FaqItem } from "@/data/faq";
@@ -45,7 +45,12 @@ export function organization() {
       { "@type": "PropertyValue", propertyID: "ICE", value: companyLegal.ice },
       ...(companyLegal.rc ? [{ "@type": "PropertyValue", propertyID: "RC Casablanca", value: companyLegal.rc.split(" ")[0] }] : [])
     ],
-    founder: { "@type": "Person", name: companyLegal.publicationDirector.split(",")[0] },
+    founder: {
+      "@type": "Person",
+      name: companyLegal.publicationDirector.split(",")[0],
+      jobTitle: "Fondateur & Gérant",
+      ...(teamMembers[0]?.linkedin ? { sameAs: [teamMembers[0].linkedin] } : {})
+    },
     contactPoint: CONTACT_PHONES.map((phone) => ({
       "@type": "ContactPoint",
       contactType: "customer service",
@@ -62,7 +67,7 @@ export function organization() {
     },
     areaServed: TARGET_MARKETS.map((code) => ({ "@type": "Country", name: COUNTRY_NAMES[code], identifier: code })),
     knowsLanguage: ["fr", "en", "ar"],
-    sameAs: SOCIAL_LINKS.map((social) => social.url)
+    sameAs: [...SOCIAL_LINKS.map((social) => social.url), GOOGLE_BUSINESS_PROFILE_URL]
   };
 }
 

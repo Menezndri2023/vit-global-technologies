@@ -12,3 +12,6 @@ export const SOCIAL_LINKS = [
   { network: "facebook", label: "Facebook", url: "https://www.facebook.com/profile.php?id=1475412788979303" },
   { network: "tiktok", label: "TikTok", url: "https://www.tiktok.com/@vitglobaltech" }
 ] as const;
+
+// Fiche Google Business Profile de l'entreprise (déclarée dans le JSON-LD « sameAs », pas affichée dans le pied de page).
+export const GOOGLE_BUSINESS_PROFILE_URL = "https://share.google/kFUGMMkZdAB6TfzIQ";

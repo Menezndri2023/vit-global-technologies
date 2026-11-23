@@ -5,6 +5,8 @@ export interface TeamMember {
   role: Localized<string>;
   bio: Localized<string>;
   initials: string;
+  /** Profil LinkedIn public (relié à l'entreprise dans le JSON-LD) */
+  linkedin?: string;
 }
 
 // Seules figurent des personnes réelles ayant accepté d'apparaître sur le site.
@@ -17,7 +19,8 @@ export const teamMembers: TeamMember[] = [
       en: "Founder and managing director of VIT GLOBAL TECHNOLOGIES GROUP. A full-stack developer, he leads the group's strategy and the development of its products: VIT AUTO, KORVA OS, MARGOKIT and VITPAY.",
       ar: "مؤسس ومسيّر VIT GLOBAL TECHNOLOGIES GROUP. مطوّر برمجيات متكامل (Full-Stack)، يقود استراتيجية المجموعة وتطوير منتجاتها: VIT AUTO وKORVA OS وMARGOKIT وVITPAY."
     },
-    initials: "MN"
+    initials: "MN",
+    linkedin: "https://www.linkedin.com/in/manass%C3%A9-ndri-959b80263/"
   }
 ];
 

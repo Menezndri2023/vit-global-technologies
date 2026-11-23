@@ -1,7 +1,7 @@
 // /llms.txt : résumé de l'entreprise et index des pages clés pour les moteurs de réponse IA (format llmstxt.org).
 // Généré à partir des mêmes données que le site : aucune information n'est dupliquée à la main.
 import { SITE_URL } from "@/lib/seo";
-import { CONTACT_EMAIL, CONTACT_PHONES, SOCIAL_LINKS } from "@/lib/contact";
+import { CONTACT_EMAIL, CONTACT_PHONES, GOOGLE_BUSINESS_PROFILE_URL, SOCIAL_LINKS } from "@/lib/contact";
 import { companyLegal } from "@/data/legal";
 import { services } from "@/data/services";
 import { solutions } from "@/data/solutions";
@@ -25,7 +25,7 @@ function build() {
     `- ICE : ${companyLegal.ice}${companyLegal.rc ? ` ; RC : ${companyLegal.rc}` : ""}`,
     `- Site officiel : ${SITE_URL} (français, anglais, arabe : /fr, /en, /ar)`,
     `- Contact : ${CONTACT_EMAIL} ; ${CONTACT_PHONES.map((p) => p.label).join(" ; ")}`,
-    `- Comptes officiels : ${SOCIAL_LINKS.map((s) => s.url).join(" ; ")}`,
+    `- Comptes officiels : ${SOCIAL_LINKS.map((s) => s.url).join(" ; ")} ; fiche Google : ${GOOGLE_BUSINESS_PROFILE_URL}`,
     "",
     "## Produits",
     ...realisations.map(
