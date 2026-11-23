@@ -9,6 +9,9 @@ import { OpenChatButton } from "@/components/layout/OpenChatButton";
 import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
 import { MessageCircle, Mail } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { faqPage } from "@/lib/structured-data";
+import { faqItems } from "@/data/faq";
 
 export async function generateMetadata({
   params
@@ -17,7 +20,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "support" });
-  return buildMetadata({ locale, title: t("heroTitle"), description: t("heroSubtitle"), path: "/support" });
+  return buildMetadata({ locale, title: t("metaTitle"), description: t("heroSubtitle"), path: "/support" });
 }
 
 export default async function SupportPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -28,6 +31,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
 
   return (
     <>
+      <JsonLd data={faqPage(faqItems, loc)} />
       <section className="bg-grid bg-white pb-16 pt-16 sm:pb-20 sm:pt-24">
         <div className="container-vit">
           <div className="mx-auto max-w-3xl text-center">

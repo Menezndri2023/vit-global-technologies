@@ -61,7 +61,7 @@ export function PortfolioGrid({ locale }: { locale: Locale }) {
               <span className="inline-flex items-center rounded-full bg-brand-500/10 px-2.5 py-1 text-xs font-semibold text-brand-600">
                 {item.portfolioType[locale]}
               </span>
-              <h3 className="mt-3 font-display text-base font-semibold text-navy-950">{item.title[locale]}</h3>
+              <h2 className="mt-3 font-display text-base font-semibold text-navy-950">{item.title[locale]}</h2>
               <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 opacity-0 transition-opacity group-hover:opacity-100">
                 {tCommon("viewCaseStudy")} <ArrowUpRight className="h-3.5 w-3.5" />
               </span>

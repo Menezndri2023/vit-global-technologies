@@ -14,7 +14,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contactPage" });
-  return buildMetadata({ locale, title: t("heroTitle"), description: t("heroSubtitle"), path: "/contact" });
+  return buildMetadata({ locale, title: t("metaTitle"), description: t("heroSubtitle"), path: "/contact" });
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -61,7 +61,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   <Phone className="h-4 w-4 shrink-0 text-brand-400" />
                   {CONTACT_PHONES.map((phone, index) => (
                     <span key={phone.e164} className="flex items-center gap-3">
-                      {index > 0 && <span className="text-white/40">·</span>}
+                      {index > 0 && <span className="text-white/60">·</span>}
                       <a href={phone.href} className="hover:text-white" dir="ltr">
                         {phone.label}
                       </a>
@@ -76,7 +76,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 href="https://wa.me/212607742672?text=Bonjour%20VIT%20GLOBAL%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 flex items-center justify-center gap-2 rounded-full bg-emerald-500 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-600"
+                className="mt-6 flex items-center justify-center gap-2 rounded-full bg-emerald-700 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-800"
               >
                 <MessageCircle className="h-4 w-4" /> {t("whatsappLabel")}
               </a>

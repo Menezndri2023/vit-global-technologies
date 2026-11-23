@@ -45,7 +45,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40">{t("footer.company")}</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/60">{t("footer.company")}</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-white/70">
               <li><Link href="/a-propos" className="hover:text-brand-300">{t("nav.aboutOverview")}</Link></li>
               <li><Link href="/equipe" className="hover:text-brand-300">{t("nav.team")}</Link></li>
@@ -57,7 +57,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40">{t("footer.solutions")}</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/60">{t("footer.solutions")}</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-white/70">
               {services.slice(0, 5).map((s) => (
                 <li key={s.slug}>
@@ -71,7 +71,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40">{t("nav.filiales")}</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/60">{t("nav.filiales")}</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-white/70">
               {filiales.map((f) => (
                 <li key={f.slug}>
@@ -87,7 +87,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40">{t("footer.resources")}</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/60">{t("footer.resources")}</h3>
             <ul className="mt-4 space-y-3 text-sm text-white/70">
               <li className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
@@ -118,7 +118,7 @@ export function Footer() {
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1">
             <p>© {year} VIT GLOBAL TECHNOLOGIES GROUP — {t("footer.rights")}</p>
-            <p className="text-white/40">{companyLegalLine()}</p>
+            <p className="text-white/60">{companyLegalLine()}</p>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <Link href="/mentions-legales" className="hover:text-white/80">{t("footer.legalMentions")}</Link>

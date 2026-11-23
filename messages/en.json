@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteName": "VIT GLOBAL TECHNOLOGIES GROUP",
-    "defaultTitle": "VIT GLOBAL TECHNOLOGIES GROUP — International Digital Transformation Firm",
+    "defaultTitle": "VIT GLOBAL TECHNOLOGIES GROUP — Digital Transformation",
     "defaultDescription": "VIT GLOBAL TECHNOLOGIES GROUP supports companies, institutions and investors in their digital transformation: development, AI, cloud, cybersecurity and consulting, on an international scale."
   },
   "nav": {
@@ -147,12 +147,14 @@
     "statsTitle": "The group in numbers",
     "teamCtaTitle": "Meet the founder",
     "teamCtaBody": "Find out who leads the group and its products.",
-    "teamCtaButton": "Discover the team"
+    "teamCtaButton": "Discover the team",
+    "metaTitle": "About us: our story and mission"
   },
   "team": {
     "heroEyebrow": "Leadership",
     "heroTitle": "Who leads VIT GLOBAL",
-    "heroSubtitle": "A group founded and run from Casablanca. Would you like to join us? See our job openings."
+    "heroSubtitle": "A group founded and run from Casablanca. Would you like to join us? See our job openings.",
+    "metaTitle": "Team and founder"
   },
   "partners": {
     "heroEyebrow": "Ecosystem",
@@ -160,7 +162,8 @@
     "heroSubtitle": "We build our solutions with recognised technologies and platforms. Would you like to work with us? Join our partner network.",
     "ctaTitle": "Want to become a partner?",
     "ctaBody": "Join our ecosystem of technology, commercial or institutional partners.",
-    "ctaButton": "Become a partner"
+    "ctaButton": "Become a partner",
+    "metaTitle": "Technologies we use"
   },
   "services": {
     "heroEyebrow": "Our expertise",
@@ -168,26 +171,30 @@
     "heroSubtitle": "From strategy to operations, our multidisciplinary teams support every stage of your transformation.",
     "detailCtaTitle": "Let's talk about your project",
     "detailCtaBody": "Our experts analyze your needs and propose the best approach, with no commitment.",
-    "includedTitle": "What this service includes"
+    "includedTitle": "What this service includes",
+    "metaTitle": "Services: web, AI, cloud, cybersecurity"
   },
   "solutionsPage": {
     "heroEyebrow": "Our solutions",
     "heroTitle": "Ready-to-deploy business software for your industry",
     "heroSubtitle": "Beyond custom development, VIT GLOBAL offers proven, vertical software solutions you can deploy quickly.",
     "ctaTitle": "Interested in a solution?",
-    "ctaSubtitle": "Our experts will walk you through a demo tailored to your industry."
+    "ctaSubtitle": "Our experts will walk you through a demo tailored to your industry.",
+    "metaTitle": "Business software solutions"
   },
   "portfolioPage": {
     "heroEyebrow": "Portfolio",
     "heroTitle": "A visual overview of our work",
-    "heroSubtitle": "Applications, websites, AI solutions, dashboards and marketplaces built for our clients."
+    "heroSubtitle": "Applications, websites, AI solutions, dashboards and marketplaces built for our clients.",
+    "metaTitle": "Project portfolio"
   },
   "filiales": {
     "heroEyebrow": "The group",
     "heroTitle": "One group, several specialized entities",
     "heroSubtitle": "Each VIT GLOBAL TECHNOLOGIES GROUP subsidiary carries dedicated expertise, in service of a shared vision.",
     "foundedLabel": "Founded in",
-    "offeringsTitle": "Our offerings"
+    "offeringsTitle": "Our offerings",
+    "metaTitle": "Our areas of expertise"
   },
   "modeleEconomique": {
     "heroEyebrow": "Business model",
@@ -207,7 +214,8 @@
     "processTitle": "How we work",
     "processSubtitle": "A structured journey, from first contact to post-delivery support.",
     "ctaTitle": "Ready to bring your project to life?",
-    "ctaSubtitle": "Tell us about your needs: we'll get back to you with a detailed quote and our full rate card."
+    "ctaSubtitle": "Tell us about your needs: we'll get back to you with a detailed quote and our full rate card.",
+    "metaTitle": "Business model and offers"
   },
   "realisations": {
     "heroEyebrow": "Case Studies",
@@ -215,13 +223,15 @@
     "heroSubtitle": "Discover how we help companies and institutions turn ambitions into measurable results.",
     "challengeTitle": "The challenge",
     "solutionTitle": "Our solution",
-    "resultsTitle": "The results"
+    "resultsTitle": "The results",
+    "metaTitle": "Work: VIT AUTO, KORVA OS, MARGOKIT"
   },
   "blog": {
     "heroEyebrow": "News & insights",
     "heroTitle": "Our perspectives on technology and innovation",
     "heroSubtitle": "Insights, trends and case studies from our experts.",
-    "byAuthor": "By"
+    "byAuthor": "By",
+    "metaTitle": "Blog: AI, cloud and cybersecurity"
   },
   "careers": {
     "heroEyebrow": "Careers",
@@ -239,7 +249,8 @@
     "applyFormTitle": "Your application",
     "noPositionTitle": "Can't find the right role?",
     "noPositionBody": "Send us a spontaneous application, we review every profile carefully.",
-    "spontaneousButton": "Spontaneous application"
+    "spontaneousButton": "Spontaneous application",
+    "metaTitle": "Careers and job openings"
   },
   "support": {
     "heroEyebrow": "Support center",
@@ -252,7 +263,8 @@
     "contactSupportButton": "Contact support",
     "chatButton": "Start a chat",
     "ticketTitle": "Create a support ticket",
-    "ticketBody": "Describe your issue, our technical team will respond quickly."
+    "ticketBody": "Describe your issue, our technical team will respond quickly.",
+    "metaTitle": "Support center and FAQ"
   },
   "contactPage": {
     "heroEyebrow": "Contact",
@@ -272,7 +284,8 @@
     "appointmentCard": "Book an appointment",
     "appointmentCardDesc": "Reserve a time slot with an advisor.",
     "supportCard": "Support center",
-    "supportCardDesc": "Find a quick answer in our FAQ."
+    "supportCardDesc": "Find a quick answer in our FAQ.",
+    "metaTitle": "Contact details in Casablanca"
   },
   "form": {
     "name": "Full name",
@@ -322,7 +335,8 @@
       "Your request is reviewed by an expert in the relevant field",
       "A scoping call to refine the project's boundaries",
       "You receive a detailed quote within 48 hours"
-    ]
+    ],
+    "metaTitle": "Request a quote"
   },
   "appointmentPage": {
     "heroEyebrow": "Book an appointment",
@@ -334,7 +348,8 @@
       "Personalized presentation of our solutions",
       "Concrete answers to your technical or strategic questions"
     ],
-    "calendarButton": "Add to Google Calendar"
+    "calendarButton": "Add to Google Calendar",
+    "metaTitle": "Book a meeting with an advisor"
   },
   "clientArea": {
     "heroEyebrow": "Client area",
@@ -359,7 +374,8 @@
     "myApplications": "My applications",
     "signed": "Signed",
     "signProposal": "Sign proposal",
-    "proposalPending": "Proposal in preparation"
+    "proposalPending": "Proposal in preparation",
+    "metaTitle": "Client area"
   },
   "partnerArea": {
     "heroEyebrow": "Partner area",
@@ -381,7 +397,8 @@
     "resourcesServices": "Services catalog",
     "resourcesCaseStudies": "Case studies",
     "resourcesContact": "Contact the partnerships team",
-    "pendingApproval": "Your partner account is awaiting approval by our team. You can track your requests here; partner resources will be available once approved."
+    "pendingApproval": "Your partner account is awaiting approval by our team. You can track your requests here; partner resources will be available once approved.",
+    "metaTitle": "Partner area"
   },
   "auth": {
     "continueWith": "Continue with {provider}",

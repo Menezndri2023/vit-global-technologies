@@ -11,6 +11,8 @@ import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumb, softwareSchema } from "@/lib/structured-data";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) => realisations.map((r) => ({ locale, slug: r.slug })));
@@ -40,10 +42,13 @@ export default async function RealisationDetailPage({
   if (!item) notFound();
 
   const t = await getTranslations("realisations");
+  const tNav = await getTranslations("nav");
   const tCommon = await getTranslations("common");
 
   return (
     <>
+      <JsonLd data={softwareSchema(item, loc)} />
+      <JsonLd data={breadcrumb(loc, [[tNav("realisations"), "/realisations"], [item.client, `/realisations/${slug}`]])} />
       <section className="relative overflow-hidden pb-16 pt-16 sm:pb-20 sm:pt-24" style={{ background: `linear-gradient(135deg, ${item.color}, #0A1730)` }}>
         <div className="container-vit relative">
           <div className="mx-auto max-w-3xl text-center text-white">

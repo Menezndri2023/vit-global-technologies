@@ -9,6 +9,8 @@ import { routing } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
 import { ArrowLeft } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { blogPostingSchema, breadcrumb } from "@/lib/structured-data";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) => blogPosts.map((p) => ({ locale, slug: p.slug })));
@@ -38,11 +40,14 @@ export default async function BlogDetailPage({
   if (!post) notFound();
 
   const t = await getTranslations("blog");
+  const tNav = await getTranslations("nav");
   const tCommon = await getTranslations("common");
   const others = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
     <>
+      <JsonLd data={blogPostingSchema(post, loc)} />
+      <JsonLd data={breadcrumb(loc, [[tNav("blog"), "/blog"], [post.title[loc], `/blog/${slug}`]])} />
       <section className="bg-grid bg-white pb-12 pt-16 sm:pt-24">
         <div className="container-vit">
           <div className="mx-auto max-w-3xl">

@@ -15,7 +15,7 @@ const csp = [
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
   `connect-src 'self'${isPreview ? " https://vercel.live wss://ws-us3.pusher.com" : ""}`,
-  `frame-src ${isPreview ? "https://vercel.live" : "'none'"}`,
+  `frame-src https://www.openstreetmap.org${isPreview ? " https://vercel.live" : ""}`,
   "frame-ancestors 'none'",
   "object-src 'none'",
   "base-uri 'self'",
@@ -37,6 +37,9 @@ const securityHeaders = [
 const nextConfig = {
   outputFileTracingRoot: new URL(".", import.meta.url).pathname,
   poweredByHeader: false,
+  // Métadonnées (titre, description, canonique) toujours rendues dans le <head>, sans streaming :
+  // les robots d'indexation et des moteurs IA qui n'exécutent pas JavaScript les lisent ainsi sur toutes les pages.
+  htmlLimitedBots: /.*/,
   images: {
     formats: ["image/avif", "image/webp"]
   },

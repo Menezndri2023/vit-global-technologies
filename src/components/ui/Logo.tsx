@@ -52,7 +52,7 @@ export function Logo({ className, mark = true, wordmark = true, tone = "dark" }:
       {wordmark && (
         <span className="flex flex-col leading-none">
           <span className={`font-display text-[1.15rem] font-bold tracking-tight sm:text-xl ${titleColor}`}>
-            <span className="text-brand-600">VIT</span> GLOBAL
+            <span className={tone === "dark" ? "text-brand-600" : "text-brand-400"}>VIT</span> GLOBAL
           </span>
           <span className={`text-[0.55rem] font-semibold uppercase tracking-[0.25em] sm:text-[0.6rem] ${subColor}`}>
             Technologies Group
