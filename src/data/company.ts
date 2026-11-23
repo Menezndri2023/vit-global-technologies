@@ -112,9 +112,12 @@ export const companyValues: CompanyValue[] = [
 ];
 
 // Chiffres vérifiables uniquement (statuts, produits du groupe, engagements publiés sur le site).
+/** Marchés cibles du groupe (codes ISO 3166-1), utilisés aussi dans les données structurées. */
+export const TARGET_MARKETS = ["MA", "CI", "SN", "ML", "BF", "FR"] as const;
+
 export const companyStats = [
   { value: "2026", label: { fr: "création à Casablanca", en: "founded in Casablanca", ar: "التأسيس بالدار البيضاء" } },
-  { value: "2", label: { fr: "marchés : Maroc et Côte d'Ivoire", en: "markets: Morocco and Côte d'Ivoire", ar: "سوقان: المغرب وكوت ديفوار" } },
+  { value: "6", label: { fr: "pays cibles en Afrique francophone et en Europe", en: "target countries in French-speaking Africa and Europe", ar: "دول مستهدفة في إفريقيا الفرنكوفونية وأوروبا" } },
   { value: "4", label: { fr: "produits du groupe", en: "group products", ar: "منتجات للمجموعة" } },
   { value: "3", label: { fr: "langues : FR, EN, AR", en: "languages: FR, EN, AR", ar: "لغات: الفرنسية والإنجليزية والعربية" } },
   { value: "48 h", label: { fr: "pour une proposition de devis", en: "to receive a quote proposal", ar: "لتلقي عرض سعر" } },

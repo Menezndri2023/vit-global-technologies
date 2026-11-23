@@ -11,7 +11,17 @@ import { AuthSessionProvider } from "@/components/providers/AuthSessionProvider"
 import { CurrencyProvider } from "@/components/providers/CurrencyProvider";
 import { buildMetadata, SITE_URL } from "@/lib/seo";
 import { CONTACT_EMAIL, CONTACT_PHONES, SOCIAL_LINKS } from "@/lib/contact";
+import { TARGET_MARKETS } from "@/data/company";
 import "../globals.css";
+
+const COUNTRY_NAMES: Record<(typeof TARGET_MARKETS)[number], string> = {
+  MA: "Morocco",
+  CI: "Côte d'Ivoire",
+  SN: "Senegal",
+  ML: "Mali",
+  BF: "Burkina Faso",
+  FR: "France"
+};
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -37,6 +47,7 @@ const organizationJsonLd = {
     addressLocality: "Casablanca",
     addressCountry: "MA"
   },
+  areaServed: TARGET_MARKETS.map((code) => ({ "@type": "Country", name: COUNTRY_NAMES[code], identifier: code })),
   sameAs: SOCIAL_LINKS.map((social) => social.url)
 };
 
