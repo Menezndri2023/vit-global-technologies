@@ -11,7 +11,7 @@ import { ArrowRight } from "lucide-react";
 export function AccessRequestForm({ subject, buttonLabel }: { subject: string; buttonLabel: string }) {
   const t = useTranslations();
   const locale = useLocale();
-  const { status, submit } = useFormSubmit("/api/contact");
+  const { status, errorCode, submit } = useFormSubmit("/api/contact");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -40,7 +40,7 @@ export function AccessRequestForm({ subject, buttonLabel }: { subject: string; b
       <Field label={t("form.company")} htmlFor="ar-company">
         <Input id="ar-company" name="company" />
       </Field>
-      {status === "error" && <FormStatusMessage status="error" />}
+      {status === "error" && <FormStatusMessage status="error" errorCode={errorCode} />}
       <Button type="submit" disabled={status === "submitting"} icon={<ArrowRight className="h-4 w-4" />}>
         {status === "submitting" ? t("common.submitting") : buttonLabel}
       </Button>

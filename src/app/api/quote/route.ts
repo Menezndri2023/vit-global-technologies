@@ -5,6 +5,8 @@ import { readUploadedFile } from "@/lib/uploads";
 import { notifyAdmin } from "@/lib/notify";
 import { sendMailTo } from "@/lib/mail";
 import { buildRateCardPdf } from "@/lib/quote-rate-card-pdf";
+import { DAY, HOUR, limitByIp, rateLimit } from "@/lib/rate-limit";
+import { escapeHtml } from "@/lib/security";
 import type { Locale } from "@/data/types";
 
 const CONFIRMATION_COPY: Record<Locale, { subject: string; greeting: (name: string) => string; body: string; nextSteps: string; footer: string }> = {
@@ -32,14 +34,18 @@ const CONFIRMATION_COPY: Record<Locale, { subject: string; greeting: (name: stri
 };
 
 async function sendQuoteConfirmation(entry: { name: string; email: string; locale: string }) {
+  // Au plus 2 confirmations par adresse et par 24 h : le formulaire ne peut pas servir à inonder une boîte tierce.
+  if (!(await rateLimit(`quote-confirmation:${entry.email.toLowerCase()}`, 2, DAY))) return;
+
   const locale = (["fr", "en", "ar"].includes(entry.locale) ? entry.locale : "fr") as Locale;
   const copy = CONFIRMATION_COPY[locale];
   try {
     const pdfBytes = await buildRateCardPdf(locale);
+    const dir = locale === "ar" ? ' dir="rtl"' : "";
     await sendMailTo(
       entry.email,
       copy.subject,
-      `<p>${copy.greeting(entry.name)}</p><p>${copy.body}</p><p>${copy.nextSteps}</p><p>${copy.footer}</p>`,
+      `<div${dir}><p>${copy.greeting(escapeHtml(entry.name))}</p><p>${copy.body}</p><p>${copy.nextSteps}</p><p>${copy.footer}</p></div>`,
       [{ filename: "grille-tarifaire-vit-global.pdf", content: Buffer.from(pdfBytes), contentType: "application/pdf" }]
     );
   } catch (error) {
@@ -48,6 +54,9 @@ async function sendQuoteConfirmation(entry: { name: string; email: string; local
 }
 
 export async function POST(request: Request) {
+  const limited = await limitByIp(request, "quote", 5, HOUR);
+  if (limited) return limited;
+
   let formData: FormData;
   try {
     formData = await request.formData();
@@ -58,6 +67,12 @@ export async function POST(request: Request) {
   const fields = Object.fromEntries(
     Array.from(formData.entries()).filter(([, value]) => typeof value === "string")
   ) as Record<string, string>;
+
+  const parsed = quoteSchema.safeParse(fields);
+
+  if (!parsed.success) {
+    return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
+  }
 
   const file = formData.get("attachment");
   let attachmentData: Uint8Array | undefined;
@@ -72,14 +87,8 @@ export async function POST(request: Request) {
       attachmentMimeType = saved.mimeType;
     } catch (error) {
       const code = error instanceof Error ? error.message : "UPLOAD_FAILED";
-      return NextResponse.json({ error: code }, { status: 400 });
+      return NextResponse.json({ error: code }, { status: code === "FILE_TOO_LARGE" ? 413 : 400 });
     }
-  }
-
-  const parsed = quoteSchema.safeParse(fields);
-
-  if (!parsed.success) {
-    return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
 
   const entry = await prisma.quoteRequest.create({
@@ -92,5 +101,6 @@ export async function POST(request: Request) {
   });
   after(() => notifyAdmin(`Nouvelle demande de devis de ${entry.name} — ${entry.service}`));
   after(() => sendQuoteConfirmation(entry));
-  return NextResponse.json({ id: entry.id }, { status: 201 });
+  // L'identifiant n'est pas renvoyé : il ne sert plus d'accès à quoi que ce soit, mais inutile de l'exposer.
+  return NextResponse.json({ ok: true }, { status: 201 });
 }

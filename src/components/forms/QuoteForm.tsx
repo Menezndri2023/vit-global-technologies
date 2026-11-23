@@ -14,7 +14,7 @@ import { Send, Paperclip } from "lucide-react";
 export function QuoteForm({ defaultService }: { defaultService?: string }) {
   const t = useTranslations();
   const locale = useLocale() as Locale;
-  const { status, submit } = useFormSubmit("/api/quote");
+  const { status, errorCode, submit } = useFormSubmit("/api/quote");
   const [fileName, setFileName] = useState<string | null>(null);
 
   const budgetOptions = t.raw("form.budgetOptions") as string[];
@@ -120,7 +120,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
           onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)}
         />
       </Field>
-      {status === "error" && <FormStatusMessage status="error" />}
+      {status === "error" && <FormStatusMessage status="error" errorCode={errorCode} />}
       <Button type="submit" disabled={status === "submitting"} icon={<Send className="h-4 w-4" />}>
         {status === "submitting" ? t("common.submitting") : t("common.requestQuote")}
       </Button>

@@ -18,9 +18,10 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
-  const { type, id, status } = await request.json();
+  const body = await request.json().catch(() => null);
+  const { type, id, status } = body ?? {};
 
-  if (!(type in updaters) || !id || !VALID_STATUSES.includes(status)) {
+  if (typeof type !== "string" || !(type in updaters) || typeof id !== "string" || !VALID_STATUSES.includes(status)) {
     return NextResponse.json({ error: "invalid payload" }, { status: 400 });
   }
 

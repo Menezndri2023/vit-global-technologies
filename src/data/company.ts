@@ -7,66 +7,17 @@ export interface TeamMember {
   initials: string;
 }
 
+// Seules figurent des personnes réelles ayant accepté d'apparaître sur le site.
 export const teamMembers: TeamMember[] = [
   {
     name: "Manasse N'Dri",
-    role: { fr: "Fondateur & Directeur Général", en: "Founder & CEO", ar: "المؤسس والمدير العام" },
+    role: { fr: "Fondateur & Gérant", en: "Founder & Managing Director", ar: "المؤسس والمسيّر" },
     bio: {
-      fr: "Vision stratégique et pilotage international du groupe, avec plus de 15 ans d'expérience en technologie et transformation digitale.",
-      en: "Strategic vision and international leadership of the group, with over 15 years of experience in technology and digital transformation.",
-      ar: "رؤية استراتيجية وقيادة دولية للمجموعة، بخبرة تفوق 15 عامًا في التكنولوجيا والتحول الرقمي."
+      fr: "Fondateur et gérant de VIT GLOBAL TECHNOLOGIES GROUP. Développeur full-stack, il pilote la stratégie du groupe et le développement de ses produits : VIT AUTO, KORVA OS, MARGOKIT et VITPAY.",
+      en: "Founder and managing director of VIT GLOBAL TECHNOLOGIES GROUP. A full-stack developer, he leads the group's strategy and the development of its products: VIT AUTO, KORVA OS, MARGOKIT and VITPAY.",
+      ar: "مؤسس ومسيّر VIT GLOBAL TECHNOLOGIES GROUP. مطوّر برمجيات متكامل (Full-Stack)، يقود استراتيجية المجموعة وتطوير منتجاتها: VIT AUTO وKORVA OS وMARGOKIT وVITPAY."
     },
     initials: "MN"
-  },
-  {
-    name: "Aïcha Koné",
-    role: { fr: "Directrice IA & Data", en: "Head of AI & Data", ar: "مديرة الذكاء الاصطناعي والبيانات" },
-    bio: {
-      fr: "Pilote la stratégie et les projets d'intelligence artificielle appliquée pour l'ensemble des clients du groupe.",
-      en: "Leads the strategy and applied artificial intelligence projects for all of the group's clients.",
-      ar: "تقود استراتيجية ومشاريع الذكاء الاصطناعي التطبيقي لجميع عملاء المجموعة."
-    },
-    initials: "AK"
-  },
-  {
-    name: "Yannick Bamba",
-    role: { fr: "Responsable Cybersécurité", en: "Head of Cybersecurity", ar: "مسؤول الأمن السيبراني" },
-    bio: {
-      fr: "Expert en sécurité offensive et défensive, garant de la protection des systèmes clients et internes.",
-      en: "Expert in offensive and defensive security, guaranteeing the protection of client and internal systems.",
-      ar: "خبير في الأمن الهجومي والدفاعي، يضمن حماية أنظمة العملاء والأنظمة الداخلية."
-    },
-    initials: "YB"
-  },
-  {
-    name: "Mohamed El Amrani",
-    role: { fr: "Architecte Cloud Principal", en: "Principal Cloud Architect", ar: "كبير مهندسي الحوسبة السحابية" },
-    bio: {
-      fr: "Conçoit des architectures cloud robustes et scalables pour les projets les plus complexes du groupe.",
-      en: "Designs robust, scalable cloud architectures for the group's most complex projects.",
-      ar: "يصمم بنى سحابية متينة وقابلة للتوسع لأعقد مشاريع المجموعة."
-    },
-    initials: "ME"
-  },
-  {
-    name: "Fatou Diarra",
-    role: { fr: "Directrice des Talents", en: "Head of Talent", ar: "مديرة المواهب" },
-    bio: {
-      fr: "Attire et développe les talents technologiques et créatifs du groupe à l'échelle internationale.",
-      en: "Attracts and develops the group's technology and creative talent on an international scale.",
-      ar: "تجتذب وتطوّر المواهب التقنية والإبداعية للمجموعة على المستوى الدولي."
-    },
-    initials: "FD"
-  },
-  {
-    name: "Julien Marchetti",
-    role: { fr: "Directeur Commercial International", en: "International Sales Director", ar: "مدير المبيعات الدولية" },
-    bio: {
-      fr: "Développe les partenariats commerciaux du groupe en Europe et coordonne les relations investisseurs.",
-      en: "Develops the group's commercial partnerships in Europe and coordinates investor relations.",
-      ar: "يطوّر شراكات المجموعة التجارية في أوروبا وينسّق علاقات المستثمرين."
-    },
-    initials: "JM"
   }
 ];
 
@@ -75,15 +26,16 @@ export interface Partner {
   category: Localized<string>;
 }
 
+// Technologies et plateformes avec lesquelles nous travaillons (et non des partenariats contractuels).
 export const partners: Partner[] = [
-  { name: "Amazon Web Services", category: { fr: "Partenaire Cloud", en: "Cloud Partner", ar: "شريك سحابي" } },
-  { name: "Microsoft Azure", category: { fr: "Partenaire Cloud", en: "Cloud Partner", ar: "شريك سحابي" } },
-  { name: "Google Cloud", category: { fr: "Partenaire Cloud", en: "Cloud Partner", ar: "شريك سحابي" } },
-  { name: "Stripe", category: { fr: "Partenaire Paiement", en: "Payment Partner", ar: "شريك دفع" } },
-  { name: "Orange Digital Ventures", category: { fr: "Partenaire Stratégique", en: "Strategic Partner", ar: "شريك استراتيجي" } },
-  { name: "Salesforce", category: { fr: "Partenaire Technologique", en: "Technology Partner", ar: "شريك تقني" } },
-  { name: "GitHub", category: { fr: "Partenaire Technologique", en: "Technology Partner", ar: "شريك تقني" } },
-  { name: "Chambre de Commerce Internationale", category: { fr: "Partenaire Institutionnel", en: "Institutional Partner", ar: "شريك مؤسسي" } }
+  { name: "Amazon Web Services", category: { fr: "Cloud", en: "Cloud", ar: "الحوسبة السحابية" } },
+  { name: "Microsoft Azure", category: { fr: "Cloud", en: "Cloud", ar: "الحوسبة السحابية" } },
+  { name: "Google Cloud", category: { fr: "Cloud", en: "Cloud", ar: "الحوسبة السحابية" } },
+  { name: "Vercel", category: { fr: "Hébergement web", en: "Web hosting", ar: "استضافة الويب" } },
+  { name: "Stripe", category: { fr: "Paiement en ligne", en: "Online payments", ar: "الدفع الإلكتروني" } },
+  { name: "Salesforce", category: { fr: "CRM", en: "CRM", ar: "إدارة علاقات العملاء" } },
+  { name: "GitHub", category: { fr: "Développement", en: "Development", ar: "التطوير" } },
+  { name: "PostgreSQL", category: { fr: "Base de données", en: "Database", ar: "قواعد البيانات" } }
 ];
 
 export interface Testimonial {
@@ -93,38 +45,8 @@ export interface Testimonial {
   company: string;
 }
 
-export const testimonials: Testimonial[] = [
-  {
-    quote: {
-      fr: "VIT GLOBAL a transformé notre vision digitale en une plateforme concrète, livrée dans les temps et au-delà de nos attentes.",
-      en: "VIT GLOBAL turned our digital vision into a concrete platform, delivered on time and beyond our expectations.",
-      ar: "حوّلت VIT GLOBAL رؤيتنا الرقمية إلى منصة ملموسة، تم تسليمها في الوقت المحدد وفاقت توقعاتنا."
-    },
-    author: "Ibrahim Sow",
-    role: { fr: "Directeur Général", en: "CEO", ar: "المدير العام" },
-    company: "NovaBank Group"
-  },
-  {
-    quote: {
-      fr: "Une équipe réactive, experte et à l'écoute. Le meilleur partenaire technologique que nous ayons eu.",
-      en: "A responsive, expert and attentive team. The best technology partner we've ever had.",
-      ar: "فريق سريع الاستجابة وخبير ومنصت. أفضل شريك تقني تعاملنا معه."
-    },
-    author: "Amina Traoré",
-    role: { fr: "COO", en: "COO", ar: "المديرة التنفيذية للعمليات" },
-    company: "SoukPlus"
-  },
-  {
-    quote: {
-      fr: "Le niveau d'exigence de VIT GLOBAL en matière de sécurité nous a permis de passer notre certification sans réserve.",
-      en: "VIT GLOBAL's rigor on security allowed us to pass our certification without a single reservation.",
-      ar: "مستوى الدقة الذي تتحلى به VIT GLOBAL في الأمن مكّننا من اجتياز شهادتنا دون أي تحفظات."
-    },
-    author: "Claire Dubois",
-    role: { fr: "DSI", en: "CIO", ar: "مديرة نظم المعلومات" },
-    company: "MediLink Health"
-  }
-];
+// N'ajouter que des témoignages réels, avec l'accord écrit du client.
+export const testimonials: Testimonial[] = [];
 
 export interface CompanyValue {
   icon: string;
@@ -189,11 +111,12 @@ export const companyValues: CompanyValue[] = [
   }
 ];
 
+// Chiffres vérifiables uniquement (statuts, produits du groupe, engagements publiés sur le site).
 export const companyStats = [
-  { value: "100+", label: { fr: "projets livrés", en: "projects delivered", ar: "مشروع منجز" } },
-  { value: "20+", label: { fr: "partenaires", en: "partners", ar: "شريك" } },
-  { value: "8", label: { fr: "pays d'intervention", en: "countries served", ar: "دولة" } },
-  { value: "99%", label: { fr: "satisfaction client", en: "client satisfaction", ar: "رضا العملاء" } },
-  { value: "24/7", label: { fr: "support disponible", en: "support available", ar: "دعم متواصل" } },
-  { value: "100%", label: { fr: "équipe internationale", en: "international team", ar: "فريق دولي" } }
+  { value: "2026", label: { fr: "création à Casablanca", en: "founded in Casablanca", ar: "التأسيس بالدار البيضاء" } },
+  { value: "2", label: { fr: "marchés : Maroc et Côte d'Ivoire", en: "markets: Morocco and Côte d'Ivoire", ar: "سوقان: المغرب وكوت ديفوار" } },
+  { value: "4", label: { fr: "produits du groupe", en: "group products", ar: "منتجات للمجموعة" } },
+  { value: "3", label: { fr: "langues : FR, EN, AR", en: "languages: FR, EN, AR", ar: "لغات: الفرنسية والإنجليزية والعربية" } },
+  { value: "48 h", label: { fr: "pour une proposition de devis", en: "to receive a quote proposal", ar: "لتلقي عرض سعر" } },
+  { value: "30 min", label: { fr: "d'audit digital offert", en: "free digital audit", ar: "تدقيق رقمي مجاني" } }
 ];

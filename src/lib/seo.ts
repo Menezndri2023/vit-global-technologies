@@ -4,6 +4,16 @@ import { routing } from "@/i18n/routing";
 const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.vit-global.tech";
 export const SITE_URL = rawSiteUrl.replace(/\/$/, "");
 
+export const OG_IMAGE = { url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: "VIT GLOBAL TECHNOLOGIES GROUP" };
+
+/** URL de chaque version linguistique d'une page, plus `x-default` (version française). */
+export function alternateLanguages(path = "") {
+  return {
+    ...Object.fromEntries(routing.locales.map((loc) => [loc, `${SITE_URL}/${loc}${path}`])),
+    "x-default": `${SITE_URL}/${routing.defaultLocale}${path}`
+  };
+}
+
 export function buildMetadata({
   locale,
   title,
@@ -15,9 +25,7 @@ export function buildMetadata({
   description: string;
   path?: string;
 }): Metadata {
-  const languages = Object.fromEntries(
-    routing.locales.map((loc) => [loc, `${SITE_URL}/${loc}${path}`])
-  );
+  const languages = alternateLanguages(path);
 
   const ogTitle = typeof title === "string" ? title : undefined;
 
@@ -35,12 +43,14 @@ export function buildMetadata({
       url: `${SITE_URL}/${locale}${path}`,
       siteName: "VIT GLOBAL TECHNOLOGIES GROUP",
       locale,
-      type: "website"
+      type: "website",
+      images: [OG_IMAGE]
     },
     twitter: {
       card: "summary_large_image",
       title: ogTitle,
-      description
+      description,
+      images: [OG_IMAGE.url]
     }
   };
 }

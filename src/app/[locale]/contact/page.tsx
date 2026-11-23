@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { buildMetadata } from "@/lib/seo";
-import { CONTACT_EMAIL } from "@/lib/contact";
+import { CONTACT_EMAIL, CONTACT_PHONES } from "@/lib/contact";
 import { Mail, Phone, Clock, MapPin, FileText, CalendarCheck, LifeBuoy, ArrowRight, MessageCircle } from "lucide-react";
 
 export async function generateMetadata({
@@ -59,13 +59,14 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 </p>
                 <p className="flex items-center gap-3">
                   <Phone className="h-4 w-4 shrink-0 text-brand-400" />
-                  <a href="tel:+212607742672" className="hover:text-white">
-                    +212 06 07 74 26 72
-                  </a>
-                  <span className="text-white/40">·</span>
-                  <a href="tel:+2250748124635" className="hover:text-white">
-                    +225 07 48 12 46 35
-                  </a>
+                  {CONTACT_PHONES.map((phone, index) => (
+                    <span key={phone.e164} className="flex items-center gap-3">
+                      {index > 0 && <span className="text-white/40">·</span>}
+                      <a href={phone.href} className="hover:text-white" dir="ltr">
+                        {phone.label}
+                      </a>
+                    </span>
+                  ))}
                 </p>
                 <p className="flex items-start gap-3">
                   <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" /> {t("hoursValue")}

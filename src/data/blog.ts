@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
     category: { fr: "Intelligence Artificielle", en: "Artificial Intelligence", ar: "الذكاء الاصطناعي" },
     date: "2026-06-12",
     readTime: "6 min",
-    author: "Aïcha Koné",
+    author: "Équipe VIT GLOBAL",
     authorRole: { fr: "Directrice IA & Data", en: "Head of AI & Data", ar: "مديرة الذكاء الاصطناعي والبيانات" },
     title: {
       fr: "IA générative : ce que les entreprises africaines doivent savoir en 2026",
@@ -55,7 +55,7 @@ export const blogPosts: BlogPost[] = [
     category: { fr: "Cybersécurité", en: "Cybersecurity", ar: "الأمن السيبراني" },
     date: "2026-05-20",
     readTime: "5 min",
-    author: "Yannick Bamba",
+    author: "Équipe VIT GLOBAL",
     authorRole: { fr: "Responsable Cybersécurité", en: "Head of Cybersecurity", ar: "مسؤول الأمن السيبراني" },
     title: {
       fr: "Cybersécurité : le guide essentiel pour les PME en croissance",
@@ -91,7 +91,7 @@ export const blogPosts: BlogPost[] = [
     category: { fr: "Cloud Computing", en: "Cloud Computing", ar: "الحوسبة السحابية" },
     date: "2026-04-08",
     readTime: "7 min",
-    author: "Mohamed El Amrani",
+    author: "Équipe VIT GLOBAL",
     authorRole: { fr: "Architecte Cloud Principal", en: "Principal Cloud Architect", ar: "كبير مهندسي الحوسبة السحابية" },
     title: {
       fr: "Cloud hybride : comment choisir la bonne architecture pour votre entreprise",
@@ -127,7 +127,7 @@ export const blogPosts: BlogPost[] = [
     category: { fr: "Vie de l'entreprise", en: "Company Life", ar: "حياة الشركة" },
     date: "2026-03-02",
     readTime: "4 min",
-    author: "Fatou Diarra",
+    author: "Équipe VIT GLOBAL",
     authorRole: { fr: "Directrice des Talents", en: "Head of Talent", ar: "مديرة المواهب" },
     title: {
       fr: "Pourquoi VIT GLOBAL recrute 50 nouveaux talents tech en 2026",

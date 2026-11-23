@@ -10,13 +10,15 @@ import { ChatWidget } from "@/components/layout/ChatWidget";
 import { AuthSessionProvider } from "@/components/providers/AuthSessionProvider";
 import { CurrencyProvider } from "@/components/providers/CurrencyProvider";
 import { buildMetadata, SITE_URL } from "@/lib/seo";
-import { CONTACT_EMAIL, CONTACT_PHONES } from "@/lib/contact";
+import { CONTACT_EMAIL, CONTACT_PHONES, SOCIAL_LINKS } from "@/lib/contact";
 import "../globals.css";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "VIT GLOBAL TECHNOLOGIES GROUP",
+  legalName: "VIT GLOBAL TECHNOLOGIES GROUP S.A.R.L.A.U.",
+  foundingDate: "2026-07-27",
   url: SITE_URL,
   logo: `${SITE_URL}/icon.svg`,
   email: CONTACT_EMAIL,
@@ -31,11 +33,11 @@ const organizationJsonLd = {
   })),
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Boulevard Lalla Yacout & Rue El Arrar, Résidence Galis",
+    streetAddress: "Angle Bd Lalla Yacout et Rue El Araar, Résidence Galis, Imm. 9, 4e étage, Apt 17",
     addressLocality: "Casablanca",
     addressCountry: "MA"
   },
-  sameAs: []
+  sameAs: SOCIAL_LINKS.map((social) => social.url)
 };
 
 export function generateStaticParams() {

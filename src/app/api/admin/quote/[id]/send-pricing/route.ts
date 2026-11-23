@@ -4,6 +4,7 @@ import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { sendMailTo } from "@/lib/mail";
 import { buildRateCardPdf } from "@/lib/quote-rate-card-pdf";
 import { customPricingSchema } from "@/lib/schemas";
+import { escapeHtml } from "@/lib/security";
 import type { Locale } from "@/data/types";
 
 const SUBJECT: Record<Locale, string> = {
@@ -15,7 +16,7 @@ const SUBJECT: Record<Locale, string> = {
 const BODY: Record<Locale, (name: string) => string> = {
   fr: (name) => `<p>Bonjour ${name},</p><p>Veuillez trouver ci-joint notre grille tarifaire détaillée relative à votre demande.</p><p>L'équipe VIT GLOBAL TECHNOLOGIES GROUP</p>`,
   en: (name) => `<p>Hello ${name},</p><p>Please find attached our detailed rate card related to your request.</p><p>The VIT GLOBAL TECHNOLOGIES GROUP team</p>`,
-  ar: (name) => `<p>مرحبًا ${name}،</p><p>تجدون رفقته الشبكة التسعيرية التفصيلية المتعلقة بطلبكم.</p><p>فريق VIT GLOBAL TECHNOLOGIES GROUP</p>`
+  ar: (name) => `<div dir="rtl"><p>مرحبًا ${name}،</p><p>تجدون رفقته الشبكة التسعيرية التفصيلية المتعلقة بطلبكم.</p><p>فريق VIT GLOBAL TECHNOLOGIES GROUP</p></div>`
 };
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -35,9 +36,11 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
   const customLines = parsedCustom.success ? parsedCustom.data : undefined;
   const pdfBytes = await buildRateCardPdf(locale, customLines);
 
-  await sendMailTo(quote.email, SUBJECT[locale], BODY[locale](quote.name), [
+  const sent = await sendMailTo(quote.email, SUBJECT[locale], BODY[locale](escapeHtml(quote.name)), [
     { filename: "grille-tarifaire-vit-global.pdf", content: Buffer.from(pdfBytes), contentType: "application/pdf" }
   ]);
 
+  // L'admin est informé d'un échec réel (SMTP absent ou refus du serveur) au lieu d'un faux « succès ».
+  if (!sent) return NextResponse.json({ error: "email_not_sent" }, { status: 502 });
   return NextResponse.json({ ok: true });
 }

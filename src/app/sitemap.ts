@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
-import { SITE_URL } from "@/lib/seo";
+import { SITE_URL, alternateLanguages } from "@/lib/seo";
 import { services } from "@/data/services";
 import { filiales } from "@/data/filiales";
 import { realisations } from "@/data/realisations";
@@ -13,9 +13,11 @@ const staticPaths = [
   "/equipe",
   "/partenaires",
   "/services",
+  "/solutions",
   "/filiales",
   "/modele-economique",
   "/realisations",
+  "/portfolio",
   "/blog",
   "/carrieres",
   "/support",
@@ -23,7 +25,10 @@ const staticPaths = [
   "/devis",
   "/rendez-vous",
   "/espace-client",
-  "/espace-partenaire"
+  "/espace-partenaire",
+  "/mentions-legales",
+  "/confidentialite",
+  "/conditions-utilisation"
 ];
 
 const dynamicPaths = [
@@ -40,10 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return allPaths.flatMap((path) =>
     routing.locales.map((locale) => ({
       url: `${SITE_URL}/${locale}${path}`,
-      lastModified: new Date(),
-      alternates: {
-        languages: Object.fromEntries(routing.locales.map((loc) => [loc, `${SITE_URL}/${loc}${path}`]))
-      }
+      alternates: { languages: alternateLanguages(path) }
     }))
   );
 }
