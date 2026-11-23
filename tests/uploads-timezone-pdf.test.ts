@@ -23,13 +23,30 @@ describe("validateUpload", () => {
 });
 
 describe("fuseau horaire des rendez-vous", () => {
+  // Le décalage du Maroc dépend de la version de la base IANA (tzdata) embarquée par Node :
+  // les tests vérifient l'aller-retour plutôt qu'un décalage codé en dur.
+  const casablancaClock = (date: Date) =>
+    new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Africa/Casablanca",
+      hourCycle: "h23",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    }).format(date);
+
   it("interprète les créneaux à l'heure de Casablanca, pas à celle du serveur", () => {
-    // Casablanca est à UTC+1 hors Ramadan : 10:00 locale = 09:00 UTC.
-    expect(zonedDateTimeToUtc("2026-12-15", "10:00").toISOString()).toBe("2026-12-15T09:00:00.000Z");
+    for (const [date, time] of [["2026-12-15", "10:00"], ["2027-03-01", "09:00"], ["2027-07-20", "17:00"]]) {
+      const instant = zonedDateTimeToUtc(date, time);
+      expect(casablancaClock(instant)).toBe(`${date}, ${time}`);
+    }
   });
 
   it("donne la date du jour à Casablanca", () => {
-    expect(todayInZone("Africa/Casablanca", new Date("2026-12-31T23:30:00Z"))).toBe("2027-01-01");
+    const instant = new Date("2026-12-31T23:30:00Z");
+    expect(todayInZone("Africa/Casablanca", instant)).toBe(casablancaClock(instant).slice(0, 10));
+    expect(todayInZone("Asia/Tokyo", instant)).toBe("2027-01-01");
   });
 });
 
