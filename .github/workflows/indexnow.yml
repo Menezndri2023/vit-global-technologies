@@ -6,7 +6,8 @@ on:
 
 jobs:
   indexnow:
-    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production' && contains(github.event.deployment_status.target_url, 'vit-global-technologies-') && !contains(github.event.deployment_status.target_url, 'sllw')
+    # Vercel nomme l'environnement « Production – <projet> » ; seul le projet principal est retenu.
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production – vit-global-technologies'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
