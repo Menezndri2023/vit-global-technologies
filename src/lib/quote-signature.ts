@@ -24,7 +24,7 @@ export function buildProposalSnapshot(quote: QuoteRequest, version: number, line
     reference: quote.id,
     version,
     issuedAt: new Date().toISOString(),
-    issuer: "VIT GLOBAL TECHNOLOGIES GROUP SARLU",
+    issuer: "VIT GLOBAL TECHNOLOGIES GROUP S.A.R.L.A.U.",
     client: { name: quote.name, email: quote.email, company: quote.company, country: quote.country },
     service: quote.service,
     description: quote.description,

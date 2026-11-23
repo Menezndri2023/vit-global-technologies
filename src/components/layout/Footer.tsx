@@ -6,6 +6,7 @@ import { filiales } from "@/data/filiales";
 import { Mail, Phone, MapPin, Facebook } from "lucide-react";
 import type { Locale } from "@/data/types";
 import { CONTACT_EMAIL, CONTACT_PHONES, SOCIAL_LINKS } from "@/lib/contact";
+import { companyLegalLine } from "@/data/legal";
 
 function TikTokIcon({ className }: { className?: string }) {
   return (
@@ -115,7 +116,10 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} VIT GLOBAL TECHNOLOGIES GROUP — {t("footer.rights")}</p>
+          <div className="space-y-1">
+            <p>© {year} VIT GLOBAL TECHNOLOGIES GROUP — {t("footer.rights")}</p>
+            <p className="text-white/40">{companyLegalLine()}</p>
+          </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <Link href="/mentions-legales" className="hover:text-white/80">{t("footer.legalMentions")}</Link>
             <Link href="/confidentialite" className="hover:text-white/80">{t("footer.privacyPolicy")}</Link>

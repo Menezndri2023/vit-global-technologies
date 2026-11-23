@@ -2,20 +2,36 @@ import type { Localized } from "./types";
 import { CONTACT_EMAIL, CONTACT_PHONES } from "@/lib/contact";
 
 /**
- * Identifiants légaux de la société. ⚠ À RENSEIGNER par la direction (extrait du registre de commerce) :
- * une valeur `null` n'est simplement pas affichée — rien n'est inventé.
+ * Identifiants légaux de la société, d'après les documents officiels :
+ * statuts (S.A.R.L.A.U., capital 20 000 MAD), certificat négatif OMPIC n° 3271679 (ICE),
+ * annonce légale JAL du Maroc n° 1330 du 29/10/2026 (RC) et cachet de la société (IF, TP).
+ * Une valeur `null` n'est pas affichée.
  */
 export const companyLegal = {
   name: "VIT GLOBAL TECHNOLOGIES GROUP",
-  legalForm: "SARLU",
-  address: "Boulevard Lalla Yacout & Rue El Arrar, Résidence Galis, Casablanca, Maroc",
-  publicationDirector: "Manasse N'Dri",
-  capital: null as string | null, // ex. "100 000 MAD"
-  rc: null as string | null, // Registre du commerce de Casablanca, n°
-  ice: null as string | null, // Identifiant commun de l'entreprise
-  fiscalId: null as string | null, // Identifiant fiscal (IF)
-  cndpReference: null as string | null // n° de récépissé de déclaration / autorisation CNDP
+  legalForm: "S.A.R.L.A.U.",
+  address: "Angle Boulevard Lalla Yacout et Rue El Araar, Résidence Galis, Immeuble 9, 4e étage, Appartement 17, Casablanca, Maroc",
+  publicationDirector: "N'Guessan Manasse N'Dri, gérant",
+  capital: "20 000 MAD" as string | null,
+  rc: "742851 — Tribunal de commerce de Casablanca" as string | null,
+  ice: "004013219000041" as string | null,
+  fiscalId: "73292932" as string | null,
+  professionalTax: "33304467" as string | null,
+  cndpReference: null as string | null // aucun récépissé CNDP trouvé pour VIT GLOBAL (seulement Margokit et VIT AUTO)
 };
+
+/** Mention obligatoire (art. 2 des statuts, art. 50 de la loi 5-96) : forme, capital, siège, RC. */
+export function companyLegalLine() {
+  return [
+    `${companyLegal.name} ${companyLegal.legalForm}`,
+    companyLegal.capital && `capital ${companyLegal.capital}`,
+    "siège : Casablanca",
+    companyLegal.rc && `RC Casablanca ${companyLegal.rc.split(" ")[0]}`,
+    companyLegal.ice && `ICE ${companyLegal.ice}`
+  ]
+    .filter(Boolean)
+    .join(" — ");
+}
 
 export interface LegalSection {
   title: Localized<string>;
@@ -37,7 +53,8 @@ function identifiers(): Localized<string[]> {
     [{ fr: "Capital social", en: "Share capital", ar: "رأس المال" }, companyLegal.capital],
     [{ fr: "Registre du commerce", en: "Trade register", ar: "السجل التجاري" }, companyLegal.rc],
     [{ fr: "ICE", en: "ICE (company identifier)", ar: "التعريف الموحد للمقاولة (ICE)" }, companyLegal.ice],
-    [{ fr: "Identifiant fiscal", en: "Tax identifier", ar: "التعريف الضريبي" }, companyLegal.fiscalId]
+    [{ fr: "Identifiant fiscal", en: "Tax identifier", ar: "التعريف الضريبي" }, companyLegal.fiscalId],
+    [{ fr: "Taxe professionnelle", en: "Business tax number", ar: "الرسم المهني" }, companyLegal.professionalTax]
   ];
   const filled = rows.filter(([, value]) => value);
   return {
@@ -64,14 +81,14 @@ export const legalDocuments: LegalDocument[] = [
         title: { fr: "Éditeur du site", en: "Website publisher", ar: "ناشر الموقع" },
         paragraphs: {
           fr: [
-            `${companyLegal.name}, ${companyLegal.legalForm} (société à responsabilité limitée à associé unique) de droit marocain.`,
+            `${companyLegal.name}, société à responsabilité limitée à associé unique (${companyLegal.legalForm}) de droit marocain.`,
             `Siège social : ${companyLegal.address}.`,
             ...ids.fr,
             `Contact : ${CONTACT_EMAIL} — ${phones}.`,
             `Directeur de la publication : ${companyLegal.publicationDirector}.`
           ],
           en: [
-            `${companyLegal.name}, ${companyLegal.legalForm} (single-member limited liability company) incorporated under Moroccan law.`,
+            `${companyLegal.name}, single-member limited liability company (${companyLegal.legalForm}) incorporated under Moroccan law.`,
             `Registered office: ${companyLegal.address}.`,
             ...ids.en,
             `Contact: ${CONTACT_EMAIL} — ${phones}.`,

@@ -1,6 +1,7 @@
 import { PDFDocument, StandardFonts, rgb, type PDFFont, type PDFPage } from "pdf-lib";
 import type { QuoteRequest, Signature } from "@prisma/client";
 import { parseProposal, type ProposalSnapshot } from "@/lib/quote-signature";
+import { companyLegal, companyLegalLine } from "@/data/legal";
 
 /**
  * Les polices standard PDF (Helvetica) n'encodent que le jeu WinAnsi : tout autre caractère
@@ -159,7 +160,8 @@ export async function buildQuotePdf(quote: QuoteRequest, signature?: Signature |
   }
 
   for (const page of pdfDoc.getPages()) {
-    page.drawText("Document généré automatiquement — VIT GLOBAL TECHNOLOGIES GROUP", { x: 50, y: 40, size: 8, font, color: gray });
+    page.drawText(toWinAnsi(companyLegalLine()), { x: 50, y: 44, size: 7, font, color: gray, maxWidth: 495 });
+    page.drawText(toWinAnsi(`Siège social : ${companyLegal.address} — Document généré automatiquement`), { x: 50, y: 34, size: 7, font, color: gray, maxWidth: 495 });
   }
 
   return pdfDoc.save();

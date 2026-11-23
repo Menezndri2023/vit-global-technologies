@@ -17,6 +17,8 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "VIT GLOBAL TECHNOLOGIES GROUP",
+  legalName: "VIT GLOBAL TECHNOLOGIES GROUP S.A.R.L.A.U.",
+  foundingDate: "2026-07-27",
   url: SITE_URL,
   logo: `${SITE_URL}/icon.svg`,
   email: CONTACT_EMAIL,
@@ -31,7 +33,7 @@ const organizationJsonLd = {
   })),
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Boulevard Lalla Yacout & Rue El Arrar, Résidence Galis",
+    streetAddress: "Angle Bd Lalla Yacout et Rue El Araar, Résidence Galis, Imm. 9, 4e étage, Apt 17",
     addressLocality: "Casablanca",
     addressCountry: "MA"
   },
