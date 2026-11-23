@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { auth, configuredOAuthProviders } from "@/auth";
+import { configuredOAuthProviders } from "@/auth";
+import { getCurrentUser } from "@/lib/current-user";
+import { VerifyEmailNotice } from "@/components/auth/VerifyEmailNotice";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { PartnerRequestForm } from "@/components/forms/PartnerRequestForm";
 import { AuthPanel } from "@/components/auth/AuthPanel";
@@ -22,12 +24,20 @@ export default async function PartnerAreaPage({ params }: { params: Promise<{ lo
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("partnerArea");
-  const session = await auth();
+  const user = await getCurrentUser();
 
-  if (session?.user?.email) {
+  if (user) {
     return (
       <Section tone="muted" className="min-h-[70vh]">
-        <PartnerDashboard name={session.user.name} email={session.user.email} />
+        {user.emailVerified ? (
+          <PartnerDashboard
+            name={user.name}
+            email={user.email}
+            isApprovedPartner={user.role === "PARTNER" || user.role === "ADMIN"}
+          />
+        ) : (
+          <VerifyEmailNotice email={user.email} />
+        )}
       </Section>
     );
   }

@@ -80,14 +80,43 @@ model CalendarConnection {
 }
 
 model Signature {
-  id          String       @id @default(cuid())
-  quoteId     String       @unique
-  quote       QuoteRequest @relation(fields: [quoteId], references: [id])
-  signerName  String
-  signerEmail String
-  ipAddress   String?
-  userAgent   String?
-  signedAt    DateTime     @default(now())
+  id              String       @id @default(cuid())
+  quoteId         String       @unique
+  quote           QuoteRequest @relation(fields: [quoteId], references: [id])
+  signerName      String
+  signerEmail     String
+  ipAddress       String?
+  userAgent       String?
+  signedAt        DateTime     @default(now())
+  // Preuve : version de la proposition signée, copie figée de son contenu, empreinte SHA-256 et texte de consentement affiché.
+  proposalVersion Int?
+  snapshot        Json?
+  documentHash    String?
+  consentText     String?
+  locale          String?
+}
+
+// Lien de signature à usage unique : seul le hash SHA-256 du jeton est stocké.
+model QuoteSignToken {
+  id              String       @id @default(cuid())
+  quoteId         String
+  quote           QuoteRequest @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  tokenHash       String       @unique
+  proposalVersion Int
+  expiresAt       DateTime
+  usedAt          DateTime?
+  createdAt       DateTime     @default(now())
+
+  @@index([quoteId])
+}
+
+// Compteur de limitation de fréquence partagé entre toutes les instances serverless.
+model RateLimitHit {
+  id        String   @id @default(cuid())
+  key       String
+  createdAt DateTime @default(now())
+
+  @@index([key, createdAt])
 }
 
 model ContactMessage {
@@ -101,6 +130,8 @@ model ContactMessage {
   locale    String     @default("fr")
   status    LeadStatus @default(NEW)
   createdAt DateTime   @default(now())
+
+  @@index([email])
 }
 
 model QuoteRequest {
@@ -118,10 +149,17 @@ model QuoteRequest {
   attachmentName     String?
   attachmentMimeType String?
   customPricing  Json?
+  // Proposition figée envoyée pour signature (copie de customPricing au moment de l'envoi).
+  proposal        Json?
+  proposalVersion Int        @default(0)
+  proposalSentAt  DateTime?
   locale         String     @default("fr")
   status         LeadStatus @default(NEW)
   createdAt      DateTime   @default(now())
   signature      Signature?
+  signTokens     QuoteSignToken[]
+
+  @@index([email])
 }
 
 model Appointment {
@@ -139,6 +177,9 @@ model Appointment {
   locale    String     @default("fr")
   status    LeadStatus @default(NEW)
   createdAt DateTime   @default(now())
+
+  @@index([email])
+  @@index([date, timeSlot])
 }
 
 model JobApplication {
@@ -153,6 +194,8 @@ model JobApplication {
   locale      String     @default("fr")
   status      LeadStatus @default(NEW)
   createdAt   DateTime   @default(now())
+
+  @@index([email])
 }
 
 model PartnerRequest {
@@ -167,6 +210,8 @@ model PartnerRequest {
   locale      String     @default("fr")
   status      LeadStatus @default(NEW)
   createdAt   DateTime   @default(now())
+
+  @@index([email])
 }
 
 model ChatLead {

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { auth, configuredOAuthProviders } from "@/auth";
+import { configuredOAuthProviders } from "@/auth";
+import { getCurrentUser } from "@/lib/current-user";
+import { VerifyEmailNotice } from "@/components/auth/VerifyEmailNotice";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { AuthPanel } from "@/components/auth/AuthPanel";
 import { ClientDashboard } from "@/components/dashboard/ClientDashboard";
 import { buildMetadata } from "@/lib/seo";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, AlertTriangle } from "lucide-react";
 
 export async function generateMetadata({
   params
@@ -17,16 +19,28 @@ export async function generateMetadata({
   return buildMetadata({ locale, title: t("heroTitle"), description: t("heroSubtitle"), path: "/espace-client" });
 }
 
-export default async function ClientAreaPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function ClientAreaPage({
+  params,
+  searchParams
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ verified?: string }>;
+}) {
   const { locale } = await params;
+  const { verified } = await searchParams;
   setRequestLocale(locale);
   const t = await getTranslations("clientArea");
-  const session = await auth();
+  const tAuth = await getTranslations("auth");
+  const user = await getCurrentUser();
 
-  if (session?.user?.email) {
+  if (user) {
     return (
       <Section tone="muted" className="min-h-[70vh]">
-        <ClientDashboard name={session.user.name} email={session.user.email} />
+        {user.emailVerified ? (
+          <ClientDashboard name={user.name} email={user.email} />
+        ) : (
+          <VerifyEmailNotice email={user.email} />
+        )}
       </Section>
     );
   }
@@ -48,6 +62,17 @@ export default async function ClientAreaPage({ params }: { params: Promise<{ loc
       </section>
 
       <Section tone="muted">
+        {verified && (
+          <div
+            role="status"
+            className={`mb-8 flex items-center gap-3 rounded-2xl border p-4 text-sm ${
+              verified === "1" ? "border-emerald-500/20 bg-emerald-500/5 text-navy-900" : "border-amber-500/20 bg-amber-500/5 text-navy-900"
+            }`}
+          >
+            {verified === "1" ? <CheckCircle2 className="h-5 w-5 text-emerald-600" /> : <AlertTriangle className="h-5 w-5 text-amber-600" />}
+            {verified === "1" ? tAuth("verifiedSuccess") : tAuth("verifiedFailure")}
+          </div>
+        )}
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <h2 className="font-display text-lg font-bold text-navy-950">{t("featuresTitle")}</h2>

@@ -76,7 +76,16 @@
     "invalidEmail": "Invalid email address",
     "close": "Close",
     "menu": "Menu",
-    "language": "Language"
+    "language": "Language",
+    "errors": {
+      "too_many_requests": "Too many requests sent from your connection. Please try again a little later.",
+      "slot_taken": "This slot has just been booked. Please choose another one.",
+      "date_in_past": "This date or time has already passed. Please choose an upcoming slot.",
+      "date_too_far": "Appointments can be booked up to 6 months in advance.",
+      "FILE_TOO_LARGE": "The file exceeds the maximum allowed size (4 MB).",
+      "FILE_TYPE_NOT_ALLOWED": "This file type is not accepted (PDF, Word, Excel, PNG, JPG or ZIP).",
+      "FILE_CONTENT_MISMATCH": "The file content does not match its extension."
+    }
   },
   "home": {
     "heroEyebrow": "International technology firm",
@@ -283,7 +292,7 @@
     "timelineOptions": ["Less than 1 month", "1 to 3 months", "3 to 6 months", "More than 6 months", "Flexible"],
     "description": "Describe your project",
     "attachment": "Requirements document (optional)",
-    "attachmentHint": "Drop a file or click to browse (PDF, Word, Excel, image — 10 MB max)",
+    "attachmentHint": "Drop a file or click to browse (PDF, Word, Excel, image, ZIP — 4 MB max)",
     "topic": "Appointment topic",
     "selectTopic": "Select a topic",
     "topicOptions": ["Discovery & introduction", "Detailed quote", "Technical support", "Partnership", "Other"],
@@ -301,7 +310,8 @@
     "linkedinUrl": "LinkedIn profile",
     "partnerType": "Partnership type",
     "selectPartnerType": "Select a type",
-    "partnerTypeOptions": ["Technology partner", "Commercial partner", "Investor", "Institutional partner", "Other"]
+    "partnerTypeOptions": ["Technology partner", "Commercial partner", "Investor", "Institutional partner", "Other"],
+    "timezoneNote": "Times are shown in Casablanca time (Morocco)."
   },
   "quotePage": {
     "heroEyebrow": "Quote request",
@@ -348,7 +358,8 @@
     "myMessages": "My messages",
     "myApplications": "My applications",
     "signed": "Signed",
-    "signProposal": "Sign proposal"
+    "signProposal": "Sign proposal",
+    "proposalPending": "Proposal in preparation"
   },
   "partnerArea": {
     "heroEyebrow": "Partner area",
@@ -369,7 +380,8 @@
     "resourcesTitle": "Partner resources",
     "resourcesServices": "Services catalog",
     "resourcesCaseStudies": "Case studies",
-    "resourcesContact": "Contact the partnerships team"
+    "resourcesContact": "Contact the partnerships team",
+    "pendingApproval": "Your partner account is awaiting approval by our team. You can track your requests here; partner resources will be available once approved."
   },
   "auth": {
     "continueWith": "Continue with {provider}",
@@ -384,7 +396,28 @@
     "loginError": "Incorrect email or password.",
     "registerError": "Something went wrong. Please try again.",
     "emailTaken": "An account already exists with this email.",
-    "logout": "Log out"
+    "logout": "Log out",
+    "emailNotVerified": "Your email address has not been confirmed yet. Please use the link sent to you by email.",
+    "tooManyAttempts": "Too many attempts. Please try again in a few minutes.",
+    "registerCheckEmail": "Account created. A confirmation link has been sent to your email: click it to activate your account, then sign in.",
+    "resendVerification": "Resend confirmation link",
+    "verificationResent": "If an unconfirmed account exists for this address, a new link has just been sent.",
+    "verifyTitle": "Confirm your email address",
+    "verifyBody": "To protect your data, your account is only displayed once {email} has been confirmed. Click the link you received by email.",
+    "verifiedSuccess": "Email address confirmed. You can now sign in.",
+    "verifiedFailure": "This confirmation link is invalid or has expired. Sign in to receive a new one.",
+    "forgotPassword": "Forgot your password?",
+    "forgotIntro": "Enter your account's email address: we will send you a link to choose a new password.",
+    "sendResetLink": "Send the link",
+    "resetEmailSent": "If an account exists for this address, a reset link has just been sent (valid for 1 hour).",
+    "backToLogin": "Back to sign in",
+    "resetTitle": "Choose a new password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "resetSubmit": "Save password",
+    "resetDone": "Your password has been changed. You can now sign in.",
+    "resetInvalid": "This link is invalid or has expired. Make a new request from the sign-in page.",
+    "passwordMismatch": "The two passwords do not match."
   },
   "signature": {
     "eyebrow": "Electronic signature",
@@ -401,12 +434,21 @@
     "error": "The signature could not be saved. Please try again.",
     "submitting": "Signing…",
     "signButton": "Sign electronically",
-    "legalNote": "Your signature records your name, email, timestamp and IP address as proof.",
+    "legalNote": "Your signature records your name, email, timestamp, IP address and the document's digital fingerprint (SHA-256) as evidence. This is a simple electronic signature.",
     "successTitle": "Quote signed successfully",
     "successBody": "A signed copy is available below. Our team has been notified and will get back to you shortly.",
     "downloadPdf": "Download signed PDF",
     "alreadySignedTitle": "This quote has already been signed",
-    "alreadySignedBody": "Signed by {name}."
+    "alreadySignedBody": "Signed by {name}.",
+    "versionLabel": "Proposal v{version} — reference {reference}",
+    "linesTitle": "Proposal details",
+    "emailMismatch": "This address does not match the proposal recipient's address.",
+    "invalidTitle": "Invalid signature link",
+    "invalidBody": "This link is not recognised. Check that it was copied in full or contact us.",
+    "expiredTitle": "Signature link expired",
+    "expiredBody": "This link has expired. Ask us for a new link or sign in to your client area.",
+    "supersededTitle": "Proposal updated",
+    "supersededBody": "A more recent version of this proposal has been sent to you. Use the latest link you received or your client area."
   },
   "chat": {
     "title": "VIT GLOBAL — Assistant",
@@ -439,7 +481,8 @@
     "newsletterPlaceholder": "Your email address",
     "newsletterButton": "Subscribe",
     "rights": "All rights reserved.",
-    "address": "Casablanca, Morocco"
+    "address": "Casablanca, Morocco",
+    "lastUpdated": "Last updated:"
   },
   "admin": {
     "title": "Dashboard — Administration",
@@ -490,11 +533,26 @@
       "addLine": "Add a line",
       "cancel": "Cancel",
       "save": "Save"
-    }
+    },
+    "sendForSignature": "Send for signature",
+    "signatureSent": "Proposal v{version} sent to the client. Signature link (valid for 14 days):",
+    "signatureSentNoEmail": "Signature link generated, but the email could NOT be sent (SMTP). Send this link to the client yourself:",
+    "pricingRequired": "Configure this quote's rate card first.",
+    "signatureError": "Failed to send for signature",
+    "proposalSentLabel": "v{version} sent",
+    "smtpMissing": "Email sending is not configured (SMTP): no notifications or client confirmations are being sent.",
+    "whatsappMissing": "WhatsApp notifications are not configured (Twilio).",
+    "tooManyAttempts": "Too many attempts. Try again in 15 minutes."
   },
   "notFound": {
     "title": "Page not found",
     "body": "The page you are looking for does not exist or has been moved.",
     "button": "Back to home"
+  },
+  "status": {
+    "NEW": "New",
+    "IN_PROGRESS": "In progress",
+    "DONE": "Completed",
+    "ARCHIVED": "Archived"
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { BUSINESS_TIME_ZONE, TIME_SLOTS, todayInZone } from "@/lib/timezone";
 import { useTranslations, useLocale } from "next-intl";
 import { Field, Input, Textarea, Select } from "./fields";
 import { Button } from "@/components/ui/Button";
@@ -10,20 +11,20 @@ import { teamMembers } from "@/data/company";
 import type { Locale } from "@/data/types";
 import { CalendarCheck, CalendarPlus } from "lucide-react";
 
-const TIME_SLOTS = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"];
-
+// Les créneaux sont à l'heure de Casablanca : on le précise à Google Agenda (paramètre ctz)
+// pour que l'événement s'affiche à la bonne heure quel que soit le fuseau du visiteur.
 function buildGoogleCalendarUrl(date: string, timeSlot: string, topic: string, notes: string) {
-  const start = new Date(`${date}T${timeSlot}:00`);
-  const end = new Date(start.getTime() + 45 * 60 * 1000);
-  const format = (d: Date) =>
-    `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, "0")}${String(d.getDate()).padStart(2, "0")}T${String(
-      d.getHours()
-    ).padStart(2, "0")}${String(d.getMinutes()).padStart(2, "0")}00`;
+  const [h, m] = timeSlot.split(":").map(Number);
+  const endMinutes = h * 60 + m + 45;
+  const day = date.replace(/-/g, "");
+  const start = `${day}T${String(h).padStart(2, "0")}${String(m).padStart(2, "0")}00`;
+  const end = `${day}T${String(Math.floor(endMinutes / 60)).padStart(2, "0")}${String(endMinutes % 60).padStart(2, "0")}00`;
 
   const params = new URLSearchParams({
     action: "TEMPLATE",
     text: `VIT GLOBAL — ${topic}`,
-    dates: `${format(start)}/${format(end)}`,
+    dates: `${start}/${end}`,
+    ctz: BUSINESS_TIME_ZONE,
     details: notes || "Rendez-vous VIT GLOBAL TECHNOLOGIES GROUP",
     location: "VIT GLOBAL TECHNOLOGIES GROUP, Casablanca"
   });
@@ -34,12 +35,12 @@ function buildGoogleCalendarUrl(date: string, timeSlot: string, topic: string, n
 export function AppointmentForm() {
   const t = useTranslations();
   const locale = useLocale() as Locale;
-  const { status, submit } = useFormSubmit("/api/appointment");
+  const { status, errorCode, submit } = useFormSubmit("/api/appointment");
   const [calendarUrl, setCalendarUrl] = useState<string | null>(null);
 
   const topicOptions = t.raw("form.topicOptions") as string[];
   const modeOptions = t.raw("form.modeOptions") as string[];
-  const today = new Date().toISOString().split("T")[0];
+  const today = todayInZone();
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -158,10 +159,11 @@ export function AppointmentForm() {
           </Select>
         </Field>
       </div>
+      <p className="-mt-2 text-xs text-silver-500">{t("form.timezoneNote")}</p>
       <Field label={t("form.notes")} htmlFor="a-notes">
         <Textarea id="a-notes" name="notes" rows={4} />
       </Field>
-      {status === "error" && <FormStatusMessage status="error" />}
+      {status === "error" && <FormStatusMessage status="error" errorCode={errorCode} />}
       <Button type="submit" disabled={status === "submitting"} icon={<CalendarCheck className="h-4 w-4" />}>
         {status === "submitting" ? t("common.submitting") : t("common.bookAppointment")}
       </Button>

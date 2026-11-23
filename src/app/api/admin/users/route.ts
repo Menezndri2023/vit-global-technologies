@@ -22,7 +22,8 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
-  const { id, role } = await request.json();
+  const body = await request.json().catch(() => null);
+  const { id, role } = body ?? {};
   if (!id || !VALID_ROLES.includes(role)) {
     return NextResponse.json({ error: "invalid payload" }, { status: 400 });
   }

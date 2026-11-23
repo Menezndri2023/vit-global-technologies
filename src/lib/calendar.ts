@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { decryptSecret, encryptSecret } from "@/lib/secret-box";
 
 const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token";
@@ -100,27 +101,30 @@ async function getValidAccessToken(provider: "google" | "microsoft") {
   if (!connection) return null;
 
   if (connection.expiresAt.getTime() > Date.now() + 60_000) {
-    return connection.accessToken;
+    return decryptSecret(connection.accessToken);
   }
 
+  const refreshToken = decryptSecret(connection.refreshToken);
+
   if (provider === "google") {
-    const refreshed = await refreshGoogleToken(connection.refreshToken);
+    const refreshed = await refreshGoogleToken(refreshToken);
     await prisma.calendarConnection.update({
       where: { id: connection.id },
       data: {
-        accessToken: refreshed.access_token,
+        accessToken: encryptSecret(refreshed.access_token),
+        refreshToken: encryptSecret(refreshToken),
         expiresAt: new Date(Date.now() + refreshed.expires_in * 1000)
       }
     });
     return refreshed.access_token;
   }
 
-  const refreshed = await refreshMicrosoftToken(connection.refreshToken);
+  const refreshed = await refreshMicrosoftToken(refreshToken);
   await prisma.calendarConnection.update({
     where: { id: connection.id },
     data: {
-      accessToken: refreshed.access_token,
-      refreshToken: refreshed.refresh_token ?? connection.refreshToken,
+      accessToken: encryptSecret(refreshed.access_token),
+      refreshToken: encryptSecret(refreshed.refresh_token ?? refreshToken),
       expiresAt: new Date(Date.now() + refreshed.expires_in * 1000)
     }
   });
@@ -147,8 +151,9 @@ export async function syncAppointmentToCalendars(event: CalendarEventInput) {
       const token = await getValidAccessToken(provider);
       if (!token) continue;
 
+      let res: Response;
       if (provider === "google") {
-        await fetch("https://www.googleapis.com/calendar/v3/calendars/primary/events", {
+        res = await fetch("https://www.googleapis.com/calendar/v3/calendars/primary/events", {
           method: "POST",
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -161,7 +166,7 @@ export async function syncAppointmentToCalendars(event: CalendarEventInput) {
           })
         });
       } else {
-        await fetch("https://graph.microsoft.com/v1.0/me/events", {
+        res = await fetch("https://graph.microsoft.com/v1.0/me/events", {
           method: "POST",
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -176,6 +181,8 @@ export async function syncAppointmentToCalendars(event: CalendarEventInput) {
           })
         });
       }
+      // Une réponse d'erreur de l'API (jeton révoqué, quota…) est un échec, pas un succès silencieux.
+      if (!res.ok) throw new Error(`calendar_api_${res.status}: ${(await res.text()).slice(0, 300)}`);
       results.push({ provider, ok: true });
     } catch (error) {
       console.error(`calendar_sync_failed[${provider}]`, error);
@@ -194,8 +201,8 @@ export async function saveCalendarConnection(
   const existing = await prisma.calendarConnection.findFirst({ where: { provider } });
   const data = {
     provider,
-    accessToken: tokens.access_token,
-    refreshToken: tokens.refresh_token ?? existing?.refreshToken ?? "",
+    accessToken: encryptSecret(tokens.access_token),
+    refreshToken: tokens.refresh_token ? encryptSecret(tokens.refresh_token) : (existing?.refreshToken ?? ""),
     expiresAt: new Date(Date.now() + tokens.expires_in * 1000),
     accountEmail
   };

@@ -10,7 +10,7 @@ import { ChatWidget } from "@/components/layout/ChatWidget";
 import { AuthSessionProvider } from "@/components/providers/AuthSessionProvider";
 import { CurrencyProvider } from "@/components/providers/CurrencyProvider";
 import { buildMetadata, SITE_URL } from "@/lib/seo";
-import { CONTACT_EMAIL, CONTACT_PHONES } from "@/lib/contact";
+import { CONTACT_EMAIL, CONTACT_PHONES, SOCIAL_LINKS } from "@/lib/contact";
 import "../globals.css";
 
 const organizationJsonLd = {
@@ -35,7 +35,7 @@ const organizationJsonLd = {
     addressLocality: "Casablanca",
     addressCountry: "MA"
   },
-  sameAs: []
+  sameAs: SOCIAL_LINKS.map((social) => social.url)
 };
 
 export function generateStaticParams() {

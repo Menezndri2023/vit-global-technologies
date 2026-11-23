@@ -23,12 +23,15 @@ export function AdminDashboard() {
   const t = useTranslations("admin");
   const [authState, setAuthState] = useState<"loading" | "in" | "out">("loading");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(false);
+  const [loginError, setLoginError] = useState<false | "invalid" | "rate">(false);
   const [tab, setTab] = useState<MainTab>("contact");
   const [rows, setRows] = useState<Row[]>([]);
   const [loadingRows, setLoadingRows] = useState(false);
   const [sendingPricingId, setSendingPricingId] = useState<string | null>(null);
   const [pricingModalRow, setPricingModalRow] = useState<{ id: string; name: string } | null>(null);
+  const [signingId, setSigningId] = useState<string | null>(null);
+  const [signLink, setSignLink] = useState<{ url: string; emailSent: boolean; version: number } | null>(null);
+  const [health, setHealth] = useState<{ smtp: boolean; whatsapp: boolean } | null>(null);
 
   const loadRows = useCallback(async (type: MainTab) => {
     if (type === "accounts" || type === "calendar" || type === "model") {
@@ -52,6 +55,14 @@ export function AdminDashboard() {
     loadRows(tab);
   }, [tab, loadRows]);
 
+  useEffect(() => {
+    if (authState !== "in") return;
+    fetch("/api/admin/health")
+      .then((res) => (res.ok ? res.json() : null))
+      .then(setHealth)
+      .catch(() => null);
+  }, [authState]);
+
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     setLoginError(false);
@@ -61,7 +72,7 @@ export function AdminDashboard() {
       body: JSON.stringify({ password })
     });
     if (!res.ok) {
-      setLoginError(true);
+      setLoginError(res.status === 429 ? "rate" : "invalid");
       return;
     }
     setPassword("");
@@ -86,6 +97,24 @@ export function AdminDashboard() {
       window.alert(t("sendPricingError"));
     } finally {
       setSendingPricingId(null);
+    }
+  }
+
+  async function sendForSignature(id: string) {
+    setSigningId(id);
+    try {
+      const res = await fetch(`/api/admin/quote/${id}/send-for-signature`, { method: "POST" });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        window.alert(data.error === "pricing_required" ? t("pricingRequired") : t("signatureError"));
+        return;
+      }
+      setSignLink({ url: data.url, emailSent: data.emailSent, version: data.version });
+      setRows((prev) => prev.map((r) => (r.id === id ? { ...r, proposalVersion: data.version, proposalSentAt: new Date().toISOString() } : r)));
+    } catch {
+      window.alert(t("signatureError"));
+    } finally {
+      setSigningId(null);
     }
   }
 
@@ -119,7 +148,11 @@ export function AdminDashboard() {
               className="mt-1.5 w-full rounded-xl border border-navy-950/10 px-4 py-3 text-sm outline-none focus:border-brand-500"
               required
             />
-            {loginError && <p className="mt-2 text-xs font-medium text-red-500">{t("invalidPassword")}</p>}
+            {loginError && (
+              <p role="alert" className="mt-2 text-xs font-medium text-red-500">
+                {loginError === "rate" ? t("tooManyAttempts") : t("invalidPassword")}
+              </p>
+            )}
           </div>
           <button
             type="submit"
@@ -145,6 +178,40 @@ export function AdminDashboard() {
             <LogOut className="h-4 w-4" /> {t("logout")}
           </button>
         </div>
+
+        {health && (!health.smtp || !health.whatsapp) && (
+          <div role="status" className="mb-6 space-y-1 rounded-2xl border border-amber-500/20 bg-amber-500/5 p-4 text-sm text-navy-900">
+            {!health.smtp && <p className="font-semibold text-amber-700">⚠ {t("smtpMissing")}</p>}
+            {!health.whatsapp && <p className="text-silver-600">{t("whatsappMissing")}</p>}
+          </div>
+        )}
+
+        {signLink && (
+          <div
+            role="status"
+            className={clsx(
+              "mb-6 rounded-2xl border p-4 text-sm",
+              signLink.emailSent ? "border-emerald-500/20 bg-emerald-500/5" : "border-amber-500/30 bg-amber-500/10"
+            )}
+          >
+            <p className="font-semibold text-navy-950">
+              {signLink.emailSent ? t("signatureSent", { version: signLink.version }) : t("signatureSentNoEmail")}
+            </p>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <code className="break-all rounded bg-white px-2 py-1 text-xs text-navy-900">{signLink.url}</code>
+              <button
+                type="button"
+                onClick={() => navigator.clipboard.writeText(signLink.url)}
+                className="rounded-full bg-navy-950 px-3 py-1 text-xs font-semibold text-white"
+              >
+                {t("copySignatureLink")}
+              </button>
+              <button type="button" onClick={() => setSignLink(null)} className="text-xs text-silver-500">
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
 
         <div className="mb-6 flex flex-wrap gap-2">
           {LEAD_TABS.map((type) => (
@@ -285,12 +352,17 @@ export function AdminDashboard() {
                         ) : (
                           <button
                             type="button"
-                            onClick={() =>
-                              navigator.clipboard.writeText(`${window.location.origin}/devis/signature/${row.id}`)
-                            }
-                            className="inline-flex items-center gap-1 text-xs font-semibold text-navy-900 hover:text-brand-600"
+                            onClick={() => sendForSignature(String(row.id))}
+                            disabled={signingId === row.id}
+                            title={row.proposalVersion ? t("proposalSentLabel", { version: Number(row.proposalVersion) }) : undefined}
+                            className="inline-flex items-center gap-1 text-xs font-semibold text-navy-900 hover:text-brand-600 disabled:opacity-50"
                           >
-                            <LinkIcon className="h-3.5 w-3.5" /> {t("copySignatureLink")}
+                            <LinkIcon className="h-3.5 w-3.5" /> {t("sendForSignature")}
+                            {Number(row.proposalVersion) > 0 && (
+                              <span className="rounded-full bg-brand-500/10 px-1.5 text-[0.65rem] text-brand-600">
+                                v{Number(row.proposalVersion)}
+                              </span>
+                            )}
                           </button>
                         ))}
                     </div>

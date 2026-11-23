@@ -11,7 +11,7 @@ import { Send } from "lucide-react";
 export function ContactForm() {
   const t = useTranslations();
   const locale = useLocale();
-  const { status, submit } = useFormSubmit("/api/contact");
+  const { status, errorCode, submit } = useFormSubmit("/api/contact");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -54,7 +54,7 @@ export function ContactForm() {
       <Field label={t("form.message")} htmlFor="message" required>
         <Textarea id="message" name="message" required minLength={10} />
       </Field>
-      {status === "error" && <FormStatusMessage status="error" />}
+      {status === "error" && <FormStatusMessage status="error" errorCode={errorCode} />}
       <Button type="submit" disabled={status === "submitting"} icon={<Send className="h-4 w-4" />}>
         {status === "submitting" ? t("common.submitting") : t("common.sendMessage")}
       </Button>

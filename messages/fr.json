@@ -76,7 +76,16 @@
     "invalidEmail": "Adresse email invalide",
     "close": "Fermer",
     "menu": "Menu",
-    "language": "Langue"
+    "language": "Langue",
+    "errors": {
+      "too_many_requests": "Trop de demandes envoyées depuis votre connexion. Merci de réessayer un peu plus tard.",
+      "slot_taken": "Ce créneau vient d'être réservé. Merci d'en choisir un autre.",
+      "date_in_past": "Cette date ou cet horaire est déjà passé. Merci de choisir un créneau à venir.",
+      "date_too_far": "Les rendez-vous peuvent être pris jusqu'à 6 mois à l'avance.",
+      "FILE_TOO_LARGE": "Le fichier dépasse la taille maximale autorisée (4 Mo).",
+      "FILE_TYPE_NOT_ALLOWED": "Ce type de fichier n'est pas accepté (PDF, Word, Excel, PNG, JPG ou ZIP).",
+      "FILE_CONTENT_MISMATCH": "Le contenu du fichier ne correspond pas à son extension."
+    }
   },
   "home": {
     "heroEyebrow": "Cabinet international de technologie",
@@ -283,7 +292,7 @@
     "timelineOptions": ["Moins d'1 mois", "1 à 3 mois", "3 à 6 mois", "Plus de 6 mois", "Flexible"],
     "description": "Décrivez votre projet",
     "attachment": "Cahier des charges (facultatif)",
-    "attachmentHint": "Glissez un fichier ou cliquez pour parcourir (PDF, Word, Excel, image — 10 Mo max)",
+    "attachmentHint": "Glissez un fichier ou cliquez pour parcourir (PDF, Word, Excel, image, ZIP — 4 Mo max)",
     "topic": "Motif du rendez-vous",
     "selectTopic": "Sélectionnez un motif",
     "topicOptions": ["Découverte & présentation", "Devis détaillé", "Support technique", "Partenariat", "Autre"],
@@ -301,7 +310,8 @@
     "linkedinUrl": "Profil LinkedIn",
     "partnerType": "Type de partenariat",
     "selectPartnerType": "Sélectionnez un type",
-    "partnerTypeOptions": ["Partenaire technologique", "Partenaire commercial", "Investisseur", "Partenaire institutionnel", "Autre"]
+    "partnerTypeOptions": ["Partenaire technologique", "Partenaire commercial", "Investisseur", "Partenaire institutionnel", "Autre"],
+    "timezoneNote": "Les horaires sont indiqués à l'heure de Casablanca (Maroc)."
   },
   "quotePage": {
     "heroEyebrow": "Demande de devis",
@@ -348,7 +358,8 @@
     "myMessages": "Mes messages",
     "myApplications": "Mes candidatures",
     "signed": "Signé",
-    "signProposal": "Signer la proposition"
+    "signProposal": "Signer la proposition",
+    "proposalPending": "Proposition en préparation"
   },
   "partnerArea": {
     "heroEyebrow": "Espace partenaire",
@@ -369,7 +380,8 @@
     "resourcesTitle": "Ressources partenaires",
     "resourcesServices": "Catalogue de services",
     "resourcesCaseStudies": "Études de cas",
-    "resourcesContact": "Contacter l'équipe partenariats"
+    "resourcesContact": "Contacter l'équipe partenariats",
+    "pendingApproval": "Votre compte partenaire est en attente de validation par notre équipe. Vous retrouverez ici le suivi de vos demandes ; les ressources partenaires seront accessibles dès la validation."
   },
   "auth": {
     "continueWith": "Continuer avec {provider}",
@@ -384,7 +396,28 @@
     "loginError": "Email ou mot de passe incorrect.",
     "registerError": "Une erreur est survenue. Merci de réessayer.",
     "emailTaken": "Un compte existe déjà avec cet email.",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "emailNotVerified": "Votre adresse e-mail n'est pas encore confirmée. Consultez le lien reçu par e-mail.",
+    "tooManyAttempts": "Trop de tentatives. Merci de réessayer dans quelques minutes.",
+    "registerCheckEmail": "Compte créé. Un lien de confirmation vient de vous être envoyé par e-mail : cliquez dessus pour activer votre espace, puis connectez-vous.",
+    "resendVerification": "Renvoyer le lien de confirmation",
+    "verificationResent": "Si un compte non confirmé existe pour cette adresse, un nouveau lien vient d'être envoyé.",
+    "verifyTitle": "Confirmez votre adresse e-mail",
+    "verifyBody": "Pour protéger vos données, votre espace ne s'affiche qu'une fois l'adresse {email} confirmée. Cliquez sur le lien reçu par e-mail.",
+    "verifiedSuccess": "Adresse e-mail confirmée. Vous pouvez maintenant vous connecter.",
+    "verifiedFailure": "Ce lien de confirmation est invalide ou a expiré. Connectez-vous pour en recevoir un nouveau.",
+    "forgotPassword": "Mot de passe oublié ?",
+    "forgotIntro": "Indiquez l'adresse e-mail de votre compte : nous vous enverrons un lien pour choisir un nouveau mot de passe.",
+    "sendResetLink": "Envoyer le lien",
+    "resetEmailSent": "Si un compte existe pour cette adresse, un lien de réinitialisation vient d'être envoyé (valable 1 heure).",
+    "backToLogin": "Retour à la connexion",
+    "resetTitle": "Choisir un nouveau mot de passe",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "resetSubmit": "Enregistrer le mot de passe",
+    "resetDone": "Votre mot de passe a été modifié. Vous pouvez vous connecter.",
+    "resetInvalid": "Ce lien est invalide ou a expiré. Faites une nouvelle demande depuis la page de connexion.",
+    "passwordMismatch": "Les deux mots de passe ne correspondent pas."
   },
   "signature": {
     "eyebrow": "Signature électronique",
@@ -401,12 +434,21 @@
     "error": "La signature n'a pas pu être enregistrée. Merci de réessayer.",
     "submitting": "Signature en cours…",
     "signButton": "Signer électroniquement",
-    "legalNote": "Votre signature enregistre votre nom, votre email, l'horodatage et votre adresse IP à titre de preuve.",
+    "legalNote": "Votre signature enregistre votre nom, votre email, l'horodatage, votre adresse IP et l'empreinte numérique (SHA-256) du document à titre de preuve. Il s'agit d'une signature électronique simple.",
     "successTitle": "Devis signé avec succès",
     "successBody": "Un exemplaire signé est disponible ci-dessous. Notre équipe a été notifiée et vous recontactera prochainement.",
     "downloadPdf": "Télécharger le PDF signé",
     "alreadySignedTitle": "Ce devis a déjà été signé",
-    "alreadySignedBody": "Signé par {name}."
+    "alreadySignedBody": "Signé par {name}.",
+    "versionLabel": "Proposition v{version} — référence {reference}",
+    "linesTitle": "Détail de la proposition",
+    "emailMismatch": "Cette adresse ne correspond pas à celle du destinataire de la proposition.",
+    "invalidTitle": "Lien de signature invalide",
+    "invalidBody": "Ce lien n'est pas reconnu. Vérifiez qu'il a été copié en entier ou contactez-nous.",
+    "expiredTitle": "Lien de signature expiré",
+    "expiredBody": "Ce lien a expiré. Demandez-nous un nouveau lien ou connectez-vous à votre espace client.",
+    "supersededTitle": "Proposition mise à jour",
+    "supersededBody": "Une version plus récente de cette proposition vous a été envoyée. Utilisez le dernier lien reçu ou votre espace client."
   },
   "chat": {
     "title": "VIT GLOBAL — Assistant",
@@ -439,7 +481,8 @@
     "newsletterPlaceholder": "Votre adresse email",
     "newsletterButton": "S'abonner",
     "rights": "Tous droits réservés.",
-    "address": "Casablanca, Maroc"
+    "address": "Casablanca, Maroc",
+    "lastUpdated": "Dernière mise à jour :"
   },
   "admin": {
     "title": "Tableau de bord — Administration",
@@ -490,11 +533,26 @@
       "addLine": "Ajouter une ligne",
       "cancel": "Annuler",
       "save": "Enregistrer"
-    }
+    },
+    "sendForSignature": "Envoyer pour signature",
+    "signatureSent": "Proposition v{version} envoyée au client. Lien de signature (valable 14 jours) :",
+    "signatureSentNoEmail": "Lien de signature généré, mais l'e-mail n'a PAS pu être envoyé (SMTP). Transmettez ce lien au client vous-même :",
+    "pricingRequired": "Configurez d'abord la grille tarifaire de ce devis.",
+    "signatureError": "Échec de l'envoi pour signature",
+    "proposalSentLabel": "v{version} envoyée",
+    "smtpMissing": "Envoi d'e-mails non configuré (SMTP) : aucune notification ni confirmation client n'est envoyée.",
+    "whatsappMissing": "Notifications WhatsApp non configurées (Twilio).",
+    "tooManyAttempts": "Trop de tentatives. Réessayez dans 15 minutes."
   },
   "notFound": {
     "title": "Page introuvable",
     "body": "La page que vous recherchez n'existe pas ou a été déplacée.",
     "button": "Retour à l'accueil"
+  },
+  "status": {
+    "NEW": "Nouveau",
+    "IN_PROGRESS": "En cours",
+    "DONE": "Terminé",
+    "ARCHIVED": "Archivé"
   }
 }

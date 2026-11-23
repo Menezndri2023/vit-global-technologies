@@ -11,7 +11,7 @@ import { Send } from "lucide-react";
 export function JobApplicationForm({ position }: { position: string }) {
   const t = useTranslations();
   const locale = useLocale();
-  const { status, submit } = useFormSubmit("/api/careers/apply");
+  const { status, errorCode, submit } = useFormSubmit("/api/careers/apply");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -61,7 +61,7 @@ export function JobApplicationForm({ position }: { position: string }) {
       <Field label={t("form.message")} htmlFor="j-message">
         <Textarea id="j-message" name="message" rows={5} />
       </Field>
-      {status === "error" && <FormStatusMessage status="error" />}
+      {status === "error" && <FormStatusMessage status="error" errorCode={errorCode} />}
       <Button type="submit" disabled={status === "submitting"} icon={<Send className="h-4 w-4" />}>
         {status === "submitting" ? t("common.submitting") : t("careers.applyButton")}
       </Button>

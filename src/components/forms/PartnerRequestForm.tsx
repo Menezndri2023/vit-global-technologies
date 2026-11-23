@@ -11,7 +11,7 @@ import { Send } from "lucide-react";
 export function PartnerRequestForm() {
   const t = useTranslations();
   const locale = useLocale();
-  const { status, submit } = useFormSubmit("/api/partners");
+  const { status, errorCode, submit } = useFormSubmit("/api/partners");
   const partnerTypeOptions = t.raw("form.partnerTypeOptions") as string[];
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -70,7 +70,7 @@ export function PartnerRequestForm() {
       <Field label={t("form.message")} htmlFor="p-message" required>
         <Textarea id="p-message" name="message" required minLength={10} rows={5} />
       </Field>
-      {status === "error" && <FormStatusMessage status="error" />}
+      {status === "error" && <FormStatusMessage status="error" errorCode={errorCode} />}
       <Button type="submit" disabled={status === "submitting"} icon={<Send className="h-4 w-4" />}>
         {status === "submitting" ? t("common.submitting") : t("common.submit")}
       </Button>

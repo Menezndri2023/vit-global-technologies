@@ -3,9 +3,17 @@ import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { services } from "@/data/services";
 import { filiales } from "@/data/filiales";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook } from "lucide-react";
 import type { Locale } from "@/data/types";
-import { CONTACT_EMAIL, CONTACT_PHONES } from "@/lib/contact";
+import { CONTACT_EMAIL, CONTACT_PHONES, SOCIAL_LINKS } from "@/lib/contact";
+
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.59-2.6 2.6 2.6 0 0 1 3.37-2.48V9.66a5.73 5.73 0 0 0-.78-.05A5.69 5.69 0 0 0 4.17 15.3 5.69 5.69 0 0 0 9.86 21a5.69 5.69 0 0 0 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.3 4.3 0 0 1-3.25-1.48Z" />
+    </svg>
+  );
+}
 
 export function Footer() {
   const t = useTranslations();
@@ -20,14 +28,16 @@ export function Footer() {
             <Logo tone="light" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">{t("footer.tagline")}</p>
             <div className="mt-6 flex gap-3">
-              {[Linkedin, Twitter, Facebook].map((SocialIcon, i) => (
+              {SOCIAL_LINKS.map((social) => (
                 <a
-                  key={i}
-                  href="#"
-                  aria-label="social"
+                  key={social.network}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
                   className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-brand-400 hover:text-brand-300"
                 >
-                  <SocialIcon className="h-4 w-4" />
+                  {social.network === "facebook" ? <Facebook className="h-4 w-4" /> : <TikTokIcon className="h-4 w-4" />}
                 </a>
               ))}
             </div>
@@ -107,11 +117,10 @@ export function Footer() {
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} VIT GLOBAL TECHNOLOGIES GROUP — {t("footer.rights")}</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <Link href="/support" className="hover:text-white/80">{t("footer.legalMentions")}</Link>
-            <Link href="/support" className="hover:text-white/80">{t("footer.privacyPolicy")}</Link>
-            <Link href="/support" className="hover:text-white/80">{t("footer.terms")}</Link>
+            <Link href="/mentions-legales" className="hover:text-white/80">{t("footer.legalMentions")}</Link>
+            <Link href="/confidentialite" className="hover:text-white/80">{t("footer.privacyPolicy")}</Link>
+            <Link href="/conditions-utilisation" className="hover:text-white/80">{t("footer.terms")}</Link>
             <Link href="/espace-partenaire" className="hover:text-white/80">{t("nav.partnerArea")}</Link>
-            <Link href="/admin" className="hover:text-white/80">Admin</Link>
           </div>
         </div>
       </div>
