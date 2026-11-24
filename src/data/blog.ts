@@ -22,9 +22,9 @@ export const blogPosts: BlogPost[] = [
     author: "Équipe VIT GLOBAL",
     authorRole: { fr: "Directrice IA & Data", en: "Head of AI & Data", ar: "مديرة الذكاء الاصطناعي والبيانات" },
     title: {
-      fr: "IA générative : ce que les entreprises africaines doivent savoir en 2026",
+      fr: "IA générative : ce que les entreprises africaines doivent savoir",
       en: "Generative AI: what African businesses need to know in 2026",
-      ar: "الذكاء الاصطناعي التوليدي: ما يجب أن تعرفه الشركات الأفريقية في 2026"
+      ar: "الذكاء الاصطناعي التوليدي: ما يجب أن تعرفه الشركات الأفريقية"
     },
     excerpt: {
       fr: "L'IA générative n'est plus une option mais un avantage compétitif. Voici comment l'adopter sans risque et avec un ROI mesurable.",
@@ -94,8 +94,8 @@ export const blogPosts: BlogPost[] = [
     author: "Équipe VIT GLOBAL",
     authorRole: { fr: "Architecte Cloud Principal", en: "Principal Cloud Architect", ar: "كبير مهندسي الحوسبة السحابية" },
     title: {
-      fr: "Cloud hybride : comment choisir la bonne architecture pour votre entreprise",
-      en: "Hybrid cloud: how to choose the right architecture for your business",
+      fr: "Cloud hybride : bien choisir l'architecture de votre entreprise",
+      en: "Hybrid cloud: choosing the right architecture for your business",
       ar: "السحابة الهجينة: كيف تختار البنية المناسبة لشركتك"
     },
     excerpt: {
