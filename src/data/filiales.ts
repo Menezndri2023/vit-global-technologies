@@ -95,8 +95,8 @@ export const filiales: Filiale[] = [
     icon: "Cloud",
     name: "VIT CLOUD",
     sector: {
-      fr: "Infrastructure & cloud",
-      en: "Infrastructure & cloud",
+      fr: "Infrastructures & cloud",
+      en: "Cloud & infrastructure",
       ar: "البنية التحتية والحوسبة السحابية"
     },
     tagline: {

@@ -12,7 +12,8 @@ import { buildMetadata } from "@/lib/seo";
 import type { Locale } from "@/data/types";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumb, serviceSchema } from "@/lib/structured-data";
+import { breadcrumb, faqPageFromPairs, serviceSchema } from "@/lib/structured-data";
+import { getServiceDetail } from "@/data/service-details";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) => services.map((s) => ({ locale, slug: s.slug })));
@@ -27,9 +28,10 @@ export async function generateMetadata({
   const service = getServiceBySlug(slug);
   if (!service) return {};
   const loc = locale as Locale;
+  const t = await getTranslations({ locale, namespace: "services" });
   return buildMetadata({
     locale,
-    title: service.title[loc],
+    title: t("detailMetaTitle", { title: service.title[loc] }),
     description: service.summary[loc],
     path: `/services/${slug}`
   });
@@ -49,11 +51,15 @@ export default async function ServiceDetailPage({
   const t = await getTranslations("services");
   const tNav = await getTranslations("nav");
   const tCommon = await getTranslations("common");
+  const tHome = await getTranslations("home");
   const related = services.filter((s) => s.slug !== slug).slice(0, 3);
+  const detail = getServiceDetail(slug, loc);
+  const steps = tHome.raw("processSteps") as { title: string; description: string }[];
 
   return (
     <>
       <JsonLd data={serviceSchema(service, loc)} />
+      {detail && <JsonLd data={faqPageFromPairs(detail.faq, loc)} />}
       <JsonLd data={breadcrumb(loc, [[tNav("services"), "/services"], [service.title[loc], `/services/${slug}`]])} />
       <section className="bg-grid bg-white pb-16 pt-16 sm:pb-20 sm:pt-24">
         <div className="container-vit">
@@ -93,6 +99,62 @@ export default async function ServiceDetailPage({
           </div>
         </div>
       </Section>
+
+      {detail && (
+        <>
+          <Section tone="white">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="font-display text-xl font-bold text-navy-950 sm:text-2xl">{t("forWhomTitle")}</h2>
+              <p className="mt-4 text-base leading-relaxed text-silver-600">{detail.forWhom}</p>
+
+              <h2 className="font-display mt-12 text-xl font-bold text-navy-950 sm:text-2xl">{t("useCasesTitle")}</h2>
+              <div className="mt-6 grid gap-4">
+                {detail.useCases.map(([title, text]) => (
+                  <div key={title} className="rounded-xl border border-navy-900/10 p-5">
+                    <h3 className="font-display text-base font-semibold text-navy-950">{title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-silver-600">{text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+
+          <Section tone="muted">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="font-display text-xl font-bold text-navy-950 sm:text-2xl">{t("processTitle")}</h2>
+              <ol className="mt-6 grid gap-4 sm:grid-cols-2">
+                {steps.map((step, index) => (
+                  <li key={step.title} className="rounded-xl bg-white p-5 shadow-card">
+                    <span className="text-xs font-semibold text-brand-700">{String(index + 1).padStart(2, "0")}</span>
+                    <h3 className="font-display mt-1 text-base font-semibold text-navy-950">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-silver-600">{step.description}</p>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-6 text-sm text-silver-600">
+                {t("billingNote")}{" "}
+                <Link href="/modele-economique" className="font-semibold text-brand-700 underline underline-offset-2">
+                  {t("billingLink")}
+                </Link>
+              </p>
+            </div>
+          </Section>
+
+          <Section tone="white">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="font-display text-xl font-bold text-navy-950 sm:text-2xl">{t("faqTitle")}</h2>
+              <dl className="mt-6 divide-y divide-navy-900/10">
+                {detail.faq.map(([question, answer]) => (
+                  <div key={question} className="py-5">
+                    <dt className="font-display text-base font-semibold text-navy-950">{question}</dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-silver-600">{answer}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </Section>
+        </>
+      )}
 
       <Section tone="navy">
         <div className="mx-auto max-w-xl text-center">

@@ -107,14 +107,22 @@ export function breadcrumb(locale: Locale, trail: [name: string, path: string][]
 }
 
 export function faqPage(items: FaqItem[], locale: Locale) {
+  return faqPageFromPairs(
+    items.map((item) => [item.question[locale], item.answer[locale]]),
+    locale
+  );
+}
+
+/** FAQPage à partir de paires [question, réponse] déjà dans la langue de la page. */
+export function faqPageFromPairs(pairs: [question: string, answer: string][], locale: Locale) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     inLanguage: LANGUAGE_TAGS[locale],
-    mainEntity: items.map((item) => ({
+    mainEntity: pairs.map(([question, answer]) => ({
       "@type": "Question",
-      name: item.question[locale],
-      acceptedAnswer: { "@type": "Answer", text: item.answer[locale] }
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer }
     }))
   };
 }

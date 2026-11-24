@@ -43,3 +43,18 @@ describe("données structurées", () => {
     expect(JSON.stringify(faqItems)).not.toMatch(/120 (collaborateurs|employees)/);
   });
 });
+
+describe("pages de service", () => {
+  it("ont un contenu détaillé complet dans les trois langues", async () => {
+    const { services } = await import("@/data/services");
+    const { serviceDetails } = await import("@/data/service-details");
+    for (const locale of ["fr", "en", "ar"] as const) {
+      expect(Object.keys(serviceDetails[locale]).sort()).toEqual(services.map((s) => s.slug).sort());
+      for (const detail of Object.values(serviceDetails[locale])) {
+        expect(detail.forWhom.length).toBeGreaterThan(80);
+        expect(detail.useCases).toHaveLength(3);
+        expect(detail.faq).toHaveLength(3);
+      }
+    }
+  });
+});
